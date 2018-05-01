@@ -1,6 +1,4 @@
-/* Page Flipper */
-.sheet-page1,
-.sheet-page2 {
+.sheet-page {
     display: none;
     width: 860px;
 }
@@ -9,6 +7,7 @@
 .sheet-pageno[value="2"] ~ .sheet-page2 {
     display: block;
 }
+
 /* Page Flipper */
 .sheet-pfcontainer {
     display: inline;
@@ -56,6 +55,11 @@
     display: none;
 }
 
+.sheet-row,
+.sheet-2colrow {
+	width: 860px;
+}
+
 /*Header Text */
 
 .sheet-headertext {
@@ -93,6 +97,7 @@
 }
 .sheet-logo {
 	text-align: right;
+	padding-top: 10px;
 }
 .sheet-logo img {
 	width: 100px;
@@ -305,7 +310,8 @@
 
 /* ====== NEW STYLINGS ====== */
 .sheet-styletype[value='new'] ~ .sheet-page {
-	font-family: "Trebuchet MS", Helvetica, sans-serif
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newback.png?raw=true")
 }
 .sheet-styletype[value='new'] ~ .sheet-page input,
 .sheet-styletype[value='new'] ~ .sheet-page select,
