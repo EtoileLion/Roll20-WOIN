@@ -13,7 +13,7 @@
 .sheet-pfcontainer {
     display: inline;
     position: relative;
-    padding-left: 50px;
+    padding-left: 41px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -34,23 +34,20 @@
   height: 25px;
   width: 50px;
   background-color: #eee;
-  border-radius: 50%;
+  border-radius: 25%;
 }
 .sheet-pfcontainer:hover input ~ .sheet-pfradio {
     background-color: #ccc;
-}
-.sheet-pfcontainer input:checked ~ .sheet-pfradio {
-    background-color: #2196F3;
 }
 .sheet-pfcontainer input:checked ~ .sheet-pfradio:after {
   display: block;
 }
 .sheet-pfcontainer .sheet-pfradio:after {
-  top: 9px;
+  top: 5px;
   left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  width: 32px;
+  height: 15px;
+  border-radius: 25%;
   background: white;
 }
 .sheet-pfradio:after {
@@ -62,9 +59,7 @@
 /*Header Text */
 
 .sheet-headertext {
-    font-family: Terminal;
-    font-size: 16px;
-    color: #0072bc;
+    font-size: 18px;
 }
 .sheet-attributehead {
     text-align:center;
@@ -96,6 +91,13 @@
 .sheet-descriptor {
 	width: 300px;
 }
+.sheet-logo {
+	text-align: right;
+}
+.sheet-logo img {
+	width: 100px;
+}
+	
 
 /* Attributes */
 .sheet-scorebox {
@@ -112,6 +114,7 @@
 
 .sheet-attrbox {
     text-align:center;
+	font-weight: bold;
 }
 
 /* General (Repeated) Dropdown Sizings */
@@ -266,11 +269,59 @@
 	margin-left: 20px;
 }
 
+/* XP Headers */
+.sheet-xpearnedhead {
+}
+.sheet-xpspenthead {
+	margin-left: 20px;
+}
+.sheet-xpremainhead {
+	margin-left: 20px;
+}
+.sheet-xpexpendhead {
+}
+.sheet-xpcosthead {
+	margin-left: 107px;	
+}
+
+/* XP Sizings */
+.sheet-xpearned {
+	width: 46px;
+	margin-left: 10px;
+}
+.sheet-xpspent {
+	margin-left: 20px;
+}
+.sheet-xpremain {	
+	position: absolute;
+	left: 186px;
+	margin-top: 4px;
+}
+.sheet-xpexpend {
+}
+.sheet-xpcost {
+}
+
 /* ====== NEW STYLINGS ====== */
+.sheet-styletype[value='new'] ~ .sheet-page {
+	font-family: "Trebuchet MS", Helvetica, sans-serif
+}
 .sheet-styletype[value='new'] ~ .sheet-page .sheet-attributehead {
     background-color: #0072bc;
 }
 .sheet-styletype[value='new'] ~ .sheet-page .sheet-attributehead button {
 	color: white;
 	background-color: transparent;
+}
+.sheet-styletype[value='new'] ~ .sheet-2colrow .sheet-pfcontainer input:checked ~ .sheet-pfradio,
+.sheet-styletype[value='new'] ~ .sheet-page .sheet-pfcontainer input:checked ~ .sheet-pfradio
+{
+    background-color: #0072bc;
+}
+.sheet-styletype[value='new'] ~ .sheet-page .sheet-headertext {
+	font-family: monospace;
+    color: #0072bc;	
+}
+.sheet-styletype[value='new'] ~ .sheet-page .sheet-scorebox {
+    border: 1px #0072bc solid;	
 }

@@ -4,11 +4,9 @@
     <div class='sheet-col sheet-headernamediv'>
         <input class='sheet-headname' type='text' name='attr_character_name' placeholder='Enter Name'>
 	</div>
-    <div class='sheet-col'>
-        <img src='woinheader.png' />
-	</div>
-</div>
-<div class='sheet-row' style='text-align:center'>
+    <div class='sheet-col sheet-logo'>
+        <img src='https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/woinlogo.png?raw=true'>
+		<br>
 	<label class='sheet-pfcontainer'>
 		<input name='attr_pagetoggle' type='radio' name='page' value="1" >
 		<span class="sheet-pfradio"></span>
@@ -17,7 +15,8 @@
 		<input name='attr_pagetoggle' class='attr_pagetoggle' type='radio' name='page' value="2" >
 		<span class="sheet-pfradio"></span>		
 	</label>
-</div>		
+	</div>
+</div>
 <div class='sheet-page1 sheet-page'>
 	<div class='sheet-row'>
 		<p class='sheet-center'>a <input type='text' class="sheet-descriptor" name='attr_descriptor1'> who/with <input type='text' name='attr_descriptor2' class="sheet-descriptor"></p>
@@ -148,9 +147,10 @@
 					<select name="attr_skillattr" class="sheet-attrselect" /><option>Strength</option><option>Agility</option><option>Endurance</option><option>Intuition</option><option>Logic</option><option>Willpower</option><option>Charisma</option><option>Luck</option><option>Reputation</option><option>Special<option></select>
 					<input name="attr_skillrank" type='number' min=1  value=1 />
 					<input type='hidden' name='attr_skillpool'>
-                    &nbsp;(<span name="attr_skillpool">1</span>d6)
+                    (<span name="attr_skillpool">1</span>d6)
 				</fieldset>
 			</div>
+			<br>
             <div class='sheet-row'>
 				<p class='sheet-headertext'>Defenses</p>
 				<table>
@@ -175,10 +175,12 @@
 				<p class='sheet-headertext'>Luck Dice</p>
 				<input type='number' min='0' name='attr_luck' value=2 >/<span name='attr_luc_pool'></span>
 			</div>
+			<br>
 			<div class='sheet-row'>
 				<p class='sheet-headertext'><span name='attr_special_name'></span> Points</p>
 				<input type='number' min='0' name='attr_special_points' value=0 >/<input type='number' min='0' name='attr_special_points_max' value=0 >
-			</div>			
+			</div>
+			<br>
 			<div class='sheet-row'>
 				<p class='sheet-headertext'>Life Path</p>
 				<span class='sheet-tablehead sheet-p'>Path</span><span class='sheet-lpheadg'>Grade</span><span class='sheet-lpheada'>Age</span>
@@ -195,10 +197,11 @@
 					<tr><td>Maximum Dice Pool</td><td><span name='attr_max_diepool'></span></td><td></td></tr>
 				</table>
 			</div>
+			<br>
 			<div class='sheet-row'>
 				<p class='sheet-headertext'>Movement</p>
 				<table>
-					<tr><th>Type</th><th>Value</th><th>Modifier</th></tr>
+					<tr><th>Type</th><th style='width:46px'>Value</th><th>Modifier</th></tr>
 					<tr><td>SPEED</td><td><span name='attr_speed'></span></td><td><input type='number' name='attr_speedmod' value=0></td></tr>
 					<tr><td>CLIMB</td><td><span name='attr_climb'></span></td><td><input type='number' name='attr_climbmod' value=0></td></tr>
 					<tr><td>SWIM</td><td><span name='attr_swim'></span></td><td><input type='number' name='attr_swimmod' value=0></td></tr>
@@ -238,7 +241,7 @@
 		</div>
 		</fieldset>
 	</div>   
-	
+	<br>
 	<div class='sheet-row'>
 		<p class='sheet-headertext'>Equipment</p>
 		<div><span class='sheet-ename'>Name</span><span class='sheet-equal'>Quality</span><span class="sheet-eweight">Weight</span></div>
@@ -248,18 +251,21 @@
 			<input name="attr_weight" type='number' min=0 value=0 />
 		</fieldset>
 	</div>
+	<br>
 	<div class='sheet-row'>
 		<p class='sheet-headertext'>Shield</p>
 		<input name="attr_shieldname" type='text' placeholder='Item Name' />
 		<select name='attr_shieldquality' class="sheet-qualityselect"><option value=-2>Improvised</option><option value=-1>Poor</option><option value=0 selected>Standard</option><option value=1>High</option><option value=2>Exceptional</option><option value=3>Mastercraft</option><option value=4>Artisanal</option><option value=5>Legendary</option></select>
 		<select name='attr_shieldsize'  class='sheet-astype'><option value='small'>Small</option><option value='medium'>Medium</option><option value='large'>Large</option></select><input name="attr_shieldweight" type='number' min=0 value=0 />
 	</div>
+	<br>
 	<div class='sheet-row'>
 		<p class='sheet-headertext'>Armor</p>
 		<input name="attr_armorname" type='text' placeholder='Item Name' />
 		<select name='attr_armorquality' class='sheet-qualityselect' ><option value=-2>Improvised</option><option value=-1>Poor</option><option value=0 selected>Standard</option><option value=1>High</option><option value=2>Exceptional</option><option value=3>Mastercraft</option><option value=4>Artisanal</option><option value=5>Legendary</option></select>
 	<select name='attr_armortype' class='sheet-astype'><option value='light'>Light Armor</option><option value='medium'>Medium Armor</option><option value='heavy'>Heavy Armor</option></select><input name="attr_armorweight" type='number' min=0 value=0 />
 	</div>
+	<br>
 	<div class='sheet-row'>
 		<p class='sheet-headertext'>Exploits & Traits</p>
 		<fieldset class="repeating_exploits">
@@ -280,11 +286,11 @@
 	</div>
 	<div class='sheet-2colrow'>
 		<div class='sheet-col'>
-			<p>This is a <select name='attr_sheet_type'><option value='old'>O.L.D.</option><option value='now'>N.O.W.</option><option value='new' selected>N.E.W.</option></select> sheet.</p>
+		<p>This is a <select name='attr_sheet_type' class='sheet-p2stypeselect'><option value='old'>O.L.D.</option><option value='now'>N.O.W.</option><option value='new' selected>N.E.W.</option></select> sheet.</p>
 		</div>
 		<div class='sheet-col'>
 			<p>This character is 
-				<select name='attr_size'>
+				<select name='attr_size' class='sheet-p2sizeselect'>
 					<option value='tiny'>Tiny</option>
 					<option value='small'>Small</option>
 					<option value='medium' selected>Medium</option>
@@ -332,6 +338,7 @@
 				</div>
 			</fieldset>
 	</div>
+	<br>
 	<div class='sheet-2colrow'>
 		<div class='sheet-col'>
 			<p class='sheet-headertext'>Wealth</p>
@@ -348,10 +355,12 @@
 	</div>
 	<div class='sheet-row'>
 		<p class='sheet-headertext'>Experience</p>
-		<p><span>Expenditure</span><span>Cost</span></p>
-		<input type='number' min=0 value=0 name='attr_earned_xp'>
-		<span name='attr_spent_xp'></span>
-		<span name='attr_remaining_xp'></span>
+		<p><span class='sheet-xpearnedhead'>XP earned</span><span class='sheet-xpspenthead'>XP Spent</span><span class='sheet-xpremainhead'>XP Remaining</span></p>
+		<input type='number' min=0 value=0 name='attr_earned_xp' class='sheet-xpearned'>
+		<span name='attr_spent_xp' class='sheet-xpspent'></span>
+		<span name='attr_remaining_xp' class='sheet-xpremain'></span>
+		<br><br>
+		<p><span class='sheet-xpexpendhead'>Expenditure Name</span><span class='sheet-xpcosthead'>Cost</span></p>		
 		<fieldset class='repeating_xp'>
 			<input type='text' name='attr_spendname' placeholder='Expenditure'>
 			<input type='number' min=0 value=0 name='attr_cost'>
