@@ -267,6 +267,7 @@
 .sheet-cdesc {
 	width: 650px;
 	margin-left: 20px;
+	display: inline-block;
 }
 
 /* XP Headers */
@@ -306,6 +307,11 @@
 .sheet-styletype[value='new'] ~ .sheet-page {
 	font-family: "Trebuchet MS", Helvetica, sans-serif
 }
+.sheet-styletype[value='new'] ~ .sheet-page input,
+.sheet-styletype[value='new'] ~ .sheet-page select,
+.sheet-styletype[value='new'] ~ .sheet-page textarea {
+	border: 1px #0072bc solid;
+}
 .sheet-styletype[value='new'] ~ .sheet-page .sheet-attributehead {
     background-color: #0072bc;
 }
@@ -324,4 +330,14 @@
 }
 .sheet-styletype[value='new'] ~ .sheet-page .sheet-scorebox {
     border: 1px #0072bc solid;	
+}
+.sheet-styletype[value='new'] ~ .sheet-page .sheet-scorebox input {
+    border: 0;	
+}
+.sheet-styletype[value='new'] ~ .sheet-page .sheet-spanfield {
+	display: inline-block;
+	width: 37px;
+	border: 1px #0072bc solid;
+	padding: 3px;
+	border-radius: 3px;
 }

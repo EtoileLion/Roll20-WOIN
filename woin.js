@@ -7,7 +7,7 @@ function decodehtmlentities(str) {
 
 function rolllookups(options,charattrs,who) {  
 			//Get values for relevant abilities...
-			var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intelligence" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Magic" : "special_pool","???" : "special_pool","Psionic" : "special_pool", "Special" : "special_pool"};			
+			var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intelligence" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Magic" : "special_pool","Chi" : "special_pool","Psionic" : "special_pool", "Special" : "special_pool"};			
 			options.dielimit = parseInt(charattrs.filter((x)=>x.get("name") === "max_diepool")[0].get("current"));
 			var sheettype = charattrs.filter((x)=>x.get("name") === "sheet_type");
 			if(sheettype.length === 0) { 

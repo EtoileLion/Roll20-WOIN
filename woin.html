@@ -173,7 +173,7 @@
 		<div class='sheet-col'>
 			<div class='sheet-row'>
 				<p class='sheet-headertext'>Luck Dice</p>
-				<input type='number' min='0' name='attr_luck' value=2 >/<span name='attr_luc_pool'></span>
+				<input type='number' min='0' name='attr_luck' value=2 >/<span class='sheet-spanfield' name='attr_luc_pool'></span>
 			</div>
 			<br>
 			<div class='sheet-row'>
@@ -193,8 +193,8 @@
 			</div>
 			<div class='sheet-row'>
 				<table>
-				<tr><td class="sheet-lptname">Totals</td><td class="sheet-lptgrade"><span name='attr_total_grade'></span></td><td class="sheet-lptage"><span name='attr_total_age'></span></td></tr>
-					<tr><td>Maximum Dice Pool</td><td><span name='attr_max_diepool'></span></td><td></td></tr>
+				<tr><td class="sheet-lptname">Totals</td><td class="sheet-lptgrade"><span class='sheet-spanfield' name='attr_total_grade'></span></td><td class="sheet-lptage"><span class='sheet-spanfield' name='attr_total_age'></span></td></tr>
+					<tr><td>Maximum Dice Pool</td><td><span class='sheet-spanfield' name='attr_max_diepool'></span></td><td></td></tr>
 				</table>
 			</div>
 			<br>
@@ -202,13 +202,13 @@
 				<p class='sheet-headertext'>Movement</p>
 				<table>
 					<tr><th>Type</th><th style='width:46px'>Value</th><th>Modifier</th></tr>
-					<tr><td>SPEED</td><td><span name='attr_speed'></span></td><td><input type='number' name='attr_speedmod' value=0></td></tr>
-					<tr><td>CLIMB</td><td><span name='attr_climb'></span></td><td><input type='number' name='attr_climbmod' value=0></td></tr>
-					<tr><td>SWIM</td><td><span name='attr_swim'></span></td><td><input type='number' name='attr_swimmod' value=0></td></tr>
-					<tr><td>JUMP</td><td><span name='attr_jump'></span></td><td><input type='number' name='attr_jumpmod' value=0></td></tr>
-					<tr><td>INITIATIVE</td><td><span name='attr_init'>d6</span></td><td><input type='number' name='attr_initmod' value=0><button type='roll' value='!woin_init {"name": "@{character_name}", "attrname": "Intuition", "skillname":"@{init_skill}", "modifier": @{initmod}, "luck": ?{Add Luck die to Initiative?|0}}'></td></tr>
-					<tr><td>PERCEPTION</td><td><span name='attr_perception'></span>d6</td><td><input type='number' name='attr_percmod' value=0><button type='roll' value='!woin_perc {"name": "@{character_name}", "init": @{init} "initmod": @{initmod}}'></td></tr>
-					<tr><td>CARRY</td><td><span name='attr_carry'></span></td><td><input type='number' name='attr_carrymod' value=0></td></tr>
+					<tr><td>SPEED</td><td><span class='sheet-spanfield' name='attr_speed'></span></td><td><input type='number' name='attr_speedmod' value=0></td></tr>
+					<tr><td>CLIMB</td><td><span class='sheet-spanfield' name='attr_climb'></span></td><td><input type='number' name='attr_climbmod' value=0></td></tr>
+					<tr><td>SWIM</td><td><span class='sheet-spanfield' name='attr_swim'></span></td><td><input type='number' name='attr_swimmod' value=0></td></tr>
+					<tr><td>JUMP</td><td><span class='sheet-spanfield' name='attr_jump'></span></td><td><input type='number' name='attr_jumpmod' value=0></td></tr>
+					<tr><td>INITIATIVE</td><td><span class='sheet-spanfield' name='attr_init'></span>d6</td><td><input type='number' name='attr_initmod' value=0><button type='roll' value='!woin_init {"name": "@{character_name}", "attrname": "Intuition", "skillname":"@{init_skill}", "modifier": @{initmod}, "luck": ?{Add Luck die to Initiative?|0}}'></td></tr>
+					<tr><td>PERCEPTION</td><td><span class='sheet-spanfield' name='attr_perception'></span>d6</td><td><input type='number' name='attr_percmod' value=0><button type='roll' value='!woin_perc {"name": "@{character_name}", "init": @{init} "initmod": @{initmod}}'></td></tr>
+					<tr><td>CARRY</td><td><span class='sheet-spanfield' name='attr_carry'></span></td><td><input type='number' name='attr_carrymod' value=0></td></tr>
 					<tr><td>ACTIONS</td><td><span name='attr_actions'></span></td><td><input type='number' name='attr_actionmod' value=0></td></tr>
 					<tr><td>NAT. DMG</td><td colspan=2><input type='number' name='attr_nat_dmg' value=0></td></tr>
 					<tr><td><input type='text' name='attr_move_othername' class='sheet-mothername' placeholder='Other'></td><td colspan=2><input type='number' name='attr_move_other' value=0></td></tr>					
@@ -223,7 +223,7 @@
 		<input type='hidden' class="sheet-ashowextra" name="attr_attack_showextra">
 			<div><button type='roll' value='!woin_attack { "name": "@{character_name}", "weapon" : "@{attackname}","attrname":"@{attackattr}","skillname":"@{attackskill}","equipvalue":@{attackquality}, "damagetype": "@{attack_type}", "damage_base" : @{attackdmg}, "damage_mod":@{attackdmgmod}, "notes": "@{notes}", "posmod": ?{Attack Pool Modifiers?|0}, "damdice": ?{How many attack dice spent on damage?|0},"luck": ?{How many luck die to spend?|0} }'></button>
 			<input class='sheet-aname' name="attr_attackname" type='text' placeholder='Weapon Name' />
-			<div class='sheet-apooldiv'><span name="attr_attackpool"></span>d6</div>
+			<div class='sheet-apooldiv'><span class='sheet-spanfield' name="attr_attackpool"></span>d6</div>
 			<input name="attr_attackdmg" type='number'>d6+<input name="attr_attackdmgmod" type='number'>
 			<input class='sheet-admgtype' name="attr_attack_type" type='text'>
 			<input name="attr_attack_range" type='number'>
@@ -357,8 +357,8 @@
 		<p class='sheet-headertext'>Experience</p>
 		<p><span class='sheet-xpearnedhead'>XP earned</span><span class='sheet-xpspenthead'>XP Spent</span><span class='sheet-xpremainhead'>XP Remaining</span></p>
 		<input type='number' min=0 value=0 name='attr_earned_xp' class='sheet-xpearned'>
-		<span name='attr_spent_xp' class='sheet-xpspent'></span>
-		<span name='attr_remaining_xp' class='sheet-xpremain'></span>
+		<span class='sheet-spanfield' name='attr_spent_xp' class='sheet-xpspent'></span>
+		<span class='sheet-spanfield' name='attr_remaining_xp' class='sheet-xpremain'></span>
 		<br><br>
 		<p><span class='sheet-xpexpendhead'>Expenditure Name</span><span class='sheet-xpcosthead'>Cost</span></p>		
 		<fieldset class='repeating_xp'>
@@ -431,8 +431,8 @@
 	
 	on("change:sheet_type", function(eventInfo) {
 		var change = {};
-		change.special_name = (eventInfo.newValue == "new") ? "Psionic" : (eventInfo.newValue == "now") ? "???" : "Magic";
-		change.special_abbr = (eventInfo.newValue == "new") ? "PSI" : (eventInfo.newValue == "now") ? "???" : "MAG"; 
+		change.special_name = (eventInfo.newValue == "new") ? "Psionic" : (eventInfo.newValue == "now") ? "Chi" : "Magic";
+		change.special_abbr = (eventInfo.newValue == "new") ? "PSI" : (eventInfo.newValue == "now") ? "CHI" : "MAG"; 
 		change.placename = (eventInfo.newValue == "new") ? "world" : (eventInfo.newValue == "now") ? "town" : "land"; 		  
 		setAttrs(change);
 	});
