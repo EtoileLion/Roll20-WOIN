@@ -1,0 +1,717 @@
+<input type='hidden' name='attr_page_no' class='sheet-pageno' value='1'>
+<input type='hidden' name='attr_sheet_type' class='sheet-styletype' value='new'>
+<div class='sheet-2colrow'>
+    <div class='sheet-col sheet-headernamediv'>
+        <input class='sheet-headname' type='text' name='attr_character_name' placeholder='Enter Name'>
+	</div>
+    <div class='sheet-col'>
+        <img src='woinheader.png' />
+	</div>
+</div>
+<div class='sheet-row' style='text-align:center'>
+	<label class='sheet-pfcontainer'>
+		<input name='attr_pagetoggle' type='radio' name='page' value="1" >
+		<span class="sheet-pfradio"></span>
+	</label>
+	<label class='sheet-pfcontainer'>
+		<input name='attr_pagetoggle' class='attr_pagetoggle' type='radio' name='page' value="2" >
+		<span class="sheet-pfradio"></span>		
+	</label>
+</div>		
+<div class='sheet-page1 sheet-page'>
+	<div class='sheet-row'>
+		<p class='sheet-center'>a <input type='text' class="sheet-descriptor" name='attr_descriptor1'> who/with <input type='text' name='attr_descriptor2' class="sheet-descriptor"></p>
+	</div>	
+	<div class='sheet-row'>
+		<p class='sheet-headertext'>Attributes</p>
+	</div>
+	<div class='sheet-10colrow'>
+		<div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' value='!woin_roll {"attrname":"Strength", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>STR</button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_str_score' min=0 value=3 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_str_pool'></span>d6</p>
+			</div>
+		</div>
+        <div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' value='!woin_roll {"attrname":"Agility", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>AGI</button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_agi_score' min=0 value=3 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_agi_pool'></span>d6</p>
+			</div>
+		</div>
+        <div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' value='!woin_roll {"attrname":"Endurance", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>END</button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_end_score' min=0 value=3 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_end_pool'></span>d6</p>
+			</div>
+		</div>
+        <div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' value='!woin_roll {"attrname":"Intuition", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>INT</button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_int_score' min=0 value=3 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_int_pool'></span>d6</p>
+			</div>
+		</div>
+        <div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' value='!woin_roll {"attrname":"Logic", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>LOG</button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_log_score' min=0 value=3 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_log_pool'></span>d6</p>
+			</div>
+		</div>
+        <div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' value='!woin_roll {"attrname":"Willpower", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>WIL</button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_wil_score' min=0 value=3 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_wil_pool'></span>d6</p>
+			</div>
+		</div>
+        <div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' value='!woin_roll {"attrname":"Charisma", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>CHA</button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_cha_score' min=0 value=3 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_cha_pool'></span>d6</p>
+			</div>
+		</div>
+        <div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' value='!woin_roll {"attrname":"Luck", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>LUC</button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_luc_score' min=0 value=3 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_luc_pool'></span>d6</p>
+			</div>
+		</div>
+        <div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' value='!woin_roll {"attrname":"Reputation", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>REP</button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_rep_score' min=0 value=0 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_rep_pool'></span>d6</p>
+			</div>
+		</div>
+        <div class='sheet-col'>
+            <div class='sheet-attributehead'>
+                <button type='roll' name='attr_special_rbutton' value='!woin_roll {"attrname":"Special", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'><span name='attr_special_abbr'></span></button>
+			</div>
+            <div class='sheet-scorebox'>
+                <input type='number' name='attr_special_score' min=0 value=0 style='width:2.5em;'>
+			</div>
+            <div class='sheet-attrbox'>
+                <p><span name='attr_special_pool'></span>d6</p>
+			</div>
+		</div>
+	</div>
+	<div class='sheet-2colrow'>
+		<div class='sheet-col'>
+		    <div class='sheet-row'>
+				<p class='sheet-headertext'>Skills</p>
+				<span class='sheet-snamehead'>Skill Name</span><span class='sheet-sattrhead'>Attribute</span><span class='sheet-sgradehead'>Grade</span>
+				<fieldset class="repeating_skills">
+					<button type='roll' value='!woin_roll {"attrname":"@{skillattr}", "skillname": "@{skillname}", "name": "@{character_name}", "modifier":?{Dice Pool Modifier?|0}}' ></button>
+					<input name="attr_skillname" class="sheet-skillname" type='text' placeholder='Skill Name' />
+					<select name="attr_skillattr" class="sheet-attrselect" /><option>Strength</option><option>Agility</option><option>Endurance</option><option>Intuition</option><option>Logic</option><option>Willpower</option><option>Charisma</option><option>Luck</option><option>Reputation</option><option>Special<option></select>
+					<input name="attr_skillrank" type='number' min=1  value=1 />
+					<input type='hidden' name='attr_skillpool'>
+                    &nbsp;(<span name="attr_skillpool">1</span>d6)
+				</fieldset>
+			</div>
+            <div class='sheet-row'>
+				<p class='sheet-headertext'>Defenses</p>
+				<table>
+					<tr>
+						<td>MELEE DEFENSE</td><td><input type='number' name='attr_melee_def' value=0 min=0 ></td><td>RANGED DEFENSE</td><td><input type='number' name='attr_ranged_def' value=0 min=0 ></td>
+					</tr>
+					<tr>
+						<td>MENTAL DEFENSE</td><td><input type='number' name='attr_mental_def' value=0 min=0 ></td><td>VITAL DEFENSE</td><td><input type='number' name='attr_vital_def' value=0 min=0 ></td>
+					</tr>
+					<tr>
+						<td> SOAK</td><td colspan='3'><input type='number' name='attr_soak' value=0 min=0></td>
+					</tr>
+					<tr>
+						<td>HEALTH</td><td colspan='3'><input type='number' name='attr_health_cur' value=10 min=0 >/<input type='number' name='attr_health_max' value=10 min=10></td>
+					</tr>	
+				</table>
+			</div>
+		</div>
+		
+		<div class='sheet-col'>
+			<div class='sheet-row'>
+				<p class='sheet-headertext'>Luck Dice</p>
+				<input type='number' min='0' name='attr_luck' value=2 >/<span name='attr_luc_pool'></span>
+			</div>
+			<div class='sheet-row'>
+				<p class='sheet-headertext'><span name='attr_special_name'></span> Points</p>
+				<input type='number' min='0' name='attr_special_points' value=0 >/<input type='number' min='0' name='attr_special_points_max' value=0 >
+			</div>			
+			<div class='sheet-row'>
+				<p class='sheet-headertext'>Life Path</p>
+				<span class='sheet-tablehead sheet-p'>Path</span><span class='sheet-lpheadg'>Grade</span><span class='sheet-lpheada'>Age</span>
+				<fieldset class="repeating_careers">
+					<input name="attr_careername" type='text' placeholder='Career Name' />
+					<input name="attr_careerrank" type='number' min=1 value=1 />
+					<input name="attr_careerage" type='number' min=1 value=1 />
+					<span class="sheet-careerrankname"></span>
+				</fieldset>
+			</div>
+			<div class='sheet-row'>
+				<table>
+				<tr><td class="sheet-lptname">Totals</td><td class="sheet-lptgrade"><span name='attr_total_grade'></span></td><td class="sheet-lptage"><span name='attr_total_age'></span></td></tr>
+					<tr><td>Maximum Dice Pool</td><td><span name='attr_max_diepool'></span></td><td></td></tr>
+				</table>
+			</div>
+			<div class='sheet-row'>
+				<p class='sheet-headertext'>Movement</p>
+				<table>
+					<tr><th>Type</th><th>Value</th><th>Modifier</th></tr>
+					<tr><td>SPEED</td><td><span name='attr_speed'></span></td><td><input type='number' name='attr_speedmod' value=0></td></tr>
+					<tr><td>CLIMB</td><td><span name='attr_climb'></span></td><td><input type='number' name='attr_climbmod' value=0></td></tr>
+					<tr><td>SWIM</td><td><span name='attr_swim'></span></td><td><input type='number' name='attr_swimmod' value=0></td></tr>
+					<tr><td>JUMP</td><td><span name='attr_jump'></span></td><td><input type='number' name='attr_jumpmod' value=0></td></tr>
+					<tr><td>INITIATIVE</td><td><span name='attr_init'>d6</span></td><td><input type='number' name='attr_initmod' value=0><button type='roll' value='!woin_init {"name": "@{character_name}", "attrname": "Intuition", "skillname":"@{init_skill}", "modifier": @{initmod}, "luck": ?{Add Luck die to Initiative?|0}}'></td></tr>
+					<tr><td>PERCEPTION</td><td><span name='attr_perception'></span>d6</td><td><input type='number' name='attr_percmod' value=0><button type='roll' value='!woin_perc {"name": "@{character_name}", "init": @{init} "initmod": @{initmod}}'></td></tr>
+					<tr><td>CARRY</td><td><span name='attr_carry'></span></td><td><input type='number' name='attr_carrymod' value=0></td></tr>
+					<tr><td>ACTIONS</td><td><span name='attr_actions'></span></td><td><input type='number' name='attr_actionmod' value=0></td></tr>
+					<tr><td>NAT. DMG</td><td colspan=2><input type='number' name='attr_nat_dmg' value=0></td></tr>
+					<tr><td><input type='text' name='attr_move_othername' class='sheet-mothername' placeholder='Other'></td><td colspan=2><input type='number' name='attr_move_other' value=0></td></tr>					
+				</table>
+			</div>			
+		</div>
+	</div>
+	<div class='sheet-row'>
+		<p class='sheet-headertext'>Attacks</p>
+	<div><span class='sheet-anamehead'>Attack Name</span><span class='sheet-aatktotalhead'>Attack Pool</span><span class='sheet-adamagehead'>Damage</span><span class='sheet-admgtypehead'>Damage Type</span><span class='sheet-arangehead'>Range</span></div>		
+		<fieldset class="repeating_attacks">
+		<input type='hidden' class="sheet-ashowextra" name="attr_attack_showextra">
+			<div><button type='roll' value='!woin_attack { "name": "@{character_name}", "weapon" : "@{attackname}","attrname":"@{attackattr}","skillname":"@{attackskill}","equipvalue":@{attackquality}, "damagetype": "@{attack_type}", "damage_base" : @{attackdmg}, "damage_mod":@{attackdmgmod}, "notes": "@{notes}", "posmod": ?{Attack Pool Modifiers?|0}, "damdice": ?{How many attack dice spent on damage?|0},"luck": ?{How many luck die to spend?|0} }'></button>
+			<input class='sheet-aname' name="attr_attackname" type='text' placeholder='Weapon Name' />
+			<div class='sheet-apooldiv'><span name="attr_attackpool"></span>d6</div>
+			<input name="attr_attackdmg" type='number'>d6+<input name="attr_attackdmgmod" type='number'>
+			<input class='sheet-admgtype' name="attr_attack_type" type='text'>
+			<input name="attr_attack_range" type='number'>
+			<input name="attr_attack_showextra" type='checkbox'>
+			</div>
+			<div class='sheet-asecondrow'>
+			<div>
+			<span class='sheet-aattrhead'>Attribute</span><span class='sheet-askillhead'>Skill</span><span class='sheet-aqualhead'>Quality</span><span class="sheet-anoteshead">Notes</span>
+			</div>
+			<div>
+					<select class="sheet-attrselect" name="attr_attackattr" /><option>Strength</option><option>Agility</option><option>Intuition</option><option>Special</option></select>
+			<input class='sheet-askill' name="attr_attackskill" type='text'>
+			<select class='sheet-qualityselect' name='attr_attackquality'><option value=-2>Improvised</option><option value=-1>Poor</option><option value=0 selected>Standard</option><option value=1>High</option><option value=2>Exceptional</option><option value=3>Mastercraft</option><option value=4>Artisanal</option><option value=5>Legendary</option></select>
+	        <textarea name="attr_notes" class="sheet-anotes"></textarea></div>
+		</div>
+		</fieldset>
+	</div>   
+	
+	<div class='sheet-row'>
+		<p class='sheet-headertext'>Equipment</p>
+		<div><span class='sheet-ename'>Name</span><span class='sheet-equal'>Quality</span><span class="sheet-eweight">Weight</span></div>
+		<fieldset class="repeating_equip">
+			<input name="attr_name" type='text' placeholder='Item Name' />
+			<select name='attr_quality' class="sheet-qualityselect"><option value=-2>Improvised</option><option value=-1>Poor</option><option value=0 selected>Standard</option><option value=1>High</option><option value=2>Exceptional</option><option value=3>Mastercraft</option><option value=4>Artisanal</option><option value=5>Legendary</option></select>
+			<input name="attr_weight" type='number' min=0 value=0 />
+		</fieldset>
+	</div>
+	<div class='sheet-row'>
+		<p class='sheet-headertext'>Shield</p>
+		<input name="attr_shieldname" type='text' placeholder='Item Name' />
+		<select name='attr_shieldquality' class="sheet-qualityselect"><option value=-2>Improvised</option><option value=-1>Poor</option><option value=0 selected>Standard</option><option value=1>High</option><option value=2>Exceptional</option><option value=3>Mastercraft</option><option value=4>Artisanal</option><option value=5>Legendary</option></select>
+		<select name='attr_shieldsize'  class='sheet-astype'><option value='small'>Small</option><option value='medium'>Medium</option><option value='large'>Large</option></select><input name="attr_shieldweight" type='number' min=0 value=0 />
+	</div>
+	<div class='sheet-row'>
+		<p class='sheet-headertext'>Armor</p>
+		<input name="attr_armorname" type='text' placeholder='Item Name' />
+		<select name='attr_armorquality' class='sheet-qualityselect' ><option value=-2>Improvised</option><option value=-1>Poor</option><option value=0 selected>Standard</option><option value=1>High</option><option value=2>Exceptional</option><option value=3>Mastercraft</option><option value=4>Artisanal</option><option value=5>Legendary</option></select>
+	<select name='attr_armortype' class='sheet-astype'><option value='light'>Light Armor</option><option value='medium'>Medium Armor</option><option value='heavy'>Heavy Armor</option></select><input name="attr_armorweight" type='number' min=0 value=0 />
+	</div>
+	<div class='sheet-row'>
+		<p class='sheet-headertext'>Exploits & Traits</p>
+		<fieldset class="repeating_exploits">
+			<input name="attr_exploitname" type='text' placeholder='Exploit Name' />
+			<textarea class='sheet-exploit-desc' name="attr_exploitdesc" placeholder='Description'></textarea>
+		</fieldset>	
+	</div>
+</div> 
+
+<div class='sheet-page2  sheet-page'>
+	<div class='sheet-2colrow'>
+		<div class='sheet-col'>
+			<label id='home' class='sheet-label'>Home<span name='attr_placename'>world</span></label><input type='text' class='sheet-' name="attr_character_home">
+		</div>
+		<div class='sheet-col'>
+			<label id='origin' class='sheet-label'>Origin</label><input type='text' class='sheet-' name="attr_character_origin">
+		</div>
+	</div>
+	<div class='sheet-2colrow'>
+		<div class='sheet-col'>
+			<p>This is a <select name='attr_sheet_type'><option value='old'>O.L.D.</option><option value='now'>N.O.W.</option><option value='new' selected>N.E.W.</option></select> sheet.</p>
+		</div>
+		<div class='sheet-col'>
+			<p>This character is 
+				<select name='attr_size'>
+					<option value='tiny'>Tiny</option>
+					<option value='small'>Small</option>
+					<option value='medium' selected>Medium</option>
+					<option value='large'>Large</option>
+					<option value='enormous'>Enormous</option>
+					<option value='gigantic'>Gigantic</option>
+					<option value='colossal'>Colossal</option>
+				</select>
+			</p>
+		</div>
+	</div>
+    <div class='sheet-row'>
+			<p class='sheet-headertext'>Conditions</p>		
+		    <fieldset class="repeating_conditions">
+				<select name="attr_conditionname" class='sheet-cname'>
+					<option selected>Afraid</option>
+					<option>Angry</option>
+					<option>Bleeding</option>
+					<option>Blind</option>					
+					<option>Burning</option>
+					<option>Charmed</option>
+					<option>Confused</option>
+					<option>Dazed</option>
+					<option>Deaf</option>
+					<option>Disarmed</option>
+					<option>Disarmored</option>
+					<option>Downed</option>
+					<option>Drunk</option>
+					<option>Fatigued</option>
+					<option>Forgetful</option>
+					<option>Manic</option>
+					<option>Pain</option>
+					<option>Poisoned</option>
+					<option>Restrained</option>
+					<option>Sick</option>
+					<option>Sleeping</option>
+					<option>Slowed</option>
+				</select>
+				<select name='attr_conditionlevel' class='sheet-clevel'>
+					<option value=1 selected>Level 1</option>
+					<option value=2>Level 2</option>
+				</select>
+				<div class='sheet-cdesc'>
+					<span name='attr_conditionresult'>You cannot take any non-attack actions other than moving directly towards an enemy.</span>
+				</div>
+			</fieldset>
+	</div>
+	<div class='sheet-2colrow'>
+		<div class='sheet-col'>
+			<p class='sheet-headertext'>Wealth</p>
+			<textarea name='attr_wealth'></textarea>
+		</div>
+		<div class='sheet-col'>
+			<p class='sheet-headertext'>Biography</p>		
+			<textarea name='attr_bio'></textarea>
+		</div>
+	</div>	
+	<div class='sheet-row'>
+		<p class='sheet-headertext'>Notes</p>
+		<textarea name='attr_notes'></textarea>	 
+	</div>
+	<div class='sheet-row'>
+		<p class='sheet-headertext'>Experience</p>
+		<p><span>Expenditure</span><span>Cost</span></p>
+		<input type='number' min=0 value=0 name='attr_earned_xp'>
+		<span name='attr_spent_xp'></span>
+		<span name='attr_remaining_xp'></span>
+		<fieldset class='repeating_xp'>
+			<input type='text' name='attr_spendname' placeholder='Expenditure'>
+			<input type='number' min=0 value=0 name='attr_cost'>
+		</fieldset>
+	</div>
+		
+</div>
+
+<div class='sheet-row' style='text-align:center'>
+	<label class='sheet-pfcontainer'>
+		<input name='attr_pagetoggle' type='radio' name='page' value="1" >
+		<span class="sheet-pfradio"></span>
+	</label>
+	<label class='sheet-pfcontainer'>
+		<input name='attr_pagetoggle' class='attr_pagetoggle' type='radio' name='page' value="2" >
+		<span class="sheet-pfradio"></span>		
+	</label>
+</div>
+<script type='text/worker'>
+	on("sheet:opened", function(eventInfo) {
+		getAttrs(["strength_1"], function(values) {
+			if (values.hasOwnProperty("strength_1")) {
+				//Sheet Conversion - Aaron Sheet to This Version
+				
+			}
+		});
+		//Check for initialization
+		getAttrs(["str_score","str_pool","agi_score","agi_pool","end_score","end_pool","int_score","int_pool","log_score","log_pool","wil_score","wil_pool","cha_score","cha_pool","luc_score","luc_pool","rep_score","rep_pool","special_score","special_pool","sizemod","speed","climb","swim","init","carry","jump","perception","actions","max_diepool","sheet_type","special_name","special_abbr","total_age","total_grade","page_no","luck","placename","spent_xp","remaining_xp"], function(values) {
+			var setupvars = {};
+			if(!values.hasOwnProperty("str_pool")) { setupvars.str_pool = Math.floor(Math.sqrt(2*(parseInt(values.str_score)+1))+0.5)-1;}
+			if(!values.hasOwnProperty("agi_pool")) { setupvars.agi_pool = Math.floor(Math.sqrt(2*(parseInt(values.agi_score)+1))+0.5)-1; }
+			if(!values.hasOwnProperty("end_pool")) { setupvars.end_pool = Math.floor(Math.sqrt(2*(parseInt(values.end_score)+1))+0.5)-1; }
+			if(!values.hasOwnProperty("int_pool")) { setupvars.int_pool = Math.floor(Math.sqrt(2*(parseInt(values.int_score)+1))+0.5)-1; }
+			if(!values.hasOwnProperty("log_pool")) { setupvars.log_pool = Math.floor(Math.sqrt(2*(parseInt(values.log_score)+1))+0.5)-1; }
+			if(!values.hasOwnProperty("wil_pool")) { setupvars.wil_pool = Math.floor(Math.sqrt(2*(parseInt(values.wil_score)+1))+0.5)-1; }
+			if(!values.hasOwnProperty("cha_pool")) { setupvars.cha_pool = Math.floor(Math.sqrt(2*(parseInt(values.cha_score)+1))+0.5)-1; }
+			if(!values.hasOwnProperty("luc_pool")) { setupvars.luc_pool = Math.floor(Math.sqrt(2*(parseInt(values.luc_score)+1))+0.5)-1; }
+			if(!values.hasOwnProperty("rep_pool")) { setupvars.rep_pool = Math.floor(Math.sqrt(2*(parseInt(values.rep_score)+1))+0.5)-1; }
+			if(!values.hasOwnProperty("special_pool")) { setupvars.special_pool = Math.floor(Math.sqrt(2*(parseInt(values.special_score)+1))+0.5)-1; }
+			if(!values.hasOwnProperty("sizemod")) { setupvars.sizemod = 0; }
+			if(!values.hasOwnProperty("speed")) { setupvars.speed = 4; }
+			if(!values.hasOwnProperty("swim")) { setupvars.swim = 2; }
+			if(!values.hasOwnProperty("climb")) { setupvars.climb = 2; }
+			if(!values.hasOwnProperty("jump")) { setupvars.jump = "6'/6'"; }
+			if(!values.hasOwnProperty("luck")) { setupvars.luck = 2; }				
+			if(!values.hasOwnProperty("init")) { setupvars.init = 2; }			
+			if(!values.hasOwnProperty("init_skill")) { setupvars.init_skill = ""; }				
+			if(!values.hasOwnProperty("carry")) { setupvars.carry = 60; }
+			if(!values.hasOwnProperty("perception")) { setupvars.perception = 2; }
+			if(!values.hasOwnProperty("actions")) { setupvars.actions = 2; }
+			if(!values.hasOwnProperty("total_age")) { setupvars.total_age = 0; }
+			if(!values.hasOwnProperty("total_grade")) { setupvars.total_grade = 0; }	
+			if(!values.hasOwnProperty("max_diepool")) { setupvars.max_diepool = 0; }
+			if(!values.hasOwnProperty("spent_xp")) { setupvars.spent_xp = 0; }			
+			if(!values.hasOwnProperty("remaining_xp")) { setupvars.remaining_xp = 0; }						
+			setupvars.sheet_type = (values.hasOwnProperty("sheet_type")) ? values.sheet_type : "new";
+			if(!values.hasOwnProperty("special_name")) { setupvars.special_name = "Psionic"; }		
+			if(!values.hasOwnProperty("special_abbr")) { setupvars.special_abbr = "PSI"; }
+			if(!values.hasOwnProperty("placename")) { setupvars.placename = "world"; }			
+			if(!values.hasOwnProperty("page_no")) { setupvars.page_no = 1; }
+			console.log(setupvars); setAttrs(setupvars);
+		});
+	});
+	
+	on("change:pagetoggle", function(eventInfo){
+		setAttrs({"page_no":eventInfo.newValue});
+	});
+	
+	on("change:sheet_type", function(eventInfo) {
+		var change = {};
+		change.special_name = (eventInfo.newValue == "new") ? "Psionic" : (eventInfo.newValue == "now") ? "???" : "Magic";
+		change.special_abbr = (eventInfo.newValue == "new") ? "PSI" : (eventInfo.newValue == "now") ? "???" : "MAG"; 
+		change.placename = (eventInfo.newValue == "new") ? "world" : (eventInfo.newValue == "now") ? "town" : "land"; 		  
+		setAttrs(change);
+	});
+	
+	on("change:size",function(eventInfo) {
+		setAttrs({"sizemod": (eventInfo.newValue == "small") ? -1 : 0, "actions": size_actions[eventInfo.newValue] });
+	});
+	
+	//Attack Pools
+	on("change:str_pool change:agi_pool change:end_pool change:int_pool change:log_pool change:wil_pool change:cha_pool change:luc_pool change:rep_pool change:special_pool", function(eventInfo) {
+		//Recalc all relevant attacks
+		var attrname = {"str":"Strength","agi":"Agility","end":"Endurance","int":"Intuition","log":"Logic","wil":"Willpower","cha":"Charisma","luc":"Luck","rep":"Reputation","spe":"Special"};
+		getSectionIDs("attacks",function(idarray) {
+		  getAttrs(idarray.map((x)=> "repeating_attacks_"+x+"_attrname"), function (values){
+			  
+		  });
+		});
+	});
+	
+	on("change:repeating_skills:skillpool", function(eventInfo) {
+		//Recalc all relevant attacks
+	});
+	
+	on("change:repeating_attacks:attackquality", function (eventInfo) {
+		 //Recalc this attack only.
+	});
+	
+	//Attribute Dice Pools
+	on("change:str_score change:agi_score change:end_score change:int_score change:log_score change:wil_score change:cha_score change:luc_score change:rep_score change:special_score",function (eventInfo) {
+		var attrib = eventInfo.sourceAttribute.split("_")[0];
+		setAttrs({
+			[attrib+"_pool"]: Math.floor(Math.sqrt(2*(parseInt(eventInfo.newValue)+1))+0.5)-1
+		});
+	});
+	
+	var conditions = {"Afraid" : {"1":"You cannot approach the source of your fear.","2":"You must flee the source of your fear, or simply cower if that is not possible."},
+					"Angry" : {"1":"You cannot take any non-attack actions other than moving directly towards an enemy.","2":"You must attack the nearest foe. If none are available, you must attack the nearest ally."},
+					"Bleeding": {"1":"You take 1d6 damage at the start of your turn.","2":"You take 2d6 damage at the start of your turn."},
+					"Blind": {"1":	"Your vision is limited to 30’, and you move at half SPEED. You cannot benefit from flanks or crossfires.","2": "You cannot see, cannot use ranged weapons, move at half SPEED, and suffer -2d6 to all sight-based actions."},				
+					"Burning": {"1": "You take 1d6 fire damage per round. Clothes are ruined.","2":"You take 2d6 fire damage per round. Clothes, hair, and eyebrows are ruined"},
+					"Charmed": {"1": "You will not attack the source of the charm, nor will you willingly allow harm to come to them; neither do you provide flank or crossfire bonuses against them.","2":"You will obey commands which do not overly conflict with your nature or which are obviously harmful to you."},
+					"Confused": {"1": "You drop any items you are holding and cannot tell friend from foe.","2":"Roll 1d6 to determine your condition each turn: (1) afraid, (2) angry, (3) forgetful, (4) manic, (5) drunk, (6) dazed."},
+					"Dazed": {"1": "You can only take one action per round and a hit knocks you prone.","2":"You cannot take any actions."},
+					"Deaf": {"1": "You cannot hear sounds more than 30’ away and suffer -1d6 to PERCEPTION and INITIATIVE. You have SOAK 5 (sonic). You cannot benefit from any voice-based buffs or benefits which originate from further than 30’ away.","2":"You cannot hear anything and suffer -2d6 to PERCEPTION and INITIATIVE. You have SOAK 10 (sonic). You cannot benefit from any voice-based buffs or benefits."},
+					"Disarmed": {"1": "Your weapon cannot be used.","2":"Your weapon cannot be used, but the condition is now severe and requires a 6 to end."},
+					"Disarmored": {"1": "You have half SOAK (round up).","2":"You have no SOAK."},
+					"Downed": {"1": "You are prone and cannot stand.","2":"You are prone and helpless; your DEFENSEs become 10."},
+					"Drunk": {"1": "You cannot move more than once in a round.","2":"You cannot move, but at the start of your turn you wander 1d6 squares in a random direction."},
+					"Fatigued": {"1": "You can only take one action per round and your carry increment is halved.","2":"Your maximum HEALTH is halved, in addition to the above effects."},
+					"Forgetful": {"1": "You cannot use any of your skills.","2":"You cannot remember anything,including who you are or who your allies are."},
+					"Manic": {"1": "You cannot take hostile or aggressive actions.","2":"You are convulsed with laughter and can take no other actions."},
+					"Pain": {"1": "You take 1d6 damage if you take a second action in a turn.","2":"You take 1d6 damage if you take any actions."},
+					"Poisoned": {"1": "You cannot be healed.","2":"You cannot be healed and you take 1d6 poison damage at the start of each turn."},
+					"Restrained": {"1": "You cannot move from your current square.","2":"You cannot take any actions, and your physical DEFENSEs drop to 10 to all except the creature restraining you."},
+					"Sick": {"1": "You cannot jump and you can only take one action per round.","2":"You suffer -2d6 to all attribute checks, as well as the above effects."},
+					"Sleeping": {"1": "You are drowsy and lethargic. You may only act once each turn.","2":"You are asleep, and cannot be woken."},
+					"Slowed": {"1": "Your SPEED scores are halved and you suffer -4 to physical DEFENSEs." ,"2": "Your SPEED scores are halved, your physical DEFENSEs become 10, and you can only take one action per turn."}
+	}
+	
+	on("change:repeating_conditions:conditionname change:repeating_conditions:conditionlevel", function(eventInfo) {
+		getAttrs(["repeating_conditions_conditionname","repeating_conditions_conditionlevel"],function (values) {
+		   values.repeating_conditions_conditionname = values.repeating_conditions_conditionname || "Afraid";
+		   values.repeating_conditions_conditionlevel = values.repeating_conditions_conditionlevel || 1;
+		   setAttrs({"repeating_conditions_conditionresult": conditions[values.repeating_conditions_conditionname][""+values.repeating_conditions_conditionlevel]});
+		});
+	});
+	
+	on("change:repeating_xp change:earned_xp", function(eventInfo) {
+		getSectionIDs("xp",function(idarray) {
+			var names = idarray.map((x) => "repeating_xp_"+x+"_cost");
+			getAttrs(names.concat(["earned_xp"]),function (values) {
+				var total = 0;
+				names.forEach((x) => total += parseInt(values[x]));
+				setAttrs({"spent_xp": total,"remaining_xp": (values.earned_xp - total)});
+			});
+		});
+	});
+	
+	//Skill Dice Pools
+	on("remove:repeating_skills", function(eventInfo) {
+	        switch(eventInfo.removedInfo[eventInfo.sourceAttribute+"_skillname"].toLowerCase().trim()) {
+					case "running":
+					update_speed(0);
+					break;
+					case "climbing":
+					update_climb(0);
+					break;
+					case "swimming":
+					update_swim(0);
+					break;
+					case "carry":
+					update_carry(0);
+					break;
+					case "reactions":
+					case "tactics":
+					find_skills(["tactics","reactions"],update_init);
+					break;
+					case "acrobatics":
+					case "dodging":
+					case "foresight":
+					find_skills(["acrobatics","dodging","foresight"],update_melee_defense);
+					break;
+					case "perception":
+					 update_perception(0);
+					break;			
+			};
+	});
+	
+	on("change:repeating_skills:skillrank change:repeating_skills:skillname",function(eventInfo) {
+		getAttrs(["repeating_skills_skillname","repeating_skills_skillrank"], function (values) {
+			console.log(values);
+			if(!values.hasOwnProperty("repeating_skills_skillrank")) { values.repeating_skills_skillrank = "1" }
+			var newval = Math.floor(Math.sqrt(2*(parseInt(values.repeating_skills_skillrank)+1))+0.5)-1;
+			setAttrs({"repeating_skills_skillpool": newval },{},function (){
+				switch(values.repeating_skills_skillname.toLowerCase().trim()) {
+					case "running":
+					update_speed(newval);
+					break;
+					case "climbing":
+					update_climb(newval);
+					break;
+					case "swimming":
+					update_swim(newval);
+					break;
+					case "carry":
+					find_skill("carry",update_carry,"rank");
+					break;
+					case "reactions":
+					case "tactics":
+					find_skills(["tactics","reactions"],update_init);
+					break;
+					case "acrobatics":
+					case "dodging":
+					case "foresight":
+					find_skills(["acrobatics","dodging","foresight"],update_melee_defense);
+					break;
+					case "perception":
+					find_skill("perception",update_perception);
+					break;    
+				}
+			});
+		});
+	});
+	
+	on("change:str_score change:agi_score", function (eventInfo) {
+		find_skill("running",update_speed);
+		find_skill("climbing",update_climb);
+		find_skill("swimming",update_swim);
+		getAttrs(["agi_score","str_score"],function(values) { setAttrs({"jump":(values.agi_score*2)+"'\\"+(Math.min(values.agi_score*2,values.str_score))+"'"}); });
+		find_skills(["acrobatics","dodging","foresight"],update_phys_defense);
+	});
+	
+	on("change:str_score change:end_score", function(eventInfo) {
+		find_skill("carry",update_carry,"rank");
+	});
+	
+	on("change:int_pool", function (eventInfo) {
+		find_skills(["tactics","reactions"],update_init);
+		find_skill("perception",update_perception);
+	});
+	
+	//Life Path Calcs
+	on("change:repeating_careers", function(eventInfo) {
+		getSectionIDs("careers",function(idarray) {
+			var names = idarray.map(x=>"repeating_careers_"+x+"_careername");
+			var ranks = idarray.map(x=>"repeating_careers_"+x+"_careerrank");
+			var ages = idarray.map(x=>"repeating_careers_"+x+"_careerage");		
+			getAttrs(names.concat(ranks,ages),function (values) {
+				var totalRank = 0;
+				var totalAge = 0;
+				ranks.forEach(x=> totalRank += (values.hasOwnProperty(x)) ? parseInt(values[x]) : 0);
+				ages.forEach(x=> totalAge += (values.hasOwnProperty(x)) ? parseInt(values[x]) : 0);
+				var maxpool = (totalRank < 5) ? totalRank : Math.floor(Math.sqrt(2*(totalRank-4)) + 1/2)+4
+				setAttrs({ "total_age":totalAge, "total_grade": totalRank, "max_diepool": maxpool });
+			});
+		});
+	});
+	//TODO: Grade and Max Dice Pool calc
+	
+	var update_perception = function(skillvalue) {
+		getAttrs(["int_pool"], function (values) { setAttrs({"perception": parseInt(values.int_pool)+skillvalue}); });
+	};
+	
+	var update_carry = function(skillvalue) {
+		getAttrs(["end_score","str_score"],function(values) { setAttrs({"carry": (parseInt(values.str_score)+parseInt(values.end_score)+skillvalue)*10}); });
+	};
+	
+	var update_speed = function(skillvalue) {
+		getAttrs(["str_pool","agi_pool","sizemod"], function(values) {
+			setAttrs({"speed":values.str_pool+values.agi_pool+skillvalue+values.sizemod});
+		});
+	};
+	
+	var update_climb = function(skillvalue) {
+		getAttrs(["str_pool","agi_pool","sizemod","climbhalve"], function(values) {
+			setAttrs({"climb":(values.str_pool+values.agi_pool+skillvalue+values.sizemod)/2*values.climbhalve});
+		});
+	};
+	
+	var update_swim = function(skillvalue) {
+		getAttrs(["str_pool","agi_pool","sizemod","swimhalve"], function(values) {
+			setAttrs({"swim":(values.str_pool+values.agi_pool+skillvalue+values.sizemod)/2*values.swimhalve});
+		});
+	};
+	
+	var update_init = function(skillvalues) {
+	    var initskills = ["Tactics","Reactions"];
+	    var maxval = Math.max(...skillvalues);
+		var sname = initskills[initskills.indexOf(maxval)];
+		getAttrs(["int_pool"], function(values) { setAttrs({"init": values.int_pool+Math.max(...skillvalues), "init_skill" : sname});});
+	};
+	
+	var update_phys_defense = function(skillvalues) {
+		//Physical Defense: PoolValue(Max(STR,AGI)+Skill+Armor+Shield)+Size
+	};
+	var update_melee_defense = function(attackvalues,skillvalues) {
+		//Physical Defense: Ceiling((Max(STR,AGI)+Skill+Weapon+Armor+Shield)*3.5)+Size+ShieldMod+ArmorMod
+		getAttrs(["str_pool","agi_pool","armorquality","shieldquality", "shieldsize","size"], function(values) {
+			setAttrs({"melee_defense":Math.ceiling((Math.max(values.str_pool,values.agi_pool)+Math.max(...skillvalues)+Math.min(Math.max(...attackvalues,values.shieldquality),Math.max(...skillvalues)))*3.5)+size_def_mod[values.size]});
+		});
+		//TODO: Finish this hot garbage.
+	};
+	//TODO: Carry penalty for physical checks and Speed (Display instead?)
+	//TODO: Defenses
+	
+	var size_def_mod = {"tiny": 4,"small": 2, "medium": 0, "large": -4, "enormous":-8, "gigantic":-16, "colossal":-32};
+	var shield_def_mod = {"small":1,"medium":2,"large":3};
+	var armor_def_mod = {"light":0, "medium":-4, "heavy": -8};
+	var size_actions = {"tiny": 2,"small": 2, "medium": 2, "large": 2, "enormous": 3, "gigantic": 4, "colossal": 5};
+	
+	//Find a skill"s pool value.
+	var find_skill = function (skillname,functionname,type = "pool") {
+		getSectionIDs("skills",function (idarray){
+			idnamearray = idarray.map(x=>"repeating_skills_"+x+"_skillname");
+			idfieldarray = idnamearray.concat(idarray.map(x=>"repeating_skills_"+x+"_skill"+type));
+			getAttrs(idfieldarray,function (values) {
+				var flag = false;
+				for(i = 0; i<idnamearray.length; i++) {
+					if(values[idnamearray[i]].toLowerCase().trim() == skillname.toLowerCase().trim()) {
+						functionname(parseInt(values[(idnamearray[i].replace("name",type))]));
+						flag = true;
+					};
+				};
+				if(!flag) { functionname(0) };
+			});
+		});
+	};
+		
+	var find_attack_pool = function(type,functionname,passthrough = [0]) {
+		getSectionIDs("attacks", function (idarray) {
+			idtypearray = idarray.map(x=>"repeating_attacks_"+x+"_type");
+			idpoolarray = idarray.map(x=>"repeating_attacks_"+x+"_pool");
+			idfieldarray = idtypearray.concat();
+			getAttrs(idfieldarray,function (values) {
+				var outvalue = [];
+				var flag = false;
+				for(i = 0; i <idarray.length; i++) {
+					if(values[idtypearray[i]] == type) {
+						outvalue.push(parseInt(values[idpoolarray[i]]));
+						flag = true;
+					};
+				};
+				if(!flag) { outvalue.push(0); };
+				functionname(outvalue,passthrough);
+			});
+		});
+	};
+	
+	var find_skills = function (skillnames,functionname,type = "pool") {
+		getSectionIDs("skills",function (idarray){
+			idnamearray = idarray.map(x=>"repeating_skills_"+x+"_skillname");
+			idfieldarray = idnamearray.concat(idarray.map(x=>"repeating_skills_"+x+"_skill"+type));
+			getAttrs(idfieldarray,function (values) {
+				var outvalue = [];
+				skillnames.forEach(function(skillname){
+					var flag = false;
+					for(i = 0; i<idnamearray.length; i++) {
+						if(values[idnamearray[i]].toLowerCase().trim() == skillname.toLowerCase().trim()) {
+							outvalue.push(parseInt(values[(idnamearray[i].replace("name",type))]));
+							flag = true;
+							break;
+						};
+					};
+					if(!flag) { outvalue.push(0); }
+				});
+				console.log(outvalue);
+				functionname(outvalue);
+			});
+		});
+	};
+</script>

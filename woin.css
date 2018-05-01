@@ -1,0 +1,276 @@
+/* Page Flipper */
+.sheet-page1,
+.sheet-page2 {
+    display: none;
+    width: 860px;
+}
+
+.sheet-pageno[value="1"] ~ .sheet-page1,
+.sheet-pageno[value="2"] ~ .sheet-page2 {
+    display: block;
+}
+/* Page Flipper */
+.sheet-pfcontainer {
+    display: inline;
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.sheet-pfcontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.sheet-pfradio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 50px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.sheet-pfcontainer:hover input ~ .sheet-pfradio {
+    background-color: #ccc;
+}
+.sheet-pfcontainer input:checked ~ .sheet-pfradio {
+    background-color: #2196F3;
+}
+.sheet-pfcontainer input:checked ~ .sheet-pfradio:after {
+  display: block;
+}
+.sheet-pfcontainer .sheet-pfradio:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.sheet-pfradio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/*Header Text */
+
+.sheet-headertext {
+    font-family: Terminal;
+    font-size: 16px;
+    color: #0072bc;
+}
+.sheet-attributehead {
+    text-align:center;
+}
+.sheet-attributehead button {
+	content: "" !important;
+	width: 100%;
+	border: 0;
+	margin: 0 !important;
+	background-image: none;	
+}
+.sheet-headernamediv {
+    padding-top:10px;
+}
+.sheet-headname {
+    background: transparent;
+    color: black;
+    display: inline;
+    font-size: 36px;
+    width: 90%;
+    border: 0;
+}
+.sheet-label {
+    display: inline;
+}
+.sheet-center {
+    text-align: center;
+}
+.sheet-descriptor {
+	width: 300px;
+}
+
+/* Attributes */
+.sheet-scorebox {
+    width: 75px;
+}
+.sheet-scorebox input {
+    width: 70px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-left:15px;
+    border: 0;
+}
+
+.sheet-attrbox {
+    text-align:center;
+}
+
+/* General (Repeated) Dropdown Sizings */
+.sheet-attrselect {
+	width: 95px;
+	margin-bottom: 0px;
+}
+.sheet-qualityselect {
+	width: 100px;
+	margin-bottom: 0px;
+}
+/* Skill Header Spacings */
+.sheet-snamehead {
+	margin-left: 35px;
+}
+.sheet-sattrhead {
+	margin-left: 123px;
+}
+.sheet-sgradehead {
+	margin-left: 52px;
+}
+
+/* Skill Spacings */
+.sheet-skillname {
+	width: 184px;
+}
+
+/* Attack Header Spacings */
+.sheet-anamehead {
+	margin-left: 35px;
+}
+.sheet-aattrhead {
+}
+.sheet-askillhead {
+	margin-left: 50px;
+}
+.sheet-aqualhead {
+	margin-left: 128px;
+}
+.sheet-aatktotalhead {
+	margin-left: 178px;
+}
+.sheet-adamagehead {
+	margin-left: 115px;
+}
+.sheet-admgtypehead {
+	margin-left: 65px;
+}
+.sheet-arangehead {
+	margin-left: 57px;
+}
+.sheet-anoteshead {
+	margin-left: 67px;
+}
+
+/* Attack Field Sizings */
+.sheet-aname {
+	width: 250px;
+}
+.sheet-askill {
+	width: 150px;
+}
+.sheet-apooldiv {
+   display: inline-block;
+   width: 175px;
+}
+.sheet-aatktotal {
+	width: 50px;
+}
+.sheet-admgtype {
+	width: 134px;
+}
+.sheet-anotes {
+	height: 36px;
+	width: 50%;
+}
+.sheet-asecondrow {
+	display: none;
+}
+.sheet-ashowextra[value="on"] ~ .sheet-asecondrow {
+	display:block;
+}
+
+.sheet-astype {
+	width: 120px;
+	margin-bottom: 0px;
+}
+
+/* Equip Headers */
+.sheet-ename {
+}
+
+.sheet-equal {
+	margin-left: 181px;
+}
+
+.sheet-eweight {
+	margin-left: 62px;
+}
+
+/* Exploit */
+.sheet-exploit-desc {
+    min-width: 500px;
+    min-height: 40px;
+    width: 500px;
+    height: 40px;
+}
+
+/* Life Path Headers */
+.sheet-p {
+    padding-right: 188px;
+}
+.sheet-lpheadg {
+    padding-right: 14px;
+}
+
+/* Life Path Table */
+.sheet-lptname {
+	width: 216px;
+}
+
+.sheet-lptgrade {
+	width: 48px;
+}
+
+.sheet-lptage {
+	width: 40px;
+}
+/* Movement Sizings */
+.sheet-mothername {
+	width: 100px;
+}
+
+/* Page 2 Sizings */
+.sheet-p2stypeselect {
+	width: 72px;
+}
+
+.sheet-p2sizeselect {
+	width: 100px;
+}
+
+/* Conditions Sizings */
+.sheet-cname {
+	width: 100px;
+}
+.sheet-clevel {
+	width: 75px;
+}
+.sheet-cdesc {
+	width: 650px;
+	margin-left: 20px;
+}
+
+/* ====== NEW STYLINGS ====== */
+.sheet-styletype[value='new'] ~ .sheet-page .sheet-attributehead {
+    background-color: #0072bc;
+}
+.sheet-styletype[value='new'] ~ .sheet-page .sheet-attributehead button {
+	color: white;
+	background-color: transparent;
+}
