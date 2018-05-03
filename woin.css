@@ -8,6 +8,18 @@
     display: block;
 }
 
+.sheet-spanfield {
+	float: none;
+}
+input[type=number] {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+}
+input[type=number]:hover,input[type=number]:focus {
+	-moz-appearance: number-input;
+	-webkit-appearance: number-input;	
+}
+
 /* Page Flipper */
 .sheet-pfcontainer {
     display: inline;
@@ -41,19 +53,7 @@
 .sheet-pfcontainer input:checked ~ .sheet-pfradio:after {
   display: block;
 }
-.sheet-pfcontainer .sheet-pfradio:after {
-  top: 5px;
-  left: 9px;
-  width: 32px;
-  height: 15px;
-  border-radius: 25%;
-  background: white;
-}
-.sheet-pfradio:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
+
 
 .sheet-row,
 .sheet-2colrow {
@@ -97,7 +97,6 @@
 }
 .sheet-logo {
 	text-align: right;
-	padding-top: 10px;
 }
 .sheet-logo img {
 	width: 100px;
@@ -110,7 +109,7 @@
 }
 .sheet-scorebox input {
     width: 70px;
-    font-size: 24px;
+    font-size: 24px !important;
     font-weight: bold;
     text-align: center;
     margin-left:15px;
@@ -120,6 +119,13 @@
 .sheet-attrbox {
     text-align:center;
 	font-weight: bold;
+}
+.sheet-attributehead button {
+	background-color: transparent;
+	text-shadow: none;
+}
+.sheet-page .sheet-attributehead button:before {
+	content: "";
 }
 
 /* General (Repeated) Dropdown Sizings */
@@ -146,7 +152,14 @@
 .sheet-skillname {
 	width: 184px;
 }
-
+div[data-groupname="repeating_skills"] p {
+	display: inline-block;
+}
+/* Defenses */
+.sheet-deftable td {
+	padding: 0px 8px;
+	border: 2px solid white;
+}
 /* Attack Header Spacings */
 .sheet-anamehead {
 	margin-left: 35px;
@@ -182,9 +195,15 @@
 .sheet-askill {
 	width: 150px;
 }
-.sheet-apooldiv {
+.sheet-atkpool {
+	display: inline-block;
+	float: none;
+	margin-left:0px;
+	width: 62px;
+}
+.sheet-aspacer {
    display: inline-block;
-   width: 175px;
+   width: 50px;
 }
 .sheet-aatktotal {
 	width: 50px;
@@ -202,10 +221,19 @@
 .sheet-ashowextra[value="on"] ~ .sheet-asecondrow {
 	display:block;
 }
+.sheet-atkmod {
+	display: inline-block;
+}
 
-.sheet-astype {
+.sheet-astype,
+.sheet-sstype {
 	width: 120px;
 	margin-bottom: 0px;
+}
+
+.sheet-armorweight,
+.sheet-shieldweight {
+	margin-left:2px;
 }
 
 /* Equip Headers */
@@ -238,7 +266,7 @@
 
 /* Life Path Table */
 .sheet-lptname {
-	width: 216px;
+	width: 210px;
 }
 
 .sheet-lptgrade {
@@ -252,7 +280,13 @@
 .sheet-mothername {
 	width: 100px;
 }
-
+.sheet-movetable td {
+	border: 2px white solid;
+	padding: 0px 12px;
+}
+.sheet-movetable .sheet-spanfield {
+	margin-left: 0px;
+}
 /* Page 2 Sizings */
 .sheet-p2stypeselect {
 	width: 72px;
@@ -276,42 +310,124 @@
 }
 
 /* XP Headers */
-.sheet-xpearnedhead {
+.sheet-xp th {
+	width: 100px;
+    padding: 3px 10px;	
+	border: 2px white solid;
 }
-.sheet-xpspenthead {
-	margin-left: 20px;
+.sheet-xp td {
+	height: 28px;
+	text-align: center;	
+    padding: 3px 10px;	
+	border: 2px white solid;	
 }
-.sheet-xpremainhead {
-	margin-left: 20px;
+.sheet-expendtable {
+	width: 265px;
 }
-.sheet-xpexpendhead {
+.sheet-expendtable th:nth-child(1) {
+	width: 200px;
+    padding: 3px 10px;	
+	border: 2px white solid;	
 }
-.sheet-xpcosthead {
-	margin-left: 107px;	
+.sheet-expendtable th:nth-child(2) {
+    padding: 3px 10px;	
+	border: 2px white solid;	
+}
+.sheet-xpspent span,
+.sheet-xpremain span {
+	margin-left: 0px;
 }
 
 /* XP Sizings */
-.sheet-xpearned {
-	width: 46px;
-	margin-left: 10px;
-}
-.sheet-xpspent {
-	margin-left: 20px;
-}
-.sheet-xpremain {	
-	position: absolute;
-	left: 186px;
-	margin-top: 4px;
+.sheet-xpcost {
+	width: 50px;
 }
 .sheet-xpexpend {
 }
-.sheet-xpcost {
+
+/* Roll Template Defaults */
+.sheet-rolltemplate-woinroll .sheet-critdie {
+	border: 1px #080 solid;
+}
+.sheet-rolltemplate-woinroll .sheet-cfaildie {
+	border: 1px red solid;
+}
+.sheet-rolltemplate-woinroll,.sheet-rolltemplate-woindmg  {
+	text-align:center;
+}
+.sheet-rolltemplate-woinroll .sheet-namerow {
+	text-align:center;
+	font-weight: bold;
+}
+.sheet-rolltemplate-woinroll .sheet-weaponrow a {
+	background-color: transparent;
+	color: black;
+	border: 0;
+}
+.sheet-rolltemplate-woinroll .sheet-weaponrow a:hover {
+	font-weight: bold;
+}
+.sheet-rolltemplate-woindmg .sheet-dmgtype,
+.sheet-rolltemplate-woinroll .sheet-byline {
+	font-size: xx-small;
+	font-style: italic;
+}
+.sheet-rolltemplate-woindmg .sheet-dieline,
+.sheet-rolltemplate-woinroll .sheet-dieline {
+	font-weight: bold;
+}
+.sheet-rolltemplate-woinroll .sheet-attrdie {
+	color: blue;
+}
+.sheet-rolltemplate-woinroll .sheet-skilldie {
+	color: teal;	
+}
+.sheet-rolltemplate-woinroll .sheet-equipdie {
+	color: gray;	
+}
+.sheet-rolltemplate-woinroll .sheet-moddie {
+	color: purple;	
+}
+.sheet-rolltemplate-woinroll .sheet-luckdie {
+	color: green;
+}
+.sheet-rolltemplate-woinroll .sheet-explodedie {
+	color: orange;
+}
+.sheet-rolltemplate-woindmg .sheet-total,
+.sheet-rolltemplate-woinroll .sheet-total {
+	font-size: large;
+	font-weight: bold;
+	padding-top:6px;
+}
+.sheet-rolltemplate-woinroll .sheet-alert {
+	color: red;
+	font-weight:bold;
+}
+.sheet-rolltemplate-woinroll .sheet-dmgtype {
+	color: silver;
+	font-size: small;
 }
 
 /* ====== NEW STYLINGS ====== */
-.sheet-styletype[value='new'] ~ .sheet-page {
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
+.sheet-styletype[value='new'] ~ .sheet-page,
+.sheet-styletype[value='new'] ~ .sheet-2colrow input {
+	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
 	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newback.png?raw=true")
+}
+.sheet-styletype[value='new'] ~ .sheet-page p,
+.sheet-styletype[value='new'] ~ .sheet-page input,
+.sheet-styletype[value='new'] ~ .sheet-page select,
+.sheet-styletype[value='new'] ~ .sheet-page textarea,
+.sheet-rolltemplate-woinroll .sheet-new .sheet-namerow {
+    font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+}
+.sheet-styletype[value='new'] ~ .sheet-page input[type=number]:hover::-webkit-inner-spin-button { 
+	background-image: url('https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newarrow.png?raw=true') no-repeat 50% 50%;
+}
+.sheet-styletype[value='new'] ~ .sheet-headerdiv {
+	padding-top: 10px;
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newhead.png?raw=true")	
 }
 .sheet-styletype[value='new'] ~ .sheet-page input,
 .sheet-styletype[value='new'] ~ .sheet-page select,
@@ -325,8 +441,10 @@
 	color: white;
 	background-color: transparent;
 }
-.sheet-styletype[value='new'] ~ .sheet-2colrow .sheet-pfcontainer input:checked ~ .sheet-pfradio,
-.sheet-styletype[value='new'] ~ .sheet-page .sheet-pfcontainer input:checked ~ .sheet-pfradio
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="new"] ~ .sheet-2colrow .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-2colrow .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="new"] ~ .sheet-row .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-row .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
 {
     background-color: #0072bc;
 }
@@ -346,4 +464,247 @@
 	border: 1px #0072bc solid;
 	padding: 3px;
 	border-radius: 3px;
+	margin-left: 0px;
+    float: none;
+}
+.sheet-rolltemplate-woinroll .sheet-new {
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newroll.jpg?raw=true");	
+}
+.sheet-rolltemplate-woindmg .sheet-new {
+	background: transparent url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newroll.jpg?raw=true") repeat-y 0px -8px;	
+}
+.sheet-rolltemplate-woinroll .sheet-new .sheet-namerow {
+	padding-top: 5px;
+}
+
+/* ======= OLD Stylings ======= */
+.sheet-styletype[value='old'] ~ .sheet-page {
+	width: 926px;
+	padding-left: 66px;
+	font-family: "Livory", Georgia, serif !important;
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/oldback.jpg?raw=true");
+	background-repeat: repeat-y;	
+}
+.sheet-styletype[value='old'] ~ .sheet-page p,
+.sheet-styletype[value='old'] ~ .sheet-page input,
+.sheet-styletype[value='old'] ~ .sheet-page select,
+.sheet-styletype[value='old'] ~ .sheet-page textarea,
+.sheet-styletype[value='old'] ~ .sheet-2colrow input,
+.sheet-rolltemplate-woinroll .sheet-old .sheet-namerow {
+	font-family: "Livory", Georgia, serif !important;
+}
+.sheet-styletype[value='old'] ~ .sheet-row {
+	padding-left: 66px;
+}
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-headertext {
+	background-color: #48481b;
+	padding: 2px 6px;
+    color: white;	
+	text-transform: uppercase;
+    font-size: 14px;
+	font-weight:bold;
+}
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-headertext::first-letter {
+    font-size: 18px;
+}
+.sheet-styletype[value='old'] ~ .sheet-headerdiv {
+	padding-left: 66px;
+	padding-top: 10px;
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/oldhead.jpg?raw=true");
+	background-repeat: no-repeat;
+}
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-attributehead,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-lptname,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-lptmaxdiename,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-xpearnedhead,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-xpspenthead,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-xpremainhead,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-xpexpendhead,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-xpcosthead,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="old"] ~ .sheet-2colrow .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-2colrow .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="old"] ~ .sheet-row .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-row .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
+{
+    background-color: #c9b47d !important;
+}
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-attributehead button {
+	font-family: "Livory", Georgia, serif !important;
+}
+
+.sheet-styletype[value='old'] ~ .sheet-headerdiv .sheet-headname {
+    background-color: rgba(201,180,125,0.3);
+}
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-scorebox input,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-luckdice input,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-specialpoints input,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-deftable input,
+.sheet-styletype[value='old'] ~ .sheet-page .repitem input,
+.sheet-styletype[value='old'] ~ .sheet-page .repitem select,
+.sheet-styletype[value='old'] ~ .sheet-page .repitem textarea,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable input {
+	background: transparent;
+}
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-scorebox,
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(odd),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(odd),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem input,
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(odd) input,
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-luckdice,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldname,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-sstype,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armorname,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-astype,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-specialpoints,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-specialpoints,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-careername,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-careerage,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-xpearned,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-xpspent,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-xpremain,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-lptage,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
+.sheet-rolltemplate-woinroll .sheet-old div:nth-child(even),
+.sheet-rolltemplate-woindmg .sheet-old div:nth-child(even),
+.sheet-styletype[value='old'] ~ .sheet-page2 textarea
+{
+    background-color: #f8eccf !important;
+}
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-attrbox,
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(even),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem select,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-careergrade,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-lptmaxdie,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-lptgrade,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-asqual,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-ssqual,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldweight,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armorweight,
+.sheet-rolltemplate-woinroll .sheet-old div:nth-child(odd):not(:first-child),
+.sheet-rolltemplate-woindmg .sheet-old div:nth-child(odd)
+{
+    background-color: #f5e5ba !important;
+}
+.sheet-rolltemplate-woinroll .sheet-old .sheet-namerow {
+    background-color: #c9b47d !important;	
+}
+
+/* N.O.W. Styles */
+.sheet-styletype[value='now'] ~ .sheet-page p,
+.sheet-styletype[value='now'] ~ .sheet-page input,
+.sheet-styletype[value='now'] ~ .sheet-page select,
+.sheet-styletype[value='now'] ~ .sheet-page textarea,
+.sheet-styletype[value='now'] ~ .sheet-page {
+	font-family: "Pancetta Pro", "Arial", Gadget , sans-serif !important;
+	font-size: 10.5px;
+}
+.sheet-styletype[value='now'] ~ .sheet-2colrow input,
+.sheet-rolltemplate-woinroll .sheet-now .sheet-namerow {
+	font-family: "Pancetta Pro", "Arial", Gadget , sans-serif !important;	
+}
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-attributehead,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-lptname,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-lptmaxdiename,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-xpearnedhead,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-xpspenthead,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-xpremainhead,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-xpexpendhead,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-xpcosthead,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="now"] ~ .sheet-2colrow .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-2colrow .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="now"] ~ .sheet-row .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-row .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-rolltemplate-woinroll .sheet-now .sheet-namerow
+{
+    background-color: #dcddde;	
+}
+
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-headertext {
+	font-family: "Tactic Sans Ext Exd", Impact, Charcoal, sans-serif;	
+	font-style: italic;	
+	background-color: #58585a;
+	padding: 2px 6px;
+    color: white;	
+	text-transform: uppercase;
+    font-size: 14px;
+	font-weight:bold;
+}
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-headertext::first-letter {
+    font-size: 18px;
+}
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-attributehead button {
+	background-color: transparent;
+}
+.sheet-styletype[value='now'] ~ .sheet-headerdiv .sheet-headname {
+    background-color: rgba(201,201,201,0.3);
+}
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-scorebox input,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-luckdice input,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-specialpoints input,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-deftable input,
+.sheet-styletype[value='now'] ~ .sheet-page .repitem input,
+.sheet-styletype[value='now'] ~ .sheet-page .repitem select,
+.sheet-styletype[value='now'] ~ .sheet-page .repitem textarea,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable input {
+	background: transparent;
+}
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-scorebox,
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(odd),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(odd),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem input,
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(odd) input,
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-luckdice,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldname,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-sstype,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-armorname,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-astype,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-specialpoints,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-specialpoints,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-careername,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-careerage,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-xpearned,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-xpspent,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-xpremain,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-lptage,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
+.sheet-styletype[value='now'] ~ .sheet-page2 textarea,
+.sheet-rolltemplate-woinroll .sheet-now div:nth-child(odd):not(:first-child),
+.sheet-rolltemplate-woindmg .sheet-now div:nth-child(odd)
+{
+    background-color: #f3f3f4 !important;
+}
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-attrbox,
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(even),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem select,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-careergrade,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-lptmaxdie,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-lptgrade,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-asqual,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-ssqual,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldweight,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-armorweight,
+.sheet-rolltemplate-woinroll .sheet-now div:nth-child(even),
+.sheet-rolltemplate-woindmg .sheet-now div:nth-child(even)
+{
+    background-color: #edeeee !important;
 }

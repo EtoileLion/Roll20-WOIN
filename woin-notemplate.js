@@ -46,7 +46,7 @@ on("chat:message", function(msg) {
 		var options;
 		var i = 0;
 		var msgcmd = msg.content.slice(0,msg.content.indexOf(" "));
-		var msgtext = msg.content.slice(msg.content.indexOf(" ")+1).trim().replace(/\^\^\^/g,"\"").replace(/REPLACE_C/g,":");
+		var msgtext = decodehtmlentities(msg.content.slice(msg.content.indexOf(" ")+1)).trim();
 		//Garbage Var Dump for Linting		
 		var dieresults;
 		var rolled;
@@ -115,7 +115,9 @@ on("chat:message", function(msg) {
 				total = 0;
 				dievalue = 0;
 				log("DEBUG (A,S,E): "+options.attrvalue+" "+options.skillvalue+" "+options.equipvalue);
-		output = "&{template:woinroll} {{"+options.type+"=1}} {{name="+options.name+"}} ";
+				output = "<div class=\"sheet-rolltemplate-"+options.type+"\"><div class=\"sheet-namerow\">"+options.name+"</div><div class=\"sheet-byline\">";
+				output += "("+options.attrname+((options.skillvalue !== 0) ? "+"+options.skillname : "")+((options.equipvalue !== 0) ? "+"+options.equipname : "")+((options.modvalue !== 0) ? "+Modifier" : "")+")";
+				output += "</div><div class=\"sheet-dieline\">";
 				explodetype = {"attr":false,"skill": false, "equip": false,"mod":false,"luck":true,"explode":true};				
 				["attr","skill","equip","mod","luck","explode"].forEach(function(dietype) {
 					rolled = 0;
@@ -128,9 +130,7 @@ on("chat:message", function(msg) {
 						dieresults.push("<span class=\"sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");
 					}
 				});
-		output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>"+options.equipname+"</span>" : "")+((options.modvalue !== 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";				
-				output += "{{dieresults="+dieresults.join(" + ")+"}} {{total="+total+"}}";
-				log("DEBUG: Output: "+output);
+				output += dieresults.join(" + ")+"</div><div class=\"sheet-total\">"+total+"</div></div>";
 				sendChat(options.name,output);				
 			break;
 			case "!woin_attack":
@@ -138,7 +138,6 @@ on("chat:message", function(msg) {
 				log("DEBUG (options):"+JSON.stringify(options));
 				atkpool = Math.min(options.attrvalue+options.skillvalue+options.equipvalue,options.dielimit)+options.posmod;
 				if(options.damdice*2 >= atkpool && options.damdice > 0) { sendChat("WOIN Dice Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. You cannot spend more attack dice than are in the pool. Tried to spend "+(options.damdice * 2)+" out of "+atkpool); return; }
-				options.equipvalue = parseInt(options.atkequipvalue) || 0;
 				options.attackvalue = atkpool - (options.damdice * 2);
 				options.explodevalue = 0;
 				dmgpool = options.damdice + options.damage_base;
@@ -146,25 +145,20 @@ on("chat:message", function(msg) {
 				critcheck = 0;
 				attacktotal = 0;
 				attackdieresults = [];
-				limittype = {"attr":false,"skill":false,"equip":false,"mod":true,"luck":true,"explode":true};				
-				explodetype = {"attr":false,"skill":false,"equip":false,"mod":false,"luck":true,"explode":true};
-				["attr","skill","equip","mod","luck","explode"].forEach(function (dietype) {
-					log(dietype+":"+options[dietype+"value"]);
+				explodetype = {"attack":false,"mod":false,"luck":true,"explode":true};
+				["attack","mod","luck","explode"].forEach(function (dietype) {
 				    i = 0;
-					while(i < options[dietype+"value"] && (options.dielimit > 0 || limittype[dietype] )) {
+					while(i < options[dietype+"value"]) {
 						dievalue = randomInteger(6);
 						if(dievalue === 6) { critcheck += 1; if(explodetype[dietype]) { options.explodevalue += 1; } }
-						options.dielimit -= 1;
-						attacktotal += dievalue;						
+						attacktotal += dievalue;
 						attackdieresults.push("<span class=\"sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");
 						i += 1;
 					}				
 				});
-		output = "&{template:woinroll} {{"+options.type+"=1}} {{type="+options.type+"}}{{name="+options.name+"}}";
-				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>Quality</span>" : "")+((options.modvalue !== 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";								
-				output += "{{damagevalue="+dmgpool+"}} {{damage_mod="+options.damage_mod+"}} {{dmgtype="+options.damagetype+"}} {{weapon_name="+options.weapon+"}}";
-				output += "{{dieresults="+attackdieresults.join(" + ")+"}} {{total="+attacktotal+"}} {{notes="+options.notes+"}}";
-				if(critcheck >= 3) { output+= " {{alert=Critical Check}}" }
+				output = "/direct <div class=\"sheet-rolltemplate-"+options.type+"\"><div class=\"sheet-namerow\">"+options.name+"</div><div class=\"sheet-byline\">";
+				output += "<a href='!woin_damage &#123; &#34;name&#34;&#58; &#34;"+options.name.replace("'","'")+"&#34;&#44; &#34;type&#34; &#58; &#34;"+options.type.replace("'","'")+"&#34;&#44; &#34;damagevalue&#34;&#58; "+dmgpool+"&#44; &#34;luck&#34;&#58; ?{How many luck die to use for damage|0}&#44; &#34;damage_mod&#34;&#58; "+options.damage_mod+"&#44; &#34;dmgtype&#34;&#58; &#34;"+options.damagetype.replace("'","'")+"&#34;&#125;'>"+options.weapon+"</a>";
+				output += "</div><div class='sheet-dieline'>"+attackdieresults.join(" + ")+"</div><div class=\"sheet-total\">"+attacktotal+"</div>"+((critcheck >= 3) ? "<div class=\"sheet-critcheck\">CRITICAL</div>" : "")+"<div class=\"sheet-notes\">"+options.notes+"</div>";
 				log("DEBUG (output): "+output);
 				sendChat(options.name,output);				
 			break;
@@ -185,8 +179,7 @@ on("chat:message", function(msg) {
 					}
 				});
 				if(options.damage_mod !== 0) { dmgdieresults.push("<span class=\"sheet-flatmod\">"+options.damage_mod+"</span>"); }
-				output = "&{template:woindmg} {{"+options.type+"=1}} {{name="+options.name+"}} {{dieresults="+dmgdieresults.join(" + ")+"}} {{total="+dmgtotal+"}} {{dmgtype="+options.dmgtype+"}}";
-				log("DEBUG: Output: "+output);
+				output = "<div class=\"sheet-rolltemplate-"+options.type+"\"><div class='sheet-dieline'>"+dmgdieresults.join(" + ")+"</div><div class=\"sheet-total\">"+dmgtotal+"</div><div class=\"sheet-dmgtype\">"+options.dmgtype+"</div>";
 				sendChat(options.name,output);  				
 			break;
 			case "!woin_init":
@@ -194,7 +187,7 @@ on("chat:message", function(msg) {
 				dieresults = [];
 				total = 0;
 				explodetype = {"attr":false,"skill":false,"mod":false,"luck":true,"explode":true};
-				output = "&{template:woinroll} {{"+options.type+"=1}} {{name="+options.name+" (Init)}} ";
+				output = "<div class=\"sheet-rolltemplate-"+options.type+"\"><div class=\"sheet-namerow\">"+options.name+"</div><div class=\"sheet-byline\">";
 			    ["attr","skill","mod","luck","explode"].forEach(function (dietype) {
 					rolled = 0;
 					log("DEBUG (Dietype "+dietype+"): "+options[dietype+"value"]); 
@@ -207,15 +200,14 @@ on("chat:message", function(msg) {
 					dieresults.push("<span class=\"sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");					
 					}
 				});
-				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>"+options.equipname+"</span>" : "")+((options.modvalue !== 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";				
-				output += "{{dieresults="+dieresults.join(" + ")+"}} {{total="+total+"}}";
-
+				output += "("+options.attrname+((options.skillvalue !== 0) ? "+"+options.skillname : "")+((options.modvalue !== 0) ? "+Modifier" : "")+((options.luckvalue !== 0) ? "+Luck" : "")+((options.explodevalue !== 0) ? "+Explosions" : "")+")</div><div class=\"sheet-dieline\">";				
+				output += dieresults.join(" + ")+"</div><div class=\"sheet-total\">"+total+"</div>";				
 				//Hunt for Token.
 				campaign = Campaign();
 				playerpage = (campaign.get("playerspecificpages") === false) ? campaign.get("playerpageid") : campaign.get("playerspecificpages").get(charid);
 	            turnorder = (campaign.get("turnorder") == "") ? [] : JSON.parse(campaign.get("turnorder"));
 				log(turnorder);
-				if(campaign.get("initiativepage") === false) {
+				if(campaign.get("initiativepage") == false) {
 					sendChat("WOIN Roller","/w "+msg.who.replace(" (GM)","")+" There doesn't appear to be a Turn Order active.");
 					return;
 				}
@@ -223,7 +215,7 @@ on("chat:message", function(msg) {
 				log("DEBUG: Broad Tokens: "+JSON.stringify(findObjs({type: "graphic",subtype: "token"})));
 				tokens = findObjs({type: "graphic",subtype: "token", represents: charid, pageid: playerpage });
 				log("DEBUG: (tokens) : "+JSON.stringify(tokens));
-				if(tokens.length === 0) { output += "{{alert=No Token Found}}"; }
+				if(tokens.length === 0) { output += "<div class=\"sheet-alert\">No Token Found</div>"; }
 				else {
 					token = tokens[0];
 					//Add to Tracker.
@@ -232,8 +224,11 @@ on("chat:message", function(msg) {
 					else { turnorder[i].pr = total; }
 					campaign.set("turnorder", JSON.stringify(turnorder));
 				}
+				output += "</div>";
 				sendChat(options.name,output); 								
 			break;					
 		}
-	}	
+	}
+	
 });
+
