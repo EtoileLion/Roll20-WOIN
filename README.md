@@ -10,7 +10,7 @@ This version of the sheet requires a Pro level account with Roll20, in order to 
 
 **_Before beginning any installation on an existing game, [BACK UP THE GAME](https://wiki.roll20.net/Game_Management#Copy_Game). I am not responsible for any loss of data._**
 
-*The Conversion script from the original version of the WOIN character sheet to this one has been **delayed to a future version** due to... quirks in certain fields.*
+*The Conversion script from the original version of the WOIN character sheet to this one has been **delayed to a future version** due to... quirks in certain fields.* **Due to this, conversion from the original character sheets to the current one can currently only be reliably done manually.**
 
 1. Create a game.    
 2. In the [Game Settings](https://wiki.roll20.net/Game_Management#Game_Settings) page for the game, set the Character Sheet Template to Custom. *(This step may be completed during game creation.)*    
