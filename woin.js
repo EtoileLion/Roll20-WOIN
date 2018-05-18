@@ -241,3 +241,4 @@ on("chat:message", function(msg) {
 		}
 	}	
 });
+log("What's Old Is N.E.W. Dice Roller Version 1.0 Loaded")
