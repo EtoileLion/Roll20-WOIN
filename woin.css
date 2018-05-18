@@ -20,6 +20,10 @@ input[type=number]:hover,input[type=number]:focus {
 	-webkit-appearance: number-input;	
 }
 
+.sheet-headerdiv input {
+	 width: 740px;
+}
+
 /* Page Flipper */
 .sheet-pfcontainer {
     display: inline;
@@ -92,11 +96,17 @@ input[type=number]:hover,input[type=number]:focus {
 .sheet-center {
     text-align: center;
 }
+
 .sheet-descriptor {
 	width: 300px;
 }
 .sheet-logo {
 	text-align: right;
+	position: absolute;
+	top: 73px;
+	background-color: transparent;
+	width: 103px;
+	left: 789px;
 }
 .sheet-logo img {
 	width: 100px;
@@ -301,7 +311,7 @@ div[data-groupname="repeating_skills"] p {
 	width: 100px;
 }
 .sheet-clevel {
-	width: 75px;
+	width: 80px;
 }
 .sheet-cdesc {
 	width: 650px;
@@ -337,12 +347,20 @@ div[data-groupname="repeating_skills"] p {
 .sheet-xpremain span {
 	margin-left: 0px;
 }
+.sheet-xpearned input {
+	width: 60px !important;
+}
 
 /* XP Sizings */
 .sheet-xpcost {
 	width: 50px;
 }
 .sheet-xpexpend {
+}
+
+.sheet-styletype ~ .sheet-footer {
+	padding-top:20px;
+	padding-bottom: 10px;
 }
 
 /* Roll Template Defaults */
@@ -394,6 +412,9 @@ div[data-groupname="repeating_skills"] p {
 .sheet-rolltemplate-woinroll .sheet-explodedie {
 	color: orange;
 }
+.sheet-rolltemplate-woindmg .sheet-damagedie {
+	color: red;
+}
 .sheet-rolltemplate-woindmg .sheet-total,
 .sheet-rolltemplate-woinroll .sheet-total {
 	font-size: large;
@@ -422,9 +443,6 @@ div[data-groupname="repeating_skills"] p {
 .sheet-rolltemplate-woinroll .sheet-new .sheet-namerow {
     font-family: "Trebuchet MS", Helvetica, sans-serif !important;
 }
-.sheet-styletype[value='new'] ~ .sheet-page input[type=number]:hover::-webkit-inner-spin-button { 
-	background-image: url('https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newarrow.png?raw=true') no-repeat 50% 50%;
-}
 .sheet-styletype[value='new'] ~ .sheet-headerdiv {
 	padding-top: 10px;
 	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newhead.png?raw=true")	
@@ -441,10 +459,10 @@ div[data-groupname="repeating_skills"] p {
 	color: white;
 	background-color: transparent;
 }
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="new"] ~ .sheet-2colrow .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-2colrow .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="new"] ~ .sheet-row .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-row .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="new"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="new"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
 {
     background-color: #0072bc;
 }
@@ -478,13 +496,7 @@ div[data-groupname="repeating_skills"] p {
 }
 
 /* ======= OLD Stylings ======= */
-.sheet-styletype[value='old'] ~ .sheet-page {
-	width: 926px;
-	padding-left: 66px;
-	font-family: "Livory", Georgia, serif !important;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/oldback.jpg?raw=true");
-	background-repeat: repeat-y;	
-}
+.sheet-styletype[value='old'] ~ .sheet-page,
 .sheet-styletype[value='old'] ~ .sheet-page p,
 .sheet-styletype[value='old'] ~ .sheet-page input,
 .sheet-styletype[value='old'] ~ .sheet-page select,
@@ -492,9 +504,6 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-2colrow input,
 .sheet-rolltemplate-woinroll .sheet-old .sheet-namerow {
 	font-family: "Livory", Georgia, serif !important;
-}
-.sheet-styletype[value='old'] ~ .sheet-row {
-	padding-left: 66px;
 }
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-headertext {
 	background-color: #48481b;
@@ -508,9 +517,10 @@ div[data-groupname="repeating_skills"] p {
     font-size: 18px;
 }
 .sheet-styletype[value='old'] ~ .sheet-headerdiv {
-	padding-left: 66px;
+	
 	padding-top: 10px;
 	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/oldhead.jpg?raw=true");
+	background-position: -66px;
 	background-repeat: no-repeat;
 }
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-attributehead,
@@ -523,10 +533,10 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-xpcosthead,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="old"] ~ .sheet-2colrow .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-2colrow .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="old"] ~ .sheet-row .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-row .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="old"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="old"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
 {
     background-color: #c9b47d !important;
 }
@@ -544,6 +554,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .repitem input,
 .sheet-styletype[value='old'] ~ .sheet-page .repitem select,
 .sheet-styletype[value='old'] ~ .sheet-page .repitem textarea,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-xpearned input,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable input {
 	background: transparent;
 }
@@ -567,6 +578,8 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-xpspent,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-xpremain,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-lptage,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldweight,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armorweight,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
@@ -588,8 +601,8 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-lptgrade,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-asqual,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-ssqual,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldweight,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-armorweight,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldsoak,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armorsoak,
 .sheet-rolltemplate-woinroll .sheet-old div:nth-child(odd):not(:first-child),
 .sheet-rolltemplate-woindmg .sheet-old div:nth-child(odd)
 {
@@ -622,10 +635,10 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpcosthead,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="now"] ~ .sheet-2colrow .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-2colrow .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="now"] ~ .sheet-row .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-row .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="now"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="now"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
 .sheet-rolltemplate-woinroll .sheet-now .sheet-namerow
 {
     background-color: #dcddde;	
@@ -680,6 +693,8 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpspent,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpremain,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-lptage,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldweight,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-armorweight,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
@@ -701,10 +716,198 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-lptgrade,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-asqual,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-ssqual,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldweight,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-armorweight,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldsoak,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-armorsoak,
 .sheet-rolltemplate-woinroll .sheet-now div:nth-child(even),
 .sheet-rolltemplate-woindmg .sheet-now div:nth-child(even)
 {
     background-color: #edeeee !important;
 }
+
+/* Nameless Ones Styling */
+.sheet-styletype[value='nameless'] ~ .sheet-page {
+	width: 866px;
+	padding-left: 6px;
+	font-family: "Libre Baskerville", Baskerville, serif !important;
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/noback.jpg?raw=true");
+	background-repeat: repeat-y;	
+	color: white;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page p,
+.sheet-styletype[value='nameless'] ~ .sheet-page input,
+.sheet-styletype[value='nameless'] ~ .sheet-page select,
+.sheet-styletype[value='nameless'] ~ .sheet-page textarea,
+.sheet-styletype[value='nameless'] ~ .sheet-2colrow input {
+	font-family: "Libre Baskerville", Baskerville, serif !important;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-headerdiv,
+.sheet-styletype[value='nameless'] ~ .sheet-footer,
+	.sheet-styletype[value='nameless'] ~ br
+{
+	background-color:black;
+	width: 866px;
+	padding-left: 6px;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-headerdiv input {
+	font-family: "Viking", Palatino, serif !important;
+	color: white;
+	font-style: italic;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page input,
+.sheet-styletype[value='nameless'] ~ .sheet-page select,
+.sheet-styletype[value='nameless'] ~ .sheet-page textarea {
+	border: 1px #ad2500 solid;
+	color: white;
+}
+.sheet-rolltemplate-woinroll .sheet-nameless,
+.sheet-rolltemplate-woindmg .sheet-nameless {
+	font-family: "Libre Baskerville", Baskerville, serif !important;
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/noroll.jpg?raw=true");
+	background-repeat: repeat-y;	
+	color: white;	
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-attributehead {
+    background-color: #ad2500;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-attributehead button {
+	color: white;
+	background-color: transparent;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-scorebox input,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-luckdice input,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-specialpoints input,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-deftable input,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem input,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem select,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem textarea,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xpearned input,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-descriptor,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-label ~ input,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-p2sizeselect,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-p2stypeselect,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-label ~ input,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-movetable input {
+	background: transparent;
+	color: white;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem input::placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem select::placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem textarea::placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-mothername input::placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem input:-ms-input-placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem select:-ms-input-placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem textarea:-ms-input-placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-mothername input:-ms-input-placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem input::-ms-input-placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem select::-ms-input-placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem textarea::-ms-input-placeholder,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-mothername input::-ms-input-placeholder
+{
+	color: #CCC;
+}
+
+.sheet-styletype[value='nameless'] ~ .sheet-page .repitem button,
+.sheet-styletype[value='nameless'] ~ .sheet-page .repcontrol button,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-movetable button {
+    background-image: none;
+    background-color: black;
+	border: 1px red solid;
+    color: red;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-scorebox,
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(odd),
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(odd),
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem input,
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(odd) input,
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-luckdice,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldname,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-sstype,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armorname,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-astype,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-specialpoints,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-specialpoints,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-careername,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-careerage,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xpearned,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xpspent,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldweight,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armorweight,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xpremain,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptage,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
+.sheet-styletype[value='nameless'] ~ .sheet-page2 textarea,
+.sheet-rolltemplate-woinroll .sheet-now div:nth-child(odd):not(:first-child),
+.sheet-rolltemplate-woindmg .sheet-now div:nth-child(odd)
+{
+    background-color: rgba(196,44,1,0.3) !important;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-attrbox,
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(even),
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem select,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-careergrade,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptmaxdie,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptgrade,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-asqual,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-ssqual,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldsoak,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armorsoak,
+.sheet-rolltemplate-woinroll .sheet-now div:nth-child(even),
+.sheet-rolltemplate-woindmg .sheet-now div:nth-child(even)
+{
+    background-color: rgba(247,76,29,0.4) !important;
+}
+
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-deftable td,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-movetable td,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-expendtable td,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-expendtable th,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xp td,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xp th,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-scorebox input,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-mothername {
+	border-color: transparent;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-attributehead,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptname,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptmaxdiename,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="nameless"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="nameless"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="nameless"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="nameless"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
+{
+    background-color: #b82e00 !important;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-headertext,
+.sheet-rolltemplate-woinroll .sheet-nameless .sheet-namerow {
+	font-family: "Overdose Sunrise", "Libre Baskerville", Baskerville, serif !important;
+	text-transform:uppercase;
+	background-color: #A20;
+	padding: 2px;
+}
+.sheet-styletype[value='nameless'] ~ div .sheet-pfradio {
+	background-color: transparent;
+	border: 1px red solid;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page label,
+.sheet-rolltemplate-woinroll .sheet-nameless a {
+	color: white;
+}
+.sheet-styletype[value='nameless'] ~ .sheet-page option {
+	background-color:black;
+	color: red;
+}
+.sheet-rolltemplate-woinroll .sheet-nameless .sheet-attrdie {
+	color: #66a9e0;
+	}
