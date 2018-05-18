@@ -15,12 +15,12 @@ This version of the sheet requires a Pro level account with Roll20, in order to 
 1. Create a game.    
 2. In the [Game Settings](https://wiki.roll20.net/Game_Management#Game_Settings) page for the game, set the Character Sheet Template to Custom. *(This step may be completed during game creation.)*    
 3. In the [Game Settings](https://wiki.roll20.net/Game_Management#Game_Settings) page for the game, select the HTML Layout tab.    
-  * Copy the contents of [woin.html](./blob/master/woin.html) and paste them into the text box.    
+  * Copy the contents of [woin.html](./woin.html) and paste them into the text box.    
 4. In the [Game Settings](https://wiki.roll20.net/Game_Management#Game_Settings) page for the game, select the CSS Styling tab.    
-  * Copy the contents of [woin.css](./blob/master/woin.css) and paste them into the text box.    
+  * Copy the contents of [woin.css](./woin.css) and paste them into the text box.    
 5. Return to the game lobby, and navigate to the [API Scripts](https://wiki.roll20.net/Game_Management#API_Scripts) for the game.    
 6. Click on the New Script tab. You can give the script any name you like.    
-  * Copy the contents of [woin.js](./blob/master/woin.js) and paste them into the upper text box.    
+  * Copy the contents of [woin.js](./woin.js) and paste them into the upper text box.    
   * Click the Save Script button below the textbox.    
   * In the lower text box, you should see "What's Old Is N.E.W. Dice Roller Version X.X Loaded", with X.X being the current script's version.    
 7. *(Optional)* For the benefit of viewing, additional fonts are available in the /fonts directory. Fonts cannot be force-loaded via roll20.    
