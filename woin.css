@@ -434,7 +434,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='new'] ~ .sheet-page,
 .sheet-styletype[value='new'] ~ .sheet-2colrow input {
 	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newback.png?raw=true")
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/newback.png?raw=true")
 }
 .sheet-styletype[value='new'] ~ .sheet-page p,
 .sheet-styletype[value='new'] ~ .sheet-page input,
@@ -445,7 +445,7 @@ div[data-groupname="repeating_skills"] p {
 }
 .sheet-styletype[value='new'] ~ .sheet-headerdiv {
 	padding-top: 10px;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newhead.png?raw=true")	
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/newhead.png?raw=true")	
 }
 .sheet-styletype[value='new'] ~ .sheet-page input,
 .sheet-styletype[value='new'] ~ .sheet-page select,
@@ -486,10 +486,10 @@ div[data-groupname="repeating_skills"] p {
     float: none;
 }
 .sheet-rolltemplate-woinroll .sheet-new {
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newroll.jpg?raw=true");	
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/newroll.jpg?raw=true");	
 }
 .sheet-rolltemplate-woindmg .sheet-new {
-	background: transparent url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/newroll.jpg?raw=true") repeat-y 0px -8px;	
+	background: transparent url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/newroll.jpg?raw=true") repeat-y 0px -8px;	
 }
 .sheet-rolltemplate-woinroll .sheet-new .sheet-namerow {
 	padding-top: 5px;
@@ -519,7 +519,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-headerdiv {
 	
 	padding-top: 10px;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/oldhead.jpg?raw=true");
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/oldhead.jpg?raw=true");
 	background-position: -66px;
 	background-repeat: no-repeat;
 }
@@ -729,7 +729,7 @@ div[data-groupname="repeating_skills"] p {
 	width: 866px;
 	padding-left: 6px;
 	font-family: "Libre Baskerville", Baskerville, serif !important;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/noback.jpg?raw=true");
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/noback.jpg?raw=true");
 	background-repeat: repeat-y;	
 	color: white;
 }
@@ -762,7 +762,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-rolltemplate-woinroll .sheet-nameless,
 .sheet-rolltemplate-woindmg .sheet-nameless {
 	font-family: "Libre Baskerville", Baskerville, serif !important;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/noroll.jpg?raw=true");
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/noroll.jpg?raw=true");
 	background-repeat: repeat-y;	
 	color: white;	
 }
