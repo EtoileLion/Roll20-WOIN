@@ -305,7 +305,9 @@ div[data-groupname="repeating_skills"] p {
 .sheet-p2sizeselect {
 	width: 100px;
 }
-
+.sheet-copyright {
+	font-size: xx-small;
+}
 /* Conditions Sizings */
 .sheet-cname {
 	width: 100px;
@@ -361,6 +363,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype ~ .sheet-footer {
 	padding-top:20px;
 	padding-bottom: 10px;
+	margin-top: -9px;
 }
 
 /* Roll Template Defaults */
