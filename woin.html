@@ -387,10 +387,13 @@
 	<br>
 	<div class='sheet-row'>
 		<p class='sheet-headertext'>Armor</p>
-		<table>
+		<table class='sheet-armortablehead'>
 		<tr>
-			<th>Name</th><th>Quality</th><th>Class</th><th>Soak</th><th>Weight</th>
-		</tr>	
+			<th>Name</th><th>Quality</th><th>Class</th><th>Soak</th><th>Weight</th><th>Ineffective Vs.</th>
+		</tr>
+        </table>
+        <fieldset class="repeating_armor">
+        <table>
 		<tr>
 		<td>
 		<input class="sheet-shieldname" name="attr_armorname" type='text' placeholder='Item Name' >
@@ -415,7 +418,13 @@
 		<input class="sheet-shieldsoak" name="attr_armorsoak" type='number' min=0 value=0 >		
 		</td><td>		
 		<input class="sheet-armorweight" name="attr_armorweight" type='number' min=0 value=0 />
-		</td></tr></table>
+		</td>
+        <td>
+        <input class='sheet-armorineff' name="attr_armorineffect" type='text' placeholder="-">
+        </td>
+        </tr>
+        </table>
+        </fieldset>
 	</div>
 	<br>
 	<div class='sheet-row'>
@@ -563,7 +572,7 @@
 	"use strict";
 	on("sheet:opened", function(eventInfo) {
 		//Check for initialization
-		getAttrs(["str_score","str_pool","agi_score","agi_pool","end_score","end_pool","int_score","int_pool","log_score","log_pool","wil_score","wil_pool","cha_score","cha_pool","luc_score","luc_pool","rep_score","rep_pool","special_score","special_pool","sizemod","speed","climb","swim","init","carry","jump","perception","actions","max_diepool","sheet_type","special_name","special_abbr","total_age","total_grade","page_no","luck","placename","spent_xp","remaining_xp"], function(values) {
+		getAttrs(["str_score","str_pool","agi_score","agi_pool","end_score","end_pool","int_score","int_pool","log_score","log_pool","wil_score","wil_pool","cha_score","cha_pool","luc_score","luc_pool","rep_score","rep_pool","special_score","special_pool","sizemod","speed","climb","swim","init","carry","jump","perception","actions","max_diepool","sheet_type","special_name","special_abbr","total_age","total_grade","page_no","luck","placename","spent_xp","remaining_xp","sheet_version"], function(values) {
 			var setupvars = {};
 			if(!values.hasOwnProperty("str_pool")) { setupvars.str_pool = Math.floor(Math.sqrt(2*(parseInt(values.str_score)+1))+0.5)-1;}
 			if(!values.hasOwnProperty("agi_pool")) { setupvars.agi_pool = Math.floor(Math.sqrt(2*(parseInt(values.agi_score)+1))+0.5)-1; }
@@ -596,7 +605,8 @@
 			if(!values.hasOwnProperty("special_abbr")) { setupvars.special_abbr = "PSI"; }
 			if(!values.hasOwnProperty("placename")) { setupvars.placename = "world"; }			
 			if(!values.hasOwnProperty("page_no")) { setupvars.page_no = 1; }
-			if(!values.hasOwnProperty("sheet_version")) { setupvars.sheet_version = "1.0"; }			
+			if(!values.hasOwnProperty("sheet_version")) { setupvars.sheet_version = "1.0"; } 
+            else if(values.sheet_version !== "1.01") { setupvars.sheet_version = update_sheet(values.sheet_version); }			
 			setAttrs(setupvars);
 		});
 	});
@@ -838,14 +848,14 @@
 	};
 	
 	var update_climb = function(skillvalue) {
-		getAttrs(["str_pool","agi_pool","sizemod","climbhalve"], function(values) {
-			setAttrs({"climb":(values.str_pool+values.agi_pool+skillvalue+values.sizemod)/2*values.climbhalve});
+		getAttrs(["str_pool","agi_pool","sizemod"], function(values) {
+			setAttrs({"climb":(values.str_pool+values.agi_pool+skillvalue+values.sizemod)/2});
 		});
 	};
 	
 	var update_swim = function(skillvalue) {
-		getAttrs(["str_pool","agi_pool","sizemod","swimhalve"], function(values) {
-			setAttrs({"swim":(values.str_pool+values.agi_pool+skillvalue+values.sizemod)/2*values.swimhalve});
+		getAttrs(["str_pool","agi_pool","sizemod"], function(values) {
+			setAttrs({"swim":(values.str_pool+values.agi_pool+skillvalue+values.sizemod)/2});
 		});
 	};
 	
@@ -917,6 +927,25 @@
 				functionname(outvalue);
 			});
 		});
+	};
+	
+	var update_sheet = function(version) {
+		if(version === "1.0") {
+			console.log("Patching Sheet to Version 1.01");
+		    var rowid = generateRowID();
+			getAttrs(["armorname","armorquality","armorsoak","armorweight"], function(values) {
+				update = {};
+			    update["repeating_armor_"+rowid+"_armorname"] = values.armorname || "";
+				update["repeating_armor_"+rowid+"_armorquality"] = values.armorquality || "";				
+				update["repeating_armor_"+rowid+"_armorsoak"]  = values.armorsoak || 0;
+				update["repeating_armor_"+rowid+"_armorweight"]  = values.armorweight || 0;
+				setAttrs(update);
+				find_skill("climbing",update_climb);
+				find_skill("swimming",update_swim);				
+			});
+			version = "1.01";
+		}
+		return version;
 	};
 </script>
 <rolltemplate class="sheet-rolltemplate-woinroll">

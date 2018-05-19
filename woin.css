@@ -258,6 +258,25 @@ div[data-groupname="repeating_skills"] p {
 	margin-left: 62px;
 }
 
+/* Armor Headers */
+.sheet-armortable th:nth-child(1) {
+    width: 209px;
+}
+.sheet-armortable th:nth-child(2) {
+    width: 100px;
+}
+.sheet-armortable th:nth-child(3) {
+    width: 120px;
+}
+.sheet-armortable th:nth-child(4) {
+    width: 46px;
+}
+.sheet-armortable th:nth-child(5) {
+    width: 48px;
+}
+.sheet-armortable th:nth-child(6) {
+    width: 210px;
+}
 /* Exploit */
 .sheet-exploit-desc {
     min-width: 500px;
