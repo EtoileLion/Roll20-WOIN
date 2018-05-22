@@ -26,7 +26,7 @@
 	<div class='sheet-10colrow'>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' value='!woin_roll {"attrname":"Strength", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>STR</button>
+				<button type='roll' value='!woin_roll {"attrname":"Strength","id":"@{character_id}, "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'>STR</button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_str_score' min=0 value=3 style='width:2.5em;'>
@@ -37,7 +37,7 @@
 		</div>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' value='!woin_roll {"attrname":"Agility", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>AGI</button>
+				<button type='roll' value='!woin_roll {"attrname":"Agility", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'>AGI</button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_agi_score' min=0 value=3 style='width:2.5em;'>
@@ -48,7 +48,7 @@
 		</div>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' value='!woin_roll {"attrname":"Endurance", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>END</button>
+				<button type='roll' value='!woin_roll {"attrname":"Endurance", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'>END</button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_end_score' min=0 value=3 style='width:2.5em;'>
@@ -59,7 +59,7 @@
 		</div>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' value='!woin_roll {"attrname":"Intuition", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>INT</button>
+				<button type='roll' value='!woin_roll {"attrname":"Intuition", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'>INT</button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_int_score' min=0 value=3 style='width:2.5em;'>
@@ -70,7 +70,7 @@
 		</div>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' value='!woin_roll {"attrname":"Logic", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>LOG</button>
+				<button type='roll' value='!woin_roll {"attrname":"Logic", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'>LOG</button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_log_score' min=0 value=3 style='width:2.5em;'>
@@ -81,7 +81,7 @@
 		</div>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' value='!woin_roll {"attrname":"Willpower", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>WIL</button>
+				<button type='roll' value='!woin_roll {"attrname":"Willpower", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'>WIL</button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_wil_score' min=0 value=3 style='width:2.5em;'>
@@ -92,7 +92,7 @@
 		</div>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' value='!woin_roll {"attrname":"Charisma", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>CHA</button>
+				<button type='roll' value='!woin_roll {"attrname":"Charisma", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'>CHA</button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_cha_score' min=0 value=3 style='width:2.5em;'>
@@ -103,7 +103,7 @@
 		</div>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' value='!woin_roll {"attrname":"Luck", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>LUC</button>
+				<button type='roll' value='!woin_roll {"attrname":"Luck", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'>LUC</button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_luc_score' min=0 value=3 style='width:2.5em;'>
@@ -114,7 +114,7 @@
 		</div>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' value='!woin_roll {"attrname":"Reputation", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'>REP</button>
+				<button type='roll' value='!woin_roll {"attrname":"Reputation", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'>REP</button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_rep_score' min=0 value=0 style='width:2.5em;'>
@@ -125,7 +125,7 @@
 		</div>
 		<div class='sheet-col'>
 			<div class='sheet-attributehead'>
-				<button type='roll' name='attr_special_rbutton' value='!woin_roll {"attrname":"Special", "name":"@{character_name}", "modifier":?{Dice Pool Modifier?|0}}'><span name='attr_special_abbr'></span></button>
+				<button type='roll' name='attr_special_rbutton' value='!woin_roll {"attrname":"Special", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}}'><span name='attr_special_abbr'></span></button>
 			</div>
 			<div class='sheet-scorebox'>
 				<input type='number' name='attr_special_score' min=0 value=0 style='width:2.5em;'>
@@ -141,7 +141,7 @@
 				<p class='sheet-headertext'>Skills</p>
 				<span class='sheet-snamehead'>Skill Name</span><span class='sheet-sattrhead'>Attribute</span><span class='sheet-sgradehead'>Grade</span>
 				<fieldset class="repeating_skills">
-					<button type='roll' value='!woin_roll {"attrname":"@{skillattr}", "skillname": "@{skillname}", "name": "@{character_name}", "modifier":?{Dice Pool Modifier?|0}, "luck":?{Add Luck Die to Skill Check?|0}}' ></button>
+					<button type='roll' value='!woin_roll {"attrname":"@{skillattr}", "skillname": "@{skillname}", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}, "luck":?{Add Luck Die to Skill Check?|0}}' ></button>
 					<input name="attr_skillname" class="sheet-skillname" type='text' placeholder='Skill Name'>
 					<select name="attr_skillattr" class="sheet-attrselect">
 						<option>Strength</option>
@@ -259,7 +259,7 @@
 							<td><span class='sheet-spanfield'><span name='attr_init'></span>d6</span></td>
 							<td>
 								<input type='number' name='attr_initmod' value=0>
-								<button type='roll' value='!woin_init {"name": "@{character_name}", "attrname": "Intuition", "skillname":"@{init_skill}", "modifier": @{initmod}, "luck": ?{Add Luck die to Initiative?|0}}'></button>
+								<button type='roll' value='!woin_init {"id": "@{character_id}", "attrname": "Intuition", "skillname":"@{init_skill}", "modifier": @{initmod}, "luck": ?{Add Luck die to Initiative?|0}}'></button>
 							</td>
 						</tr>
 						<tr>
@@ -267,7 +267,7 @@
 							<td><span class='sheet-spanfield'><span name='attr_perception'></span>d6</span></td>
 							<td>
 								<input type='number' name='attr_percmod' value=0 >
-								<button type='roll' value='!woin_roll {"name": "@{character_name}", "attrname": "Intuition", "skillname": "Perception", "modifier": @{percmod}}'></button>
+								<button type='roll' value='!woin_roll {"id": "@{character_id}", "attrname": "Intuition", "skillname": "Perception", "modifier": @{percmod}}'></button>
 							</td>
 						</tr>
 						<tr>
@@ -297,16 +297,17 @@
 		<p class='sheet-headertext'>Attacks</p>
 		<div><span class='sheet-anamehead'>Attack Name</span><span class='sheet-aatktotalhead'>Attack Pool</span><span class='sheet-adamagehead'>Damage</span><span class='sheet-admgtypehead'>Damage Type</span><span class='sheet-arangehead'>Range</span></div>		
 		<fieldset class="repeating_attacks">
+			<input type="hidden" name="attr_attacks_id" value="">
 			<input type='hidden' class="sheet-ashowextra" name="attr_attack_showextra">
 			<div>
-				<button type='roll' value='!woin_attack { "name": "@{character_name}", "weapon" : "@{attackname}","attrname":"@{attackattr}","skillname":"@{attackskill}","atkequipvalue":@{attackquality}, "damagetype": "@{attack_type}", "damage_base" : @{attackdmg}, "damage_mod":@{attackdmgmod}, "notes": "@{notes}", "posmod": @{attackmod}, "damdice": ?{How many attack dice spent on damage?|0},"luck": ?{How many luck die to spend?|0} }'></button>
+				<button type='roll' value='!woin_attack { "id": "@{character_id}","weapon_id": "@{attacks_id}", "attrname":"@{attackattr}","skillname":"@{attackskill}","atkequipvalue":@{attackquality}, "damagetype": "@{attack_type}", "damage_base" : @{attackdmg}, "damage_mod":@{attackdmgmod}, "notes": "@{notes}", "posmod": @{attackmod}, "damdice": ?{How many attack dice spent on damage?|0},"luck": ?{How many luck die to spend?|0} }'></button>
 				<input class='sheet-aname' name="attr_attackname" type='text' placeholder='Weapon Name'>
 				<div class='sheet-atkmod'><input name='attr_attackmod' type='number' value=0></div>+
 				<div class='sheet-spanfield sheet-atkpool'><span name="attr_attackpool"></span>d6</div>
 				<div class='sheet-aspacer'></div>
-				<input name="attr_attackdmg" type='number'>d6+<input name="attr_attackdmgmod" type='number'>
+				<input name="attr_attackdmg" type='number' value=0>d6+<input name="attr_attackdmgmod" type='number' value=0>
 				<input class='sheet-admgtype' name="attr_attack_type" type='text'>
-				<input name="attr_attack_range" type='number'>
+				<input name="attr_attack_range" type='number' value=0>
 				<input name="attr_attack_showextra" type='checkbox'>
 			</div>
 			<div class='sheet-asecondrow'>
@@ -430,6 +431,7 @@
 	<div class='sheet-row'>
 		<p class='sheet-headertext'>Exploits & Traits</p>
 		<fieldset class="repeating_exploits">
+			<button type='roll' value="&{template:woinnotes} {{@{sheet_type}=1}} {{notes=@{exploitdesc}}} {{title=@{exploitname}}}"></button>
 			<input name="attr_exploitname" type='text' placeholder='Exploit Name' />
 			<textarea class='sheet-exploit-desc' name="attr_exploitdesc" placeholder='Description'></textarea>
 		</fieldset>
@@ -606,7 +608,7 @@
 			if(!values.hasOwnProperty("placename")) { setupvars.placename = "world"; }			
 			if(!values.hasOwnProperty("page_no")) { setupvars.page_no = 1; }
 			if(!values.hasOwnProperty("sheet_version")) { setupvars.sheet_version = "1.0"; } 
-            else if(values.sheet_version !== "1.01") { setupvars.sheet_version = update_sheet(values.sheet_version); }			
+            else if(values.sheet_version !== "1.02") { setupvars.sheet_version = update_sheet(values.sheet_version); }			
 			setAttrs(setupvars);
 		});
 	});
@@ -928,7 +930,19 @@
 			});
 		});
 	};
-	
+
+	on("sheet:opened change:repeating_attacks", function() {update_id("attacks");});
+	var update_id = function(name){
+		getSectionIDs("repeating_"+name, function(idarray) {
+			var attrs ={};		
+			idarray.forEach(function(id) {
+				attrs['repeating_'+name+'_' + id + '_'+name+'_id'] = id;
+			});
+			setAttrs(attrs,{silent:true});			
+		});
+	};
+
+
 	var update_sheet = function(version) {
 		if(version === "1.0") {
 			console.log("Patching Sheet to Version 1.01");
@@ -945,6 +959,7 @@
 			});
 			version = "1.01";
 		}
+		if (version === "1.01") { version = "1.02"; } //Adjustments made to JS, not sheet.
 		return version;
 	};
 </script>
@@ -963,7 +978,7 @@
 	{{/nameless}}	
         <div class="sheet-namerow">{{name}}</div>
         {{#weapon_name}}
-        <div class="sheet-weaponrow">[{{weapon_name}}](!woin_damage { ^^^name^^^REPLACE_C ^^^{{name}}^^^, ^^^type^^^ REPLACE_C ^^^{{type}}^^^, ^^^damagevalue^^^REPLACE_C {{damagevalue}}, ^^^luck^^^REPLACE_C ?{How many luck die to use for damage|0}, ^^^damage_mod^^^REPLACE_C {{damage_mod}}, ^^^dmgtype^^^REPLACE_C ^^^{{dmgtype}}^^^ })</div>
+        <div class="sheet-weaponrow">[{{weapon_name}}](!woin_damage { ^^^id^^^REPLACE_C ^^^{{id}}^^^, ^^^type^^^ REPLACE_C ^^^{{type}}^^^, ^^^damagevalue^^^REPLACE_C {{damagevalue}}, ^^^luck^^^REPLACE_C ?{How many luck die to use for damage|0}, ^^^damage_mod^^^REPLACE_C {{damage_mod}}, ^^^dmgtype^^^REPLACE_C ^^^{{dmgtype}}^^^ })</div>
         {{/weapon_name}}
         <div class="sheet-byline">({{rollcomponents}})</div>
         <div class="sheet-dieline">{{dieresults}}</div>
@@ -993,4 +1008,20 @@
         <div class="sheet-total">{{total}}</div>
         <div class="sheet-dmgtype">{{dmgtype}}</div>
 	</div>
-</rolltemplate>							
+</rolltemplate>
+<rolltemplate class="sheet-rolltemplate-woinnotes">
+	{{#new}}
+	<div class="sheet-new">
+	{{/new}}
+	{{#old}}
+	<div class="sheet-old">
+	{{/old}}
+	{{#now}}
+	<div class="sheet-now">
+	{{/now}}
+	{{#nameless}}
+	<div class="sheet-nameless">
+	{{/nameless}}
+	<div class="sheet-namerow">{{title}}</div>
+    <div class="sheet-notes">{{notes}}</div>
+</rolltemplate>

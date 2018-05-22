@@ -134,8 +134,13 @@ input[type=number]:hover,input[type=number]:focus {
 	background-color: transparent;
 	text-shadow: none;
 }
+.sheet-page .repcontainer[data-groupname="repeating_exploits"] .repitem button:before,
 .sheet-page .sheet-attributehead button:before {
 	content: "";
+}
+.sheet-page .repcontainer[data-groupname="repeating_exploits"] .repitem button {
+	width: 20px;
+	height: 20px;
 }
 
 /* General (Repeated) Dropdown Sizings */
@@ -395,6 +400,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-rolltemplate-woinroll,.sheet-rolltemplate-woindmg  {
 	text-align:center;
 }
+.sheet-rolltemplate-woinnotes .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-namerow {
 	text-align:center;
 	font-weight: bold;
@@ -462,6 +468,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='new'] ~ .sheet-page input,
 .sheet-styletype[value='new'] ~ .sheet-page select,
 .sheet-styletype[value='new'] ~ .sheet-page textarea,
+.sheet-rolltemplate-woinnotes .sheet-new .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-new .sheet-namerow {
     font-family: "Trebuchet MS", Helvetica, sans-serif !important;
 }
@@ -507,12 +514,14 @@ div[data-groupname="repeating_skills"] p {
 	margin-left: 0px;
     float: none;
 }
+.sheet-rolltemplate-woinnotes .sheet-new,
 .sheet-rolltemplate-woinroll .sheet-new {
 	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/newroll.jpg?raw=true");	
 }
 .sheet-rolltemplate-woindmg .sheet-new {
 	background: transparent url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/newroll.jpg?raw=true") repeat-y 0px -8px;	
 }
+.sheet-rolltemplate-woinnotes .sheet-new .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-new .sheet-namerow {
 	padding-top: 5px;
 }
@@ -524,6 +533,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page select,
 .sheet-styletype[value='old'] ~ .sheet-page textarea,
 .sheet-styletype[value='old'] ~ .sheet-2colrow input,
+.sheet-rolltemplate-woinnotes .sheet-old .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-old .sheet-namerow {
 	font-family: "Livory", Georgia, serif !important;
 }
@@ -605,6 +615,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
+.sheet-rolltemplate-woinnotes .sheet-old div:nth-child(even),
 .sheet-rolltemplate-woinroll .sheet-old div:nth-child(even),
 .sheet-rolltemplate-woindmg .sheet-old div:nth-child(even),
 .sheet-styletype[value='old'] ~ .sheet-page2 textarea
@@ -626,10 +637,12 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldsoak,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-armorsoak,
 .sheet-rolltemplate-woinroll .sheet-old div:nth-child(odd):not(:first-child),
-.sheet-rolltemplate-woindmg .sheet-old div:nth-child(odd)
+.sheet-rolltemplate-woindmg .sheet-old div:nth-child(odd),
+.sheet-rolltemplate-woinnotes .sheet-old div:nth-child(odd):not(:first-child)
 {
     background-color: #f5e5ba !important;
 }
+.sheet-rolltemplate-woinnotes .sheet-old .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-old .sheet-namerow {
     background-color: #c9b47d !important;	
 }
@@ -644,6 +657,7 @@ div[data-groupname="repeating_skills"] p {
 	font-size: 10.5px;
 }
 .sheet-styletype[value='now'] ~ .sheet-2colrow input,
+.sheet-rolltemplate-woinnotes .sheet-now .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-now .sheet-namerow {
 	font-family: "Pancetta Pro", "Arial", Gadget , sans-serif !important;	
 }
@@ -661,6 +675,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="now"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
 .sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-rolltemplate-woinnotes .sheet-now .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-now .sheet-namerow
 {
     background-color: #dcddde;	
@@ -722,6 +737,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
 .sheet-styletype[value='now'] ~ .sheet-page2 textarea,
 .sheet-rolltemplate-woinroll .sheet-now div:nth-child(odd):not(:first-child),
+.sheet-rolltemplate-woinnotes .sheet-now div:nth-child(odd):not(:first-child),
 .sheet-rolltemplate-woindmg .sheet-now div:nth-child(odd)
 {
     background-color: #f3f3f4 !important;
@@ -741,6 +757,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldsoak,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-armorsoak,
 .sheet-rolltemplate-woinroll .sheet-now div:nth-child(even),
+.sheet-rolltemplate-woinnotes .sheet-now div:nth-child(even),
 .sheet-rolltemplate-woindmg .sheet-now div:nth-child(even)
 {
     background-color: #edeeee !important;
@@ -781,6 +798,7 @@ div[data-groupname="repeating_skills"] p {
 	border: 1px #ad2500 solid;
 	color: white;
 }
+.sheet-rolltemplate-woinnotes .sheet-nameless,
 .sheet-rolltemplate-woinroll .sheet-nameless,
 .sheet-rolltemplate-woindmg .sheet-nameless {
 	font-family: "Libre Baskerville", Baskerville, serif !important;
@@ -912,6 +930,7 @@ div[data-groupname="repeating_skills"] p {
     background-color: #b82e00 !important;
 }
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-headertext,
+.sheet-rolltemplate-woinnotes .sheet-nameless .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-nameless .sheet-namerow {
 	font-family: "Overdose Sunrise", "Libre Baskerville", Baskerville, serif !important;
 	text-transform:uppercase;

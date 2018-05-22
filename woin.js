@@ -1,9 +1,4 @@
 "use strict";
-function decodehtmlentities(str) {
-	return str.replace(/&#(\d+);/g, function(match, dec) {
-		return String.fromCharCode(dec);
-	});
-}
 function dlog(msg) {
 	//Edit this to send Debug messages to the API window.
 	var debuglog = false;
@@ -77,16 +72,16 @@ on("chat:message", function(msg) {
 			return;
 		}
 		try {
-			options = JSON.parse(decodehtmlentities(decodehtmlentities(msgtext)));
+			options = JSON.parse(decodeURIComponent(msgtext));
 		}
 		catch(err) {
 			sendChat("WOIN Dice Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. Expected JSON(2), received "+msgtext+" "+err);
 			return;
 		}
-		if(!options.hasOwnProperty("name")) { sendChat("WOIN Dice Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. Expected Character Name, received "+msgtext); return; }
-		var achar = findObjs({ type: "character", name: options.name});
-		if(achar.length === 0) { sendChat("WOIN Dice Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. No character found with name  "+options.name); return; }
-		var charid = achar[0].id;
+		if(!options.hasOwnProperty("id")) { sendChat("WOIN Dice Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. Expected Character ID, received "+msgtext); return; }
+		var achar = findObjs({ type: "character", id: options.id});
+		if(achar.length === 0) { sendChat("WOIN Dice Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. No character found with ID  "+options.id); return; }
+		options.name = achar[0].get('name');
 		
 		//Value sanitization
 		options.modvalue = parseInt(options.modifier) || 0;
@@ -97,7 +92,7 @@ on("chat:message", function(msg) {
 		options.damdice = Math.max(options.damdice,0) || 0;
 		options.damage_base = parseInt(options.damage_base) || 0;
 		options.damage_mod = parseInt(options.damage_mod) || 0;
-		options.weapon = options.weapon || "Undefined";
+		options.weapon_id = options.weapon_id || "Undefined";
 		options.notes = options.notes || "";
 		options.dmgpool = parseInt(options.dmgpool) || 0;	  
 		options.damage_mod = parseInt(options.damage_mod) || 0;
@@ -105,7 +100,7 @@ on("chat:message", function(msg) {
 		options.explodevalue = 0;
 		
 		dlog("DEBUG (options):"+JSON.stringify(options));
-		var charattrs = findObjs({type:"attribute", characterid: charid});
+		var charattrs = findObjs({type:"attribute", characterid: options.id});
 		dlog("DEBUG: charattrs: "+JSON.stringify(charattrs));		
 		var sheettype;
 		var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intelligence" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Magic" : "special_pool","???" : "special_pool","Psionic" : "special_pool", "Special" : "special_pool"};		
@@ -139,6 +134,14 @@ on("chat:message", function(msg) {
 			break;
 			case "!woin_attack":
 				options = rolllookups(options,charattrs,msg.who);
+				var wepid = charattrs.filter((x)=>x.get("name").toLowerCase() === "repeating_attacks_"+options.weapon_id+"_attackname");
+				if(wepid.length === 0) {
+					dlog("DEBUG: No weapon name found for ID "+options.weapon_id);
+					options.weapon = "Unnamed Weapon";
+				} else {
+					options.weapon = wepid[0].get("current");
+				}
+				
 				dlog("DEBUG (options):"+JSON.stringify(options));
 				atkpool = Math.min(options.attrvalue+options.skillvalue+options.equipvalue,options.dielimit)+options.posmod;
 				if(options.damdice*2 >= atkpool && options.damdice > 0) { sendChat("WOIN Dice Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. You cannot spend more attack dice than are in the pool. Tried to spend "+(options.damdice * 2)+" out of "+atkpool); return; }
@@ -164,9 +167,9 @@ on("chat:message", function(msg) {
 						i += 1;
 					}				
 				});
-		output = "&{template:woinroll} {{"+options.type+"=1}} {{type="+options.type+"}}{{name="+options.name+"}}";
+		output = "&{template:woinroll} {{"+options.type+"=1}} {{type="+options.type+"}}{{id="+options.id+"}}{{name="+options.name+"}}";
 				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>Quality</span>" : "")+((options.modvalue !== 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";								
-				output += "{{damagevalue="+dmgpool+"}} {{damage_mod="+options.damage_mod+"}} {{dmgtype="+options.damagetype+"}} {{weapon_name="+options.weapon+"}}";
+		output += "{{damagevalue="+dmgpool+"}} {{damage_mod="+options.damage_mod+"}} {{dmgtype="+options.damagetype+"}} {{weapon_name="+options.weapon.replace("}","&lcb;").replace("]","&rbrack;").replace("\"","&quot;")+"}}";
 				output += "{{dieresults="+attackdieresults.join(" + ")+"}} {{total="+attacktotal+"}} {{notes="+options.notes+"}}";
 				if(critcheck >= 3) { output+= " {{alert=Critical Check}}" }
 				dlog("DEBUG (output): "+output);
@@ -216,16 +219,16 @@ on("chat:message", function(msg) {
 
 				//Hunt for Token.
 				campaign = Campaign();
-				playerpage = (campaign.get("playerspecificpages") === false) ? campaign.get("playerpageid") : campaign.get("playerspecificpages").get(charid);
+				playerpage = (campaign.get("playerspecificpages") === false) ? campaign.get("playerpageid") : campaign.get("playerspecificpages").get(options.id);
 	            turnorder = (campaign.get("turnorder") == "") ? [] : JSON.parse(campaign.get("turnorder"));
 				dlog(turnorder);
 				if(campaign.get("initiativepage") === false) {
 					sendChat("WOIN Roller","/w "+msg.who.replace(" (GM)","")+" There doesn't appear to be a Turn Order active.");
 					return;
 				}
-				dlog("DEBUG: TokenSearch: "+JSON.stringify({"_type": "graphic","_subtype": "token", "represents": charid, "_pageid": playerpage }));
+				dlog("DEBUG: TokenSearch: "+JSON.stringify({"_type": "graphic","_subtype": "token", "represents": options.id, "_pageid": playerpage }));
 				dlog("DEBUG: Broad Tokens: "+JSON.stringify(findObjs({type: "graphic",subtype: "token"})));
-				tokens = findObjs({type: "graphic",subtype: "token", represents: charid, pageid: playerpage });
+				tokens = findObjs({type: "graphic",subtype: "token", represents: options.id, pageid: playerpage });
 				dlog("DEBUG: (tokens) : "+JSON.stringify(tokens));
 				if(tokens.length === 0) { output += "{{alert=No Token Found}}"; }
 				else {
@@ -241,4 +244,4 @@ on("chat:message", function(msg) {
 		}
 	}	
 });
-log("What's Old Is N.E.W. Dice Roller Version 1.0 Loaded")
+log("What's Old Is N.E.W. Dice Roller Version 1.02 Loaded")
