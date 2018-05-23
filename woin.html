@@ -846,7 +846,7 @@
 			idfieldarray = idnamearray.concat(idarray.map((x)=>"repeating_skills_"+x+"_skillpool"));
 			getAttrs(atkIDs.map((x)=> "repeating_attacks_"+x+"_attackattr").concat(atkIDs.map((x)=> "repeating_attacks_"+x+"_attackskill"),atkIDs.map((x)=> "repeating_attacks_"+x+"_attackquality"),["str_pool","agi_pool","end_pool","int_pool","log_pool","wil_pool","cha_pool","luc_pool","rep_pool","mag_pool","special_pool"],idfieldarray), function(values) {				
 				var skills = {};
-				Object.keys(values).filter((x) => x.match(/repeating_skills.*_skillname/)).forEach((x) => skills[values[x]] = values[x.replace("name","rank")]);
+				Object.keys(values).filter((x) => x.match(/repeating_skills.*_skillname/)).forEach((x) => skills[values[x]] = values[x.replace("name","pool")]);
 				var update = {};
 				atkIDs.forEach(function (atkID) {
 					values["repeating_attacks_"+atkID+"_attackattr"] = values["repeating_attacks_"+atkID+"_attackattr"]||"";
