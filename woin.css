@@ -134,10 +134,12 @@ input[type=number]:hover,input[type=number]:focus {
 	background-color: transparent;
 	text-shadow: none;
 }
+.sheet-page .repcontainer[data-groupname="repeating_spells"] .repitem button:before,
 .sheet-page .repcontainer[data-groupname="repeating_exploits"] .repitem button:before,
 .sheet-page .sheet-attributehead button:before {
 	content: "";
 }
+.sheet-page .repcontainer[data-groupname="repeating_spells"] .repitem button,
 .sheet-page .repcontainer[data-groupname="repeating_exploits"] .repitem button {
 	width: 20px;
 	height: 20px;
@@ -261,6 +263,14 @@ div[data-groupname="repeating_skills"] p {
 
 .sheet-eweight {
 	margin-left: 62px;
+}
+
+/* Spells */
+
+.sheet-spelldesc {
+	width: 325px;
+	height: 108px;
+	left: 30px;
 }
 
 /* Armor Headers */
@@ -458,6 +468,11 @@ div[data-groupname="repeating_skills"] p {
 	font-size: small;
 }
 
+.sheet-rolltemplate-woinnotes .sheet-notes,
+.sheet-rolltemplate-woinroll .sheet-notes {
+	padding: 2px;
+}
+
 /* ====== NEW STYLINGS ====== */
 .sheet-styletype[value='new'] ~ .sheet-page,
 .sheet-styletype[value='new'] ~ .sheet-2colrow input {
@@ -595,6 +610,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(odd),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem input,
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(odd) input,
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(odd),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-luckdice,
@@ -625,6 +641,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-attrbox,
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(even),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(even),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),
@@ -715,6 +732,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(odd),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem input,
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(odd) input,
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(odd),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-luckdice,
@@ -745,6 +763,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-attrbox,
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(even),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(even),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),

@@ -6,7 +6,7 @@ function dlog(msg) {
 }
 function rolllookups(options,charattrs,who) {  
 			//Get values for relevant abilities...
-			var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intuition" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Magic" : "special_pool","Chi" : "special_pool","Psionic" : "special_pool", "Special" : "special_pool"};			
+			var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intuition" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Magic" : "special_pool","Chi" : "special_pool","Psionic" : "special_pool", "Special" : "special_pool", "Size" : "nat_dmg"};			
 			options.dielimit = parseInt(charattrs.filter((x)=>x.get("name") === "max_diepool")[0].get("current"));
 			var sheettype = charattrs.filter((x)=>x.get("name") === "sheet_type");
 			if(sheettype.length === 0) { 
@@ -111,11 +111,19 @@ on("chat:message", function(msg) {
 				options = rolllookups(options,charattrs,msg.who);
 				dieresults = [];
 				rolled = 0;
-				total = 0;
+				total = options.flatmod||0;
 				dievalue = 0;
 				dlog("DEBUG (A,S,E): "+options.attrvalue+" "+options.skillvalue+" "+options.equipvalue);
 		output = "&{template:woinroll} {{"+options.type+"=1}} {{name="+options.name+"}} ";
 				explodetype = {"attr":false,"skill": false, "equip": false,"mod":false,"luck":true,"explode":true};				
+				if(options.modvalue < 0 ) {
+				    var toremove = -1*options.modvalue;
+					["equip","skill","attr"].forEach(function(dietype) {
+						options[dietype+"value"] -= toremove;
+						toremove = Math.max(0,-1*options[dietype+"value"]);					
+						options[dietype+"value"] = Math.max(0,options[dietype+"value"]);
+					});
+				}				
 				["attr","skill","equip","mod","luck","explode"].forEach(function(dietype) {
 					rolled = 0;
 					while(rolled < options[dietype+"value"] && (options.dielimit > 0 || explodetype[dietype] )) {
@@ -127,13 +135,13 @@ on("chat:message", function(msg) {
 						dieresults.push("<span class=\"sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");
 					}
 				});
-		output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>"+options.equipname+"</span>" : "")+((options.modvalue !== 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";				
+		if(options.flatmod !== 0) { dieresults.push("<span class=\"sheet-flatmod\">"+options.flatmod+"</span>"); }				
+		output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>"+options.equipname+"</span>" : "")+((options.modvalue > 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+((options.flatmod !== 0) ? "+<span class='sheet-flatmod'>Flat-Modifier</span>" : "")+"}} ";				
 				output += "{{dieresults="+dieresults.join(" + ")+"}} {{total="+total+"}}";
 				dlog("DEBUG: Output: "+output);
 				sendChat(options.name,output);				
 			break;
 			case "!woin_attack":
-				options = rolllookups(options,charattrs,msg.who);
 				var wepid = charattrs.filter((x)=>x.get("name").toLowerCase() === "repeating_attacks_"+options.weapon_id+"_attackname");
 				if(wepid.length === 0) {
 					dlog("DEBUG: No weapon name found for ID "+options.weapon_id);
@@ -141,7 +149,31 @@ on("chat:message", function(msg) {
 				} else {
 					options.weapon = wepid[0].get("current");
 				}
-				
+				//DmgType
+				var wepid = charattrs.filter((x)=>x.get("name").toLowerCase() === "repeating_attacks_"+options.weapon_id+"_attack_type");
+				if(wepid.length === 0) {
+					dlog("DEBUG: No damage type found for ID "+options.weapon_id);
+					options.damagetype = "Unspecified";
+				} else {
+					options.damagetype = wepid[0].get("current");
+				}
+				//Skillname
+				var wepid = charattrs.filter((x)=>x.get("name").toLowerCase() === "repeating_attacks_"+options.weapon_id+"_attackskill");
+				if(wepid.length === 0) {
+					dlog("DEBUG: No attack skill found for ID "+options.weapon_id);
+					options.skillname = "Undefined";
+				} else {
+					options.skillname = wepid[0].get("current");
+				}				
+				//Notes
+				var wepid = charattrs.filter((x)=>x.get("name").toLowerCase() === "repeating_attacks_"+options.weapon_id+"_notes");
+				if(wepid.length === 0) {
+					dlog("DEBUG: No notes found for ID "+options.weapon_id);
+					options.notes = "";
+				} else {
+					options.notes = wepid[0].get("current");
+				}				
+				options = rolllookups(options,charattrs,msg.who);
 				dlog("DEBUG (options):"+JSON.stringify(options));
 				atkpool = Math.min(options.attrvalue+options.skillvalue+options.equipvalue,options.dielimit)+options.posmod;
 				if(options.damdice*2 >= atkpool && options.damdice > 0) { sendChat("WOIN Dice Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. You cannot spend more attack dice than are in the pool. Tried to spend "+(options.damdice * 2)+" out of "+atkpool); return; }
@@ -155,6 +187,14 @@ on("chat:message", function(msg) {
 				attackdieresults = [];
 				limittype = {"attr":false,"skill":false,"equip":false,"mod":true,"luck":true,"explode":true};				
 				explodetype = {"attr":false,"skill":false,"equip":false,"mod":false,"luck":true,"explode":true};
+				if(options.modvalue < 0 ) {
+				    var toremove = -1*options.modvalue;
+					["equip","skill","attr"].forEach(function(dietype) {
+						options[dietype+"value"] -= toremove;
+						toremove = Math.max(0,-1*options[dietype+"value"]);					
+						options[dietype+"value"] = Math.max(0,options[dietype+"value"]);
+					});
+				}				
 				["attr","skill","equip","mod","luck","explode"].forEach(function (dietype) {
 					dlog(dietype+":"+options[dietype+"value"]);
 				    i = 0;
@@ -168,8 +208,8 @@ on("chat:message", function(msg) {
 					}				
 				});
 		output = "&{template:woinroll} {{"+options.type+"=1}} {{type="+options.type+"}}{{id="+options.id+"}}{{name="+options.name+"}}";
-				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>Quality</span>" : "")+((options.modvalue !== 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";								
-		output += "{{damagevalue="+dmgpool+"}} {{damage_mod="+options.damage_mod+"}} {{dmgtype="+options.damagetype+"}} {{weapon_name="+options.weapon.replace("}","&lcb;").replace("]","&rbrack;").replace("\"","&quot;")+"}}";
+				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>Quality</span>" : "")+((options.modvalue > 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";								
+		output += "{{damagevalue="+dmgpool+"}} {{damage_mod="+options.damage_mod+"}} {{dmgtype="+(options.damagetype.replace(/\"/g,"^^^").replace(/\}/g,"&rcb;"))+"}} {{weapon_name="+options.weapon.replace(/\}/g,"&rcb;").replace(/\]/g,"&rbrack;").replace(/\"/g,"&quot;")+"}}";
 				output += "{{dieresults="+attackdieresults.join(" + ")+"}} {{total="+attacktotal+"}} {{notes="+options.notes+"}}";
 				if(critcheck >= 3) { output+= " {{alert=Critical Check}}" }
 				dlog("DEBUG (output): "+output);
@@ -192,7 +232,7 @@ on("chat:message", function(msg) {
 					}
 				});
 				if(options.damage_mod !== 0) { dmgdieresults.push("<span class=\"sheet-flatmod\">"+options.damage_mod+"</span>"); }
-				output = "&{template:woindmg} {{"+options.type+"=1}} {{name="+options.name+"}} {{dieresults="+dmgdieresults.join(" + ")+"}} {{total="+dmgtotal+"}} {{dmgtype="+options.dmgtype+"}}";
+		output = "&{template:woindmg} {{"+options.type+"=1}} {{name="+options.name+"}} {{dieresults="+dmgdieresults.join(" + ")+"}} {{total="+dmgtotal+"}} {{dmgtype="+options.dmgtype.replace(/\"/g,"&quot;").replace(/\}/g,"&rcb;")+"}}";
 				dlog("DEBUG: Output: "+output);
 				sendChat(options.name,output);  				
 			break;
@@ -202,6 +242,14 @@ on("chat:message", function(msg) {
 				total = 0;
 				explodetype = {"attr":false,"skill":false,"mod":false,"luck":true,"explode":true};
 				output = "&{template:woinroll} {{"+options.type+"=1}} {{name="+options.name+" (Init)}} ";
+				if(options.modvalue < 0 ) {
+				    var toremove = -1*options.modvalue;
+					["skill","attr"].forEach(function(dietype) {
+						options[dietype+"value"] -= toremove;
+						toremove = Math.max(0,-1*options[dietype+"value"]);					
+					options[dietype+"value"] = Math.max(0,options[dietype+"value"]);
+					});
+				}
 			    ["attr","skill","mod","luck","explode"].forEach(function (dietype) {
 					rolled = 0;
 					dlog("DEBUG (Dietype "+dietype+"): "+options[dietype+"value"]); 
@@ -214,7 +262,7 @@ on("chat:message", function(msg) {
 					dieresults.push("<span class=\"sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");					
 					}
 				});
-				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>"+options.equipname+"</span>" : "")+((options.modvalue !== 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";				
+				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>"+options.equipname+"</span>" : "")+((options.modvalue > 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";				
 				output += "{{dieresults="+dieresults.join(" + ")+"}} {{total="+total+"}}";
 
 				//Hunt for Token.
@@ -244,4 +292,4 @@ on("chat:message", function(msg) {
 		}
 	}	
 });
-log("What's Old Is N.E.W. Dice Roller Version 1.02 Loaded")
+log("What's Old Is N.E.W. Dice Roller Version 1.03 Loaded")
