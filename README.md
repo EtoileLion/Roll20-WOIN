@@ -1,6 +1,6 @@
 ## Synopsis
 
-A revamped version of the What's Old Is N.E.W. character sheet for Roll20, with an aim to alleviate certain foibles of the original.
+A revamped version of the What's O.L.D Is N.E.W. character sheet for Roll20, with an aim to alleviate certain foibles of the original.
 
 ## Note
 
@@ -45,4 +45,4 @@ Defined Chat Hooks:
 
 ## License
 
-Released under the Open Gaming License as a derivitive work of the What's Old Is N.E.W. system.
+Released under the Open Gaming License as a derivitive work of the What's O.L.D. Is N.E.W. system.
