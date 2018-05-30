@@ -97,6 +97,7 @@ on("chat:message", function(msg) {
 		options.dmgpool = parseInt(options.dmgpool) || 0;	  
 		options.damage_mod = parseInt(options.damage_mod) || 0;
 		options.luckvalue = parseInt(options.luck) || 0;
+        options.flatmod = parseInt(options.flatmod) || 0;
 		options.explodevalue = 0;
 		
 		dlog("DEBUG (options):"+JSON.stringify(options));
@@ -211,7 +212,7 @@ on("chat:message", function(msg) {
 				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>Quality</span>" : "")+((options.modvalue > 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";								
 		output += "{{damagevalue="+dmgpool+"}} {{damage_mod="+options.damage_mod+"}} {{dmgtype="+(options.damagetype.replace(/\"/g,"^^^").replace(/\}/g,"&rcb;"))+"}} {{weapon_name="+options.weapon.replace(/\}/g,"&rcb;").replace(/\]/g,"&rbrack;").replace(/\"/g,"&quot;")+"}}";
 				output += "{{dieresults="+attackdieresults.join(" + ")+"}} {{total="+attacktotal+"}} {{notes="+options.notes+"}}";
-				if(critcheck >= 3) { output+= " {{alert=Critical Check}}" }
+				if(critcheck >= 3) { output+= woin_critical_lookup(options.damagetype) }
 				dlog("DEBUG (output): "+output);
 				sendChat(options.name,output);				
 			break;
@@ -270,11 +271,8 @@ on("chat:message", function(msg) {
 				playerpage = (campaign.get("playerspecificpages") === false) ? campaign.get("playerpageid") : campaign.get("playerspecificpages").get(options.id);
 	            turnorder = (campaign.get("turnorder") == "") ? [] : JSON.parse(campaign.get("turnorder"));
 				dlog(turnorder);
-				if(campaign.get("initiativepage") === false) {
-					sendChat("WOIN Roller","/w "+msg.who.replace(" (GM)","")+" There doesn't appear to be a Turn Order active.");
-					return;
-				}
-				dlog("DEBUG: TokenSearch: "+JSON.stringify({"_type": "graphic","_subtype": "token", "represents": options.id, "_pageid": playerpage }));
+				if(campaign.get("initiativepage") !== false) {
+					dlog("DEBUG: TokenSearch: "+JSON.stringify({"_type": "graphic","_subtype": "token", "represents": options.id, "_pageid": playerpage }));
 				dlog("DEBUG: Broad Tokens: "+JSON.stringify(findObjs({type: "graphic",subtype: "token"})));
 				tokens = findObjs({type: "graphic",subtype: "token", represents: options.id, pageid: playerpage });
 				dlog("DEBUG: (tokens) : "+JSON.stringify(tokens));
@@ -287,9 +285,50 @@ on("chat:message", function(msg) {
 					else { turnorder[i].pr = total; }
 					campaign.set("turnorder", JSON.stringify(turnorder));
 				}
+				}
 				sendChat(options.name,output); 								
 			break;					
 		}
 	}	
 });
-log("What's Old Is N.E.W. Dice Roller Version 1.03 Loaded")
+
+function woin_critical_lookup(dmgtype) {
+	//Attempt Type Sanitization.
+	var storedmg = dmgtype;
+	dmgtype = dmgtype.trim().toLowerCase().split(/[,\/\\\s]/);
+	dmgtype = [...new Set(dmgtype.map((x) => {
+	if(x === "sonic" || x === "sound" )  { x = "sonic/sound"; }
+	if(x === "heat" || x === "fire" )  { x = "heat/fire"; }	
+	if(x === "psionic" || x === "psychic" )  { x = "psionic/psychic"; }
+    if(x === "force") { x = "blunt"; }
+    if(x === "plasma") { x = "heat/fire"; }
+	return x;
+	}))];
+	var table = {"acid":["Pain","Pain","Pain","Burning","Burning","Burning"],
+						"ballistic":["Bleeding","Bleeding","Pain","Pain","Downed","Slowed"],
+						"blunt":["Dazed","Dazed","Deaf","Sleeping","Drunk","Drunk"],
+						"cold":["Slowed","Slowed","Slowed","Slowed","Sleeping","Restrained"],
+                        "crushing": ["Pain","Pain","Pain","Restrained","Restrained","Bleeding"],
+						"electricity":["Dazed","Dazed","Dazed","Pain","Pain","Burning"],
+						"heat/fire":["Burning","Burning","Pain","Pain","Disarmored","Disarmed"],
+						"holy":["Blind","Blind","Blind","Afraid","Afraid","Afraid"],
+						"ion":["Fatigued","Fatigued","Fatigued","Fatigued","Fatigued","Fatigued"],
+						"light":["Blind","Blind","Blind","Blind","Disarmed","Disarmed"],
+						"necrotic":["Fatigued","Fatigued","Fatigued","Fatigued","Downed","Downed"],
+						"piercing":["Bleeding","Bleeding","Bleeding","Pain","Pain","Disarmed"],
+						"poison":["Poisoned","Poisoned","Sleeping","Drunk","Sick","Sick"],
+						"psionic/psychic":["Dazed","Dazed","Dazed","Dazed","Dazed","Confused"],
+						"radiation":["Sick","Sick","Sick","Sick","Sick","Sick"],
+						"slashing":["Bleeding","Bleeding","Blind","Disarmed","Slowed","Slowed"],
+						"sonic/sound":["Deaf","Deaf","Deaf","Deaf","Drunk","Drunk"],
+						"unholy":["Sick","Sick","Cursed","Cursed","Angry","Angry"]
+    };
+	let outputcondition = []
+	dmgtype.forEach((type) => {
+		let die = randomInteger(6)-1;
+		outputcondition.push((table.hasOwnProperty(type)) ? table[type][die]+" ("+(die+1)+")" : "Unknown Damage Type ("+(die+1)+")");
+	});
+	return "{{alert=Critical Result<br>"+outputcondition.join("<br>")+"}}";
+}
+
+log("What's Old Is N.E.W. Dice Roller Version 1.04 Loaded")

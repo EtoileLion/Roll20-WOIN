@@ -4,7 +4,8 @@
 }
 
 .sheet-pageno[value="1"] ~ .sheet-page1,
-.sheet-pageno[value="2"] ~ .sheet-page2 {
+.sheet-pageno[value="2"] ~ .sheet-page2,
+.sheet-pageno[value="3"] ~ .sheet-page3 {
     display: block;
 }
 
@@ -21,7 +22,7 @@ input[type=number]:hover,input[type=number]:focus {
 }
 
 .sheet-headerdiv input {
-	 width: 740px;
+	 width: 710px;
 }
 
 /* Page Flipper */
@@ -105,8 +106,8 @@ input[type=number]:hover,input[type=number]:focus {
 	position: absolute;
 	top: 73px;
 	background-color: transparent;
-	width: 103px;
-	left: 789px;
+	width: 154px;
+	left: 746px;
 }
 .sheet-logo img {
 	width: 100px;
@@ -272,7 +273,10 @@ div[data-groupname="repeating_skills"] p {
 	height: 108px;
 	left: 30px;
 }
-
+.sheet-spellsecret {
+	display: none;
+	width: 147px;
+}
 /* Armor Headers */
 .sheet-armortable th:nth-child(1) {
     width: 209px;
@@ -399,7 +403,11 @@ div[data-groupname="repeating_skills"] p {
 	padding-bottom: 10px;
 	margin-top: -9px;
 }
+/* Page 3 */
 
+.sheet-page3 textarea {
+	height: 900px;
+}
 /* Roll Template Defaults */
 .sheet-rolltemplate-woinroll .sheet-critdie {
 	border: 1px #080 solid;
@@ -471,6 +479,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-rolltemplate-woinnotes .sheet-notes,
 .sheet-rolltemplate-woinroll .sheet-notes {
 	padding: 2px;
+	text-align: center;
 }
 
 /* ====== NEW STYLINGS ====== */
@@ -496,6 +505,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='new'] ~ .sheet-page textarea {
 	border: 1px #0072bc solid;
 }
+
 .sheet-styletype[value='new'] ~ .sheet-page .sheet-attributehead {
     background-color: #0072bc;
 }
@@ -504,9 +514,11 @@ div[data-groupname="repeating_skills"] p {
 	background-color: transparent;
 }
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="new"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="new"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="new"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="new"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="new"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
 {
     background-color: #0072bc;
 }
@@ -570,6 +582,9 @@ div[data-groupname="repeating_skills"] p {
 	background-position: -66px;
 	background-repeat: no-repeat;
 }
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-spellsecret {
+	display: inline;
+}
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-attributehead,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-lptname,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-lptmaxdiename,
@@ -581,9 +596,11 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="old"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="old"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="old"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="old"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="old"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
 {
     background-color: #c9b47d !important;
 }
@@ -634,6 +651,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-rolltemplate-woinnotes .sheet-old div:nth-child(even),
 .sheet-rolltemplate-woinroll .sheet-old div:nth-child(even),
 .sheet-rolltemplate-woindmg .sheet-old div:nth-child(even),
+.sheet-styletype[value='old'] ~ .sheet-page3 textarea,
 .sheet-styletype[value='old'] ~ .sheet-page2 textarea
 {
     background-color: #f8eccf !important;
@@ -686,12 +704,15 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpremainhead,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpexpendhead,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpcosthead,
+.sheet-styletype[value='now'] ~ .sheet-page3 textarea,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="now"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="now"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
 .sheet-pageno[value="2"] ~ .sheet-styletype[value="now"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="now"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="now"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
 .sheet-rolltemplate-woinnotes .sheet-now .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-now .sheet-namerow
 {
@@ -903,6 +924,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
 .sheet-styletype[value='nameless'] ~ .sheet-page2 textarea,
+.sheet-styletype[value='nameless'] ~ .sheet-page3 textarea,
 .sheet-rolltemplate-woinroll .sheet-now div:nth-child(odd):not(:first-child),
 .sheet-rolltemplate-woindmg .sheet-now div:nth-child(odd)
 {
@@ -928,6 +950,10 @@ div[data-groupname="repeating_skills"] p {
     background-color: rgba(247,76,29,0.4) !important;
 }
 
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-spellsecret {
+	display: inline;
+}
+
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-deftable td,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-movetable td,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-expendtable td,
@@ -942,9 +968,11 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptname,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptmaxdiename,
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="nameless"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="nameless"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="nameless"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="nameless"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="nameless"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="nameless"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="nameless"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="nameless"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
 {
     background-color: #b82e00 !important;
 }
