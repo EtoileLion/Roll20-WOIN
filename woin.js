@@ -326,9 +326,9 @@ function woin_critical_lookup(dmgtype) {
 	let outputcondition = []
 	dmgtype.forEach((type) => {
 		let die = randomInteger(6)-1;
-		outputcondition.push((table.hasOwnProperty(type)) ? table[type][die]+" ("+(die+1)+")" : "Unknown Damage Type ("+(die+1)+")");
+		outputcondition.push((table.hasOwnProperty(type)) ? table[type][die]+" ("+type+","+(die+1)+")" : "Unknown Damage Type ("+type+","+(die+1)+")");
 	});
-	return "{{alert=Critical Result<br>"+outputcondition.join("<br>")+"}}";
+	return "{{alert=Critical Result<br>"+outputcondition.join(" + ")+"}}";
 }
 
 log("What's Old Is N.E.W. Dice Roller Version 1.04 Loaded")

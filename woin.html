@@ -380,9 +380,9 @@
 	<br>
 	<div class='sheet-row'>
 		<p class='sheet-headertext'>Shield</p>
-		<table>
+		<table class='sheet-shieldtable'>
 			<tr>
-				<th>Name</th><th>Quality</th><th>Size</th><th>Soak</th><th>Weight</th>
+				<th>Name</th><th>Quality</th><th>Size</th><th>Defense</th><th>Weight</th>
 			</tr>
 			<tr><td>
 				<input name="attr_shieldname" class="sheet-shieldname" type='text' placeholder='Item Name' >
@@ -417,15 +417,16 @@
 		<p class='sheet-headertext'>Armor</p>
 		<table class='sheet-armortable'>
 			<tr>
-				<th>Name</th><th>Quality</th><th>Class</th><th>Soak</th><th>Weight</th><th>Ineffective Vs.</th>
+				<th>Name</th><th>Quality</th><th>Soak</th><th>Ineffective Vs.</th>
 			</tr>
 		</table>
         <fieldset class="repeating_armor">
-			<table>
+			<table class='sheet-armortable'><tbody>
 				<tr>
 					<td>
 						<input class="sheet-shieldname" name="attr_armorname" type='text' placeholder='Item Name' >
-						</td><td>
+					</td>
+					<td>
 						<select name='attr_armorquality' class='sheet-asqual sheet-qualityselect' >
 							<option value=-2>Improvised</option>
 							<option value=-1>Poor</option>
@@ -436,22 +437,40 @@
 							<option value=4>Artisanal</option>
 							<option value=5>Legendary</option>
 						</select>
-						</td><td>		
+					</td>
+					<td>		
+						<input class="sheet-shieldsoak" name="attr_armorsoak" type='number' min=0 value=0 >		
+					</td>
+					<td>
+						<input class='sheet-armorineff' name="attr_armorineffect" type='text' placeholder="-">
+					</td>
+					<td>
+						<input name="attr_armor_showdesc" type='checkbox'>					
+					</td>
+					</tr>
+				</tbody></table>
+			<table class='sheet-armortable2'><tbody>
+					<input type='hidden' class="sheet-ashowextra" name="attr_armor_showdesc">							
+					<tr class='sheet-asecondrow'>
+						<th>Class</th><th>Weight</th><th>Special</th>
+					</tr>					
+					<tr class='sheet-asecondrow'>
+					<td>		
 						<select name='attr_armortype' class='sheet-astype'>
 							<option value='light'>Light Armor</option>
 							<option value='medium'>Medium Armor</option>
 							<option value='heavy'>Heavy Armor</option>
 						</select>
-						</td><td>		
-						<input class="sheet-shieldsoak" name="attr_armorsoak" type='number' min=0 value=0 >		
-						</td><td>		
+						</td>
+					<td>		
 						<input class="sheet-armorweight" name="attr_armorweight" type='number' min=0 value=0 />
 					</td>
 					<td>
-						<input class='sheet-armorineff' name="attr_armorineffect" type='text' placeholder="-">
+						<input name="attr_notes" type="text">
 					</td>
+					</tr>
 				</tr>
-			</table>
+			</tbody></table>
 		</fieldset>
 	</div>
 	<br>

@@ -285,15 +285,19 @@ div[data-groupname="repeating_skills"] p {
     width: 100px;
 }
 .sheet-armortable th:nth-child(3) {
-    width: 120px;
-}
-.sheet-armortable th:nth-child(4) {
     width: 46px;
 }
-.sheet-armortable th:nth-child(5) {
+.sheet-armortable th:nth-child(4) {
+    width: 210px;
+}
+
+.sheet-armortable2 th:nth-child(1) {
+    width: 120px;
+}
+.sheet-armortable2 th:nth-child(2) {
     width: 48px;
 }
-.sheet-armortable th:nth-child(6) {
+.sheet-armortable2 th:nth-child(3) {
     width: 210px;
 }
 /* Exploit */
@@ -631,10 +635,6 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-luckdice,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldname,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-sstype,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-armorname,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-astype,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-specialpoints,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-specialpoints,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-careername,
@@ -643,8 +643,12 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-xpspent,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-xpremain,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-lptage,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldweight,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-armorweight,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) input,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) select,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armortable td:nth-child(even) input,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armortable2 td:nth-child(even) input,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armortable td:nth-child(even) select,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armortable2 td:nth-child(even) select,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
@@ -667,10 +671,9 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-careergrade,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-lptmaxdie,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-lptgrade,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-asqual,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-ssqual,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldsoak,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-armorsoak,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldtable td:nth-child(odd) *,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armortable td:nth-child(odd) *,
+.sheet-styletype[value='old'] ~ .sheet-page .sheet-armortable2 td:nth-child(odd) *,
 .sheet-rolltemplate-woinroll .sheet-old div:nth-child(odd):not(:first-child),
 .sheet-rolltemplate-woindmg .sheet-old div:nth-child(odd),
 .sheet-rolltemplate-woinnotes .sheet-old div:nth-child(odd):not(:first-child)
@@ -757,10 +760,6 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-luckdice,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldname,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-sstype,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-armorname,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-astype,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-specialpoints,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-specialpoints,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-careername,
@@ -769,8 +768,9 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpspent,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpremain,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-lptage,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldweight,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-armorweight,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldtable td:nth-child(odd) *,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-armortable td:nth-child(odd) *,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-armortable2 td:nth-child(odd) *,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
@@ -792,10 +792,9 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-careergrade,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-lptmaxdie,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-lptgrade,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-asqual,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-ssqual,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldsoak,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-armorsoak,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) *,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-armortable td:nth-child(even) *,
+.sheet-styletype[value='now'] ~ .sheet-page .sheet-armortable2 td:nth-child(even) *,
 .sheet-rolltemplate-woinroll .sheet-now div:nth-child(even),
 .sheet-rolltemplate-woinnotes .sheet-now div:nth-child(even),
 .sheet-rolltemplate-woindmg .sheet-now div:nth-child(even)
@@ -906,18 +905,15 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-luckdice,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldname,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-sstype,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armorname,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-astype,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-specialpoints,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-specialpoints,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-careername,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-careerage,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xpearned,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xpspent,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldweight,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armorweight,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldtable td:nth-child(odd) *,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armortable td:nth-child(odd) *,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armortable2 td:nth-child(odd) *,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xpremain,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptage,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
@@ -940,10 +936,9 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-careergrade,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptmaxdie,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptgrade,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-asqual,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-ssqual,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldsoak,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armorsoak,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) *,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armortable td:nth-child(even) *,
+.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-armortable2 td:nth-child(even) *,
 .sheet-rolltemplate-woinroll .sheet-now div:nth-child(even),
 .sheet-rolltemplate-woindmg .sheet-now div:nth-child(even)
 {
