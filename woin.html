@@ -662,7 +662,7 @@
 			if(!values.hasOwnProperty("page_no")) { setupvars.page_no = 1; }
 			if(!values.hasOwnProperty("nat_dmg")) { setupvars.nat_dmg = 1; }			
 			if(!values.hasOwnProperty("sheet_version")) { setupvars.sheet_version = "1.0"; } 
-            else if(values.sheet_version !== "1.03") { setupvars.sheet_version = update_sheet(values.sheet_version); }			
+            else if(values.sheet_version !== "1.04") { setupvars.sheet_version = update_sheet(values.sheet_version); }			
 			setAttrs(setupvars);
 		});
 	});
@@ -1028,6 +1028,7 @@
 			version = "1.03";
 			console.log("Patching Sheet to Version "+version);			
 		}
+		if (version === "1.03") { version = "1.04"; console.log("Patching Sheet to Version "+version); }
 		return version;
 	};
 </script>
