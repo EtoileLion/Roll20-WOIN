@@ -116,6 +116,7 @@ on("chat:message", function(msg) {
 				dievalue = 0;
 				dlog("DEBUG (A,S,E): "+options.attrvalue+" "+options.skillvalue+" "+options.equipvalue);
 		output = "&{template:woinroll} {{"+options.type+"=1}} {{name="+options.name+"}} ";
+				limittype = {"attr":false,"skill":false,"equip":false,"mod":true,"luck":true,"explode":true};	
 				explodetype = {"attr":false,"skill": false, "equip": false,"mod":false,"luck":true,"explode":true};				
 				if(options.modvalue < 0 ) {
 				    var toremove = -1*options.modvalue;
@@ -127,7 +128,7 @@ on("chat:message", function(msg) {
 				}				
 				["attr","skill","equip","mod","luck","explode"].forEach(function(dietype) {
 					rolled = 0;
-					while(rolled < options[dietype+"value"] && (options.dielimit > 0 || explodetype[dietype] )) {
+					while(rolled < options[dietype+"value"] && (options.dielimit > 0 || limittype[dietype] )) {
 						dievalue = randomInteger(6);
 						total += dievalue;
 						options.dielimit -= 1;
@@ -241,6 +242,7 @@ on("chat:message", function(msg) {
 				options = rolllookups(options,charattrs,msg.who);
 				dieresults = [];
 				total = 0;
+				limittype = {"attr":false,"skill":false,"mod":true,"luck":true,"explode":true};				
 				explodetype = {"attr":false,"skill":false,"mod":false,"luck":true,"explode":true};
 				output = "&{template:woinroll} {{"+options.type+"=1}} {{name="+options.name+" (Init)}} ";
 				if(options.modvalue < 0 ) {
@@ -254,7 +256,7 @@ on("chat:message", function(msg) {
 			    ["attr","skill","mod","luck","explode"].forEach(function (dietype) {
 					rolled = 0;
 					dlog("DEBUG (Dietype "+dietype+"): "+options[dietype+"value"]); 
-					while(rolled < options[dietype+"value"] && (options.dielimit > 0 || explodetype[dietype] )) {
+					while(rolled < options[dietype+"value"] && (options.dielimit > 0 || limittype[dietype] )) {
 					dievalue = randomInteger(6);
 					total += dievalue;
 					options.dielimit -= 1;
