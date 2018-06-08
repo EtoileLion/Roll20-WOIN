@@ -181,7 +181,7 @@
 						<td><input type='number' name='attr_vital_def' value=0 min=0 ></td>
 					</tr>
 					<tr>
-						<td> SOAK</td>
+						<td>SOAK</td>
 						<td colspan='3'><input type='number' name='attr_soak' value=0 min=0></td>
 					</tr>
 					<tr>
@@ -274,9 +274,10 @@
 								<button type='roll' value='!woin_roll {"id": "@{character_id}", "attrname": "Intuition", "skillname": "Perception", "modifier": @{percmod}}'></button>
 							</td>
 						</tr>
-						<tr>
-							<td>CARRY</td>
-							<td><span class='sheet-spanfield' name='attr_carry'></span></td>
+						<input type='hidden' name='attr_carrycolor' value='green'>
+						<tr class='sheet-carryvalue'>
+							<td>CARRY</td>							
+						    <td><span class='sheet-spanfield'><span name='attr_carrytotal'></span>/<span name='attr_carry'></span></span></td>
 							<td><input type='number' name='attr_carrymod' value=0></td>
 						</tr>
 						<tr>
@@ -626,7 +627,7 @@
 	"use strict";
 	on("sheet:opened", function(eventInfo) {
 		//Check for initialization
-		getAttrs(["str_score","str_pool","agi_score","agi_pool","end_score","end_pool","int_score","int_pool","log_score","log_pool","wil_score","wil_pool","cha_score","cha_pool","luc_score","luc_pool","rep_score","rep_pool","special_score","special_pool","sizemod","speed","climb","swim","init","carry","jump","perception","actions","max_diepool","sheet_type","special_name","special_abbr","total_age","total_grade","page_no","luck","placename","spent_xp","remaining_xp","spells_hname","sheet_version"], function(values) {
+		getAttrs(["str_score","str_pool","agi_score","agi_pool","end_score","end_pool","int_score","int_pool","log_score","log_pool","wil_score","wil_pool","cha_score","cha_pool","luc_score","luc_pool","rep_score","rep_pool","special_score","special_pool","sizemod","speed","climb","swim","init","carry","carrytotal","jump","perception","actions","max_diepool","sheet_type","special_name","special_abbr","total_age","total_grade","page_no","luck","placename","spent_xp","remaining_xp","spells_hname","sheet_version"], function(values) {
 			var setupvars = {};
 			if(!values.hasOwnProperty("str_pool")) { setupvars.str_pool = Math.floor(Math.sqrt(2*(parseInt(values.str_score)+1))+0.5)-1;}
 			if(!values.hasOwnProperty("agi_pool")) { setupvars.agi_pool = Math.floor(Math.sqrt(2*(parseInt(values.agi_score)+1))+0.5)-1; }
@@ -648,6 +649,7 @@
 			if(!values.hasOwnProperty("init")) { setupvars.init = 2; }			
 			if(!values.hasOwnProperty("init_skill")) { setupvars.init_skill = "None"; }				
 			if(!values.hasOwnProperty("carry")) { setupvars.carry = 60; }
+			if(!values.hasOwnProperty("carrytotal")) { setupvars.carrytotal = 0; }			
 			if(!values.hasOwnProperty("perception")) { setupvars.perception = 2; }
 			if(!values.hasOwnProperty("actions")) { setupvars.actions = 2; }
 			if(!values.hasOwnProperty("total_age")) { setupvars.total_age = 0; }
@@ -662,7 +664,7 @@
 			if(!values.hasOwnProperty("page_no")) { setupvars.page_no = 1; }
 			if(!values.hasOwnProperty("nat_dmg")) { setupvars.nat_dmg = 1; }			
 			if(!values.hasOwnProperty("sheet_version")) { setupvars.sheet_version = "1.0"; } 
-            else if(values.sheet_version !== "1.04") { setupvars.sheet_version = update_sheet(values.sheet_version); }			
+            else if(values.sheet_version !== "1.05") { setupvars.sheet_version = update_sheet(values.sheet_version); }			
 			setAttrs(setupvars);
 		});
 	});
@@ -789,7 +791,7 @@
 			case "swimming":
 			update_swim(0);
 			break;
-			case "carry":
+			case "carrying":
 			update_carry(0);
 			break;
 			case "reactions":
@@ -817,8 +819,8 @@
 					case "swimming":
 					update_swim(newval);
 					break;
-					case "carry":
-					find_skill("carry",update_carry,"rank");
+					case "carrying":
+					find_skill("carrying",update_carry,"rank");
 					break;
 					case "reactions":
 					case "tactics":
@@ -839,8 +841,8 @@
 		getAttrs(["agi_score","str_score"],function(values) { setAttrs({"jump":(values.agi_score*2)+"'\\"+(Math.min(values.agi_score*2,values.str_score))+"'"}); });
 	});
 	
-	on("change:str_score change:end_score", function(eventInfo) {
-		find_skill("carry",update_carry,"rank");
+	on("change:str_score change:end_score change:carrymod", function(eventInfo) {
+		find_skill("carrying",update_carry,"rank");
 	});
 	
 	on("change:int_pool", function (eventInfo) {
@@ -865,19 +867,42 @@
 		});
 	});
 	
+	on("change:repeating_equip:weight change:shieldweight change:repeating_armor:armorweight", function(eventInfo) {
+		update_weight();
+	});
+	
 	var update_perception = function(skillvalue) {
 		getAttrs(["int_pool"], function (values) { setAttrs({"perception": parseInt(values.int_pool)+skillvalue}); });
 	};
 	
 	var update_carry = function(skillvalue) {
-		getAttrs(["end_score","str_score"],function(values) { setAttrs({"carry": (parseInt(values.str_score)+parseInt(values.end_score)+skillvalue)*10}); });
+		getAttrs(["end_score","str_score","carrymod"],function(values) { 
+			var score = (parseInt(values.str_score)+parseInt(values.carrymod)+parseInt(values.end_score)+parseInt(skillvalue))*10;			
+			setAttrs({"carry": score}); 
+		});
 	};
+	
+	var update_weight = function() {
+		getSectionIDs("equip", function(equipids) {
+			var idnamearray = equipids.map((x)=>"repeating_equip_"+x+"_weight");
+			getSectionIDs("armor", function(armorids) {
+				idnamearray = idnamearray.concat(armorids.map((x)=>"repeating_armor_"+x+"_armorweight"));
+				getAttrs(idnamearray.concat(["carry","shieldweight"]), function(values) {
+					var carry = parseInt(values.carry);
+					delete values.carry;
+					var carrying = Object.values(values).reduce((x,total) => parseFloat(parseFloat(total) + parseFloat(x)),0);
+					var color = (carrying > carry) ? "red" : (carrying >= carry * 0.8) ? "yellow" : "green";
+					setAttrs({"carrytotal":carrying,"carrycolor":color});
+				});
+			});
+		});
+	}
 	
 	var update_atkpool = function(atkIDs) {
 		var attr = {"Strength":"str","Agility":"agi","Endurance":"end","Intuition":"int","Logic":"log","Willpower":"wil","Charisma":"cha","Luck":"luc","Reputation":"rep","Special":"special"};
 		getSectionIDs("skills",function (idarray){
-			idnamearray = idarray.map((x)=>"repeating_skills_"+x+"_skillname");
-			idfieldarray = idnamearray.concat(idarray.map((x)=>"repeating_skills_"+x+"_skillpool"));
+			var idnamearray = idarray.map((x)=>"repeating_skills_"+x+"_skillname");
+			var idfieldarray = idnamearray.concat(idarray.map((x)=>"repeating_skills_"+x+"_skillpool"));
 			getAttrs(atkIDs.map((x)=> "repeating_attacks_"+x+"_attackattr").concat(atkIDs.map((x)=> "repeating_attacks_"+x+"_attackskill"),atkIDs.map((x)=> "repeating_attacks_"+x+"_attackquality"),["str_pool","agi_pool","end_pool","int_pool","log_pool","wil_pool","cha_pool","luc_pool","rep_pool","mag_pool","special_pool"],idfieldarray), function(values) {				
 				var skills = {};
 				Object.keys(values).filter((x) => x.match(/repeating_skills.*_skillname/)).forEach((x) => skills[values[x]] = values[x.replace("name","pool")]);
@@ -919,16 +944,18 @@
 	var update_init = function(skillvalues) {
 		var initskills = ["Tactics","Reactions"];
 		var maxval = Math.max(...skillvalues);
-		var sname = initskills[initskills.indexOf(maxval)];
-		getAttrs(["int_pool"], function(values) { setAttrs({"init": values.int_pool+Math.max(...skillvalues), "init_skill" : sname});});
+		var sname = initskills[skillvalues.indexOf(maxval)];
+		getAttrs(["int_pool"], function(values) { 
+			setAttrs({"init": values.int_pool+Math.max(...skillvalues), "init_skill" : sname});
+		});
 	};
 	
 	
 	//Find a skill"s pool value.
 	var find_skill = function (skillname,functionname,type = "pool") {
 		getSectionIDs("skills",function (idarray){
-			idnamearray = idarray.map((x)=>"repeating_skills_"+x+"_skillname");
-			idfieldarray = idnamearray.concat(idarray.map((x)=>"repeating_skills_"+x+"_skill"+type));
+			var idnamearray = idarray.map((x)=>"repeating_skills_"+x+"_skillname");
+			var idfieldarray = idnamearray.concat(idarray.map((x)=>"repeating_skills_"+x+"_skill"+type));
 			getAttrs(idfieldarray,function (values) {
 				var flag = false;
 				idnamearray.forEach(function (x) {
@@ -944,9 +971,9 @@
 	
 	var find_attack_pool = function(type,functionname,passthrough = [0]) {
 		getSectionIDs("attacks", function (idarray) {
-			idtypearray = idarray.map((x)=>"repeating_attacks_"+x+"_type");
-			idpoolarray = idarray.map((x)=>"repeating_attacks_"+x+"_pool");
-			idfieldarray = idtypearray.concat();
+			var idtypearray = idarray.map((x)=>"repeating_attacks_"+x+"_type");
+			var idpoolarray = idarray.map((x)=>"repeating_attacks_"+x+"_pool");
+			var idfieldarray = idtypearray.concat();
 			getAttrs(idfieldarray,function (values) {
 				var outvalue = [];
 				var flag = false;
@@ -966,13 +993,13 @@
 	
 	var find_skills = function (skillnames,functionname,type = "pool") {
 		getSectionIDs("skills",function (idarray){
-			idnamearray = idarray.map((x)=>"repeating_skills_"+x+"_skillname");
-			idfieldarray = idnamearray.concat(idarray.map((x)=>"repeating_skills_"+x+"_skill"+type));
+			var idnamearray = idarray.map((x)=>"repeating_skills_"+x+"_skillname");
+			var idfieldarray = idnamearray.concat(idarray.map((x)=>"repeating_skills_"+x+"_skill"+type));
 			getAttrs(idfieldarray,function (values) {
 				var outvalue = [];
 				skillnames.forEach(function(skillname){
 					var flag = false;
-					for(i = 0; i<idnamearray.length; i++) {
+					for(var i = 0; i<idnamearray.length; i++) {
 						if(values[idnamearray[i]].toLowerCase().trim() == skillname.toLowerCase().trim()) {
 							outvalue.push(parseInt(values[(idnamearray[i].replace("name",type))]));
 							flag = true;
@@ -991,7 +1018,7 @@
 		getSectionIDs("repeating_"+name, function(idarray) {
 			var attrs ={};		
 			idarray.forEach(function(id) {
-				attrs['repeating_'+name+'_' + id + '_'+name+'_id'] = id;
+				attrs["repeating_"+name+"_" + id + "_"+name+"_id"] = id;
 			});
 			setAttrs(attrs,{silent:true});			
 		});
@@ -1003,7 +1030,7 @@
 		if(version === "1.0") {
 		    var rowid = generateRowID();
 			getAttrs(["armorname","armorquality","armorsoak","armorweight"], function(values) {
-				update = {};
+				var update = {};
 			    update["repeating_armor_"+rowid+"_armorname"] = values.armorname || "";
 				update["repeating_armor_"+rowid+"_armorquality"] = values.armorquality || "";				
 				update["repeating_armor_"+rowid+"_armorsoak"]  = values.armorsoak || 0;
@@ -1018,7 +1045,7 @@
 		if (version === "1.01") { version = "1.02"; console.log("Patching Sheet to Version "+version); }
 		if (version === "1.02") {
 		    getAttrs(["sheet_type","size","nat_dmg"], function (values) {
-				update = {};
+				var update = {};
 				update.spells_hname = (values.sheet_type === "new") ? "Powers" : (values.sheet_type === "now") ? "???" : "Spells";
 				var size_natdmg = {"tiny": 1,"small": 1, "medium": 1, "large": 2, "enormous": 3, "gigantic": 4, "colossal": 5};		
 				update.nat_dmg = size_natdmg[(values.size||"medium")];
@@ -1029,6 +1056,13 @@
 			console.log("Patching Sheet to Version "+version);			
 		}
 		if (version === "1.03") { version = "1.04"; console.log("Patching Sheet to Version "+version); }
+		if (version === "1.04") { 			
+			find_skills(["tactics","reactions"],update_init);
+			find_skills(["carrying"],update_carry,"rank");
+			update_weight();
+			version = "1.05";
+			console.log("Patching Sheet to Version "+version); 			
+		}
 		return version;
 	};
 </script>

@@ -463,7 +463,7 @@ div[data-groupname="repeating_skills"] p {
 	color: orange;
 }
 .sheet-rolltemplate-woindmg .sheet-damagedie {
-	color: red;
+	color: brown;
 }
 .sheet-rolltemplate-woindmg .sheet-total,
 .sheet-rolltemplate-woinroll .sheet-total {
@@ -545,6 +545,7 @@ div[data-groupname="repeating_skills"] p {
 	margin-left: 0px;
     float: none;
 }
+
 .sheet-rolltemplate-woinnotes .sheet-new,
 .sheet-rolltemplate-woinroll .sheet-new {
 	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/newroll.jpg?raw=true");	
@@ -634,11 +635,10 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(odd),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem input:nth-child(odd),
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-luckdice,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-specialpoints,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-specialpoints,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-careername,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-careerage,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-xpearned,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-xpspent,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-xpremain,
@@ -658,7 +658,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page3 textarea,
 .sheet-styletype[value='old'] ~ .sheet-page2 textarea
 {
-    background-color: #f8eccf !important;
+    background-color: #f8eccf;
 }
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-attrbox,
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
@@ -667,8 +667,8 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),
+.sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem input:nth-child(even),
 .sheet-styletype[value='old'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem select,
-.sheet-styletype[value='old'] ~ .sheet-page .sheet-careergrade,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-lptmaxdie,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-lptgrade,
 .sheet-styletype[value='old'] ~ .sheet-page .sheet-shieldtable td:nth-child(odd) *,
@@ -759,11 +759,10 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(odd),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem input:nth-child(odd),
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-luckdice,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-specialpoints,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-specialpoints,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-careername,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-careerage,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpearned,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpspent,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-xpremain,
@@ -779,7 +778,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-rolltemplate-woinnotes .sheet-now div:nth-child(odd):not(:first-child),
 .sheet-rolltemplate-woindmg .sheet-now div:nth-child(odd)
 {
-    background-color: #f3f3f4 !important;
+    background-color: #f3f3f4;
 }
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-attrbox,
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
@@ -788,8 +787,8 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),
+.sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem input:nth-child(even),
 .sheet-styletype[value='now'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem select,
-.sheet-styletype[value='now'] ~ .sheet-page .sheet-careergrade,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-lptmaxdie,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-lptgrade,
 .sheet-styletype[value='now'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) *,
@@ -904,11 +903,10 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(odd) input,
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem input:nth-child(odd),
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-luckdice,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-specialpoints,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-specialpoints,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-careername,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-careerage,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xpearned,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-xpspent,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldtable td:nth-child(odd) *,
@@ -924,7 +922,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-rolltemplate-woinroll .sheet-now div:nth-child(odd):not(:first-child),
 .sheet-rolltemplate-woindmg .sheet-now div:nth-child(odd)
 {
-    background-color: rgba(196,44,1,0.3) !important;
+    background-color: rgba(196,44,1,0.3);
 }
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-attrbox,
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
@@ -932,8 +930,8 @@ div[data-groupname="repeating_skills"] p {
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),
+.sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem:nth-child(even),
 .sheet-styletype[value='nameless'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem select,
-.sheet-styletype[value='nameless'] ~ .sheet-page .sheet-careergrade,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptmaxdie,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-lptgrade,
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) *,
@@ -969,7 +967,7 @@ div[data-groupname="repeating_skills"] p {
 .sheet-pageno[value="3"] ~ .sheet-styletype[value="nameless"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
 .sheet-pageno[value="3"] ~ .sheet-styletype[value="nameless"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
 {
-    background-color: #b82e00 !important;
+    background-color: #b82e00;
 }
 .sheet-styletype[value='nameless'] ~ .sheet-page .sheet-headertext,
 .sheet-rolltemplate-woinnotes .sheet-nameless .sheet-namerow,
@@ -993,4 +991,28 @@ div[data-groupname="repeating_skills"] p {
 }
 .sheet-rolltemplate-woinroll .sheet-nameless .sheet-attrdie {
 	color: #66a9e0;
-	}
+}
+.sheet-styletype[value='new'] ~ .sheet-page input[value="red"] ~ .sheet-carryvalue td:nth-child(2) span,
+.sheet-styletype[value='now'] ~ .sheet-page input[value="red"] ~ .sheet-carryvalue td:nth-child(2),
+.sheet-styletype[value='old'] ~ .sheet-page input[value="red"] ~ .sheet-carryvalue td:nth-child(2),
+.sheet-styletype[value='nameless'] ~ .sheet-page input[value="red"] ~ .sheet-carryvalue td:nth-child(2) {
+	background-color: #800000 !important;
+	color:white;
+}
+.sheet-styletype[value='new'] ~ .sheet-page input[value="yellow"] ~ .sheet-carryvalue td:nth-child(2) span,
+.sheet-styletype[value='now'] ~ .sheet-page input[value="yellow"] ~ .sheet-carryvalue td:nth-child(2),
+.sheet-styletype[value='old'] ~ .sheet-page input[value="yellow"] ~ .sheet-carryvalue td:nth-child(2),
+.sheet-styletype[value='nameless'] ~ .sheet-page input[value="yellow"] ~ .sheet-carryvalue td:nth-child(2) {
+	background-color: #808000 !important;
+	color:white;	
+}
+.sheet-styletype[value='new'] ~ .sheet-page input[value="green"] ~ .sheet-carryvalue td:nth-child(2) span,
+.sheet-styletype[value='now'] ~ .sheet-page input[value="green"] ~ .sheet-carryvalue td:nth-child(2),
+.sheet-styletype[value='old'] ~ .sheet-page input[value="green"] ~ .sheet-carryvalue td:nth-child(2),
+.sheet-styletype[value='nameless'] ~ .sheet-page input[value="green"] ~ .sheet-carryvalue td:nth-child(2) {
+	background-color: #008000 !important;
+	color:white;	
+}	
+.sheet-styletype[value='new'] ~ .sheet-page .sheet-carryvalue td:nth-child(2) span {
+	width: auto !important;
+}
