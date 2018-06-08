@@ -191,6 +191,7 @@ on("chat:message", function(msg) {
 				dlog("DEBUG (options):"+JSON.stringify(options));
 				atkpool = Math.min(options.attrvalue+options.skillvalue+options.equipvalue,options.dielimit)+options.posmod;
 				if(options.damdice*2 >= atkpool && options.damdice > 0) { sendChat("WOIN Dice Roller","/w "+msg.who.replace(" (GM)","")+" Dice Roll Error. You cannot spend more attack dice than are in the pool. Tried to spend "+(options.damdice * 2)+" out of "+atkpool); return; }
+				options.modvalue = options.posmod;
 				options.equipvalue = parseInt(options.atkequipvalue) || 0;
 				options.attackvalue = atkpool - (options.damdice * 2);
 				options.explodevalue = 0;
