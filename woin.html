@@ -627,7 +627,7 @@
 	"use strict";
 	on("sheet:opened", function(eventInfo) {
 		//Check for initialization
-		getAttrs(["str_score","str_pool","agi_score","agi_pool","end_score","end_pool","int_score","int_pool","log_score","log_pool","wil_score","wil_pool","cha_score","cha_pool","luc_score","luc_pool","rep_score","rep_pool","special_score","special_pool","sizemod","speed","climb","swim","init","carry","carrytotal","jump","perception","actions","max_diepool","sheet_type","special_name","special_abbr","total_age","total_grade","page_no","luck","placename","spent_xp","remaining_xp","spells_hname","sheet_version"], function(values) {
+		getAttrs(["str_score","str_pool","agi_score","agi_pool","end_score","end_pool","int_score","int_pool","log_score","log_pool","wil_score","wil_pool","cha_score","cha_pool","luc_score","luc_pool","rep_score","rep_pool","special_score","special_pool","sizemod","speed","climb","swim","init","init_skill","carry","carrytotal","jump","perception","actions","max_diepool","sheet_type","special_name","special_abbr","total_age","total_grade","page_no","luck","placename","spent_xp","remaining_xp","spells_hname","sheet_version"], function(values) {
 			var setupvars = {};
 			if(!values.hasOwnProperty("str_pool")) { setupvars.str_pool = Math.floor(Math.sqrt(2*(parseInt(values.str_score)+1))+0.5)-1;}
 			if(!values.hasOwnProperty("agi_pool")) { setupvars.agi_pool = Math.floor(Math.sqrt(2*(parseInt(values.agi_score)+1))+0.5)-1; }

@@ -36,7 +36,19 @@ function rolllookups(options,charattrs,who) {
 					options.equipvalue = 0;
 			} else {
 					options.equipvalue = Math.min(parseInt(charattrs.filter((x)=>x.get("name") === "repeating_equip_"+(equipid[0].get("name").split("_")[2])+"_quality")),options.skillvalue);
-			}			
+			}
+			var curluck = charattrs.filter((x)=>x.get("name") === "luck");		
+			var luckpool = charattrs.filter((x)=>x.get("name") === "luc_pool");					
+			if(curluck.length === 0) { curluck = [createObj("attribute", {name: "luck", "current": 0, "max": 0, characterid: options.id})]; }
+			if(luckpool.length === 0) { curluck = [createObj("attribute", {name: "luc_pool", "current": 2, "max": 2, characterid: options.id})]; }			
+			if(options.luckvalue > 0 && options.luckvalue > parseInt(curluck[0].get("current"))) {
+				sendChat("WOIN Dice Roller","/w "+who.replace(" (GM)","")+" Not enough Luck die available. Lowering luck input to match available.");  				
+				options.luckvalue = parseInt(curluck[0].get("current"));
+			}
+			if(options.luckvalue > 0 && options.luckvalue == parseInt(luckpool[0].get("current"))) {
+				sendChat("WOIN Dice Roller","/w gm Player is using all of their luck dice in a single roll.");
+			}
+			curluck[0].set("current",curluck[0].get("current")-options.luckvalue);
 			return options;
 		}		
 
@@ -96,20 +108,20 @@ on("chat:message", function(msg) {
 		options.notes = options.notes || "";
 		options.dmgpool = parseInt(options.dmgpool) || 0;	  
 		options.damage_mod = parseInt(options.damage_mod) || 0;
-		options.luckvalue = parseInt(options.luck) || 0;
+		options.luckvalue = Math.max(parseInt(options.luck),0) || 0;
         options.flatmod = parseInt(options.flatmod) || 0;
 		options.explodevalue = 0;
 		
 		dlog("DEBUG (options):"+JSON.stringify(options));
 		var charattrs = findObjs({type:"attribute", characterid: options.id});
-		dlog("DEBUG: charattrs: "+JSON.stringify(charattrs));		
+		dlog("DEBUG: charattrs: "+JSON.stringify(charattrs));
 		var sheettype;
 		var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intelligence" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Magic" : "special_pool","???" : "special_pool","Psionic" : "special_pool", "Special" : "special_pool"};		
 		dlog("DEBUG: msgcmd: '"+msgcmd+"'");
 		switch(msgcmd) {
 		    case "!woin_roll":
 				dlog("DEBUG: roll start");
-				options = rolllookups(options,charattrs,msg.who);
+				options = rolllookups(options,charattrs,msg.who);				
 				dieresults = [];
 				rolled = 0;
 				total = options.flatmod||0;
@@ -333,4 +345,4 @@ function woin_critical_lookup(dmgtype) {
 	return "{{alert=Critical Result<br>"+outputcondition.join(" + ")+"}}";
 }
 
-log("What's Old Is N.E.W. Dice Roller Version 1.04 Loaded")
+log("What's Old Is N.E.W. Dice Roller Version 1.05 Loaded")
