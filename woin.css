@@ -142,8 +142,8 @@ input[type=number]:hover,input[type=number]:focus {
 }
 .sheet-page .repcontainer[data-groupname="repeating_spells"] .repitem button,
 .sheet-page .repcontainer[data-groupname="repeating_exploits"] .repitem button {
-	width: 20px;
-	height: 20px;
+	width: 14px;
+	height: 14px;
 }
 
 /* General (Repeated) Dropdown Sizings */
@@ -182,14 +182,6 @@ div[data-groupname="repeating_skills"] p {
 .sheet-anamehead {
 	margin-left: 35px;
 }
-.sheet-aattrhead {
-}
-.sheet-askillhead {
-	margin-left: 50px;
-}
-.sheet-aqualhead {
-	margin-left: 128px;
-}
 .sheet-aatktotalhead {
 	margin-left: 178px;
 }
@@ -201,9 +193,6 @@ div[data-groupname="repeating_skills"] p {
 }
 .sheet-arangehead {
 	margin-left: 57px;
-}
-.sheet-anoteshead {
-	margin-left: 67px;
 }
 
 /* Attack Field Sizings */
@@ -231,11 +220,19 @@ div[data-groupname="repeating_skills"] p {
 }
 .sheet-anotes {
 	height: 36px;
-	width: 50%;
+	width: 100%;
 }
 .sheet-asecondrow {
 	display: none;
 }
+.sheet-asecondrow td,
+div[data-groupname="repeating_exploits"] td {
+	vertical-align: top !important;
+	padding-right: 4px;
+}
+.sheet-asecondrow td:nth-child(4) {
+	width: 50%;
+	}
 .sheet-ashowextra[value="on"] ~ .sheet-asecondrow {
 	display:block;
 }

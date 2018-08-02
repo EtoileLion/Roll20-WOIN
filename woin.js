@@ -150,7 +150,7 @@ on("chat:message", function(msg) {
 					}
 				});
 		if(options.flatmod !== 0) { dieresults.push("<span class=\"sheet-flatmod\">"+options.flatmod+"</span>"); }				
-		output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>"+options.equipname+"</span>" : "")+((options.modvalue > 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+((options.flatmod !== 0) ? "+<span class='sheet-flatmod'>Flat-Modifier</span>" : "")+"}} ";				
+		output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>"+options.equipname+"</span>" : "")+((options.modvalue > 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.modvalue < 0) ? "+<span class='sheet-moddie'>Modifier (Negative)</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+((options.flatmod !== 0) ? "+<span class='sheet-flatmod'>Flat-Modifier</span>" : "")+"}} ";				
 				output += "{{dieresults="+dieresults.join(" + ")+"}} {{total="+total+"}}";
 				dlog("DEBUG: Output: "+output);
 				sendChat(options.name,output);				
@@ -223,7 +223,7 @@ on("chat:message", function(msg) {
 					}				
 				});
 		output = "&{template:woinroll} {{"+options.type+"=1}} {{type="+options.type+"}}{{id="+options.id+"}}{{name="+options.name+"}}";
-				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>Quality</span>" : "")+((options.modvalue > 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";								
+				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>Quality</span>" : "")+((options.modvalue > 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.modvalue < 0) ? "+<span class='sheet-moddie'>Modifier (Negative)</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";								
 		output += "{{damagevalue="+dmgpool+"}} {{damage_mod="+options.damage_mod+"}} {{dmgtype="+(options.damagetype.replace(/\"/g,"^^^").replace(/\}/g,"&rcb;"))+"}} {{weapon_name="+options.weapon.replace(/\}/g,"&rcb;").replace(/\]/g,"&rbrack;").replace(/\"/g,"&quot;")+"}}";
 				output += "{{dieresults="+attackdieresults.join(" + ")+"}} {{total="+attacktotal+"}} {{notes="+options.notes+"}}";
 				if(critcheck >= 3) { output+= woin_critical_lookup(options.damagetype) }
@@ -291,15 +291,17 @@ on("chat:message", function(msg) {
 				dlog("DEBUG: Broad Tokens: "+JSON.stringify(findObjs({type: "graphic",subtype: "token"})));
 				tokens = findObjs({type: "graphic",subtype: "token", represents: options.id, pageid: playerpage });
 				dlog("DEBUG: (tokens) : "+JSON.stringify(tokens));
-				if(tokens.length === 0) { output += "{{alert=No Token Found}}"; }
+				if(tokens.length === 0) { 
+				    turnorder.push({"id":"-1","pr":total,"custom":options.name});
+				}
 				else {
 					token = tokens[0];
 					//Add to Tracker.
 					i = turnorder.findIndex((x)=>x.id === token.get("id"));
 					if (i === -1) { turnorder.push({"id":token.get("id"),"pr":total, "custom":""}); }
 					else { turnorder[i].pr = total; }
-					campaign.set("turnorder", JSON.stringify(turnorder));
 				}
+				campaign.set("turnorder", JSON.stringify(turnorder));
 				}
 				sendChat(options.name,output); 								
 			break;					
@@ -346,4 +348,4 @@ function woin_critical_lookup(dmgtype) {
 	return "{{alert=Critical Result<br>"+outputcondition.join(" + ")+"}}";
 }
 
-log("What's Old Is N.E.W. Dice Roller Version 1.05 Loaded")
+log("What's Old Is N.E.W. Dice Roller Version 1.06 Loaded")

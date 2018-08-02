@@ -316,13 +316,13 @@
 				<input name="attr_attack_range" type='number' value=0>
 				<input name="attr_attack_showextra" type='checkbox'>
 			</div>
-			<div class='sheet-asecondrow'>
-				<div>
-					<span class='sheet-aattrhead'>Attribute</span><span class='sheet-askillhead'>Skill</span><span class='sheet-aqualhead'>Quality</span><span class="sheet-anoteshead">Notes</span>
-				</div>
-				<div>
-				<select class="sheet-attrselect" name="attr_attackattr" /><option>Strength</option><option>Agility</option><option>Intuition</option><option>Special</option></select>
-				<input class='sheet-askill' name="attr_attackskill" type='text'>
+			<div class='sheet-asecondrow'>			
+				<table>
+				<tr><td>
+					<span class='sheet-aattrhead'>Attribute</span></td><td><span class='sheet-askillhead'>Skill</span></td><td><span class='sheet-aqualhead'>Quality</span></td><td><span class="sheet-anoteshead">Notes</span></td>
+				</tr><tr><td class="sheet-attrselect">
+				<select class="sheet-attrselect" name="attr_attackattr" /><option>Strength</option><option>Agility</option><option>Intuition</option><option>Special</option></select></td><td class='sheet-askill'>
+				<input class='sheet-askill' name="attr_attackskill" type='text'></td><td class='sheet-qualityselect'>
 				<select class='sheet-qualityselect' name='attr_attackquality'>
 					<option value=-2>Improvised</option>
 					<option value=-1>Poor</option>
@@ -332,8 +332,8 @@
 					<option value=3>Mastercraft</option>
 					<option value=4>Artisanal</option>
 					<option value=5>Legendary</option>
-				</select>
-				<textarea name="attr_notes" class="sheet-anotes"></textarea>
+				</select></td><td class="sheet-anotes">
+				<textarea name="attr_notes" class="sheet-anotes"></textarea></td></tr></table>
 			</div>
 		</fieldset>
 	</div>   
@@ -478,9 +478,10 @@
 	<div class='sheet-row'>
 		<p class='sheet-headertext'>Exploits & Traits</p>
 		<fieldset class="repeating_exploits">
-			<button type='roll' value="&{template:woinnotes} {{@{sheet_type}=1}} {{notes=@{exploitdesc}}} {{title=@{exploitname}}}"></button>
-			<input name="attr_exploitname" type='text' placeholder='Exploit Name' />
-			<textarea class='sheet-exploit-desc' name="attr_exploitdesc" placeholder='Description'></textarea>
+			<table><tr><td>
+			<button type='roll' value="&{template:woinnotes} {{@{sheet_type}=1}} {{notes=@{exploitdesc}}} {{title=@{exploitname}}}"></button></td><td>
+			<input name="attr_exploitname" type='text' placeholder='Exploit Name' /></td><td>
+			<textarea class='sheet-exploit-desc' name="attr_exploitdesc" placeholder='Description'></textarea></td></tr></table>
 		</fieldset>
 	</div>
 </div>
@@ -664,7 +665,7 @@
 			if(!values.hasOwnProperty("page_no")) { setupvars.page_no = 1; }
 			if(!values.hasOwnProperty("nat_dmg")) { setupvars.nat_dmg = 1; }			
 			if(!values.hasOwnProperty("sheet_version")) { setupvars.sheet_version = "1.0"; } 
-            else if(values.sheet_version !== "1.05") { setupvars.sheet_version = update_sheet(values.sheet_version); }			
+            else if(values.sheet_version !== "1.06") { setupvars.sheet_version = update_sheet(values.sheet_version); }			
 			setAttrs(setupvars);
 		});
 	});
@@ -1063,6 +1064,7 @@
 			version = "1.05";
 			console.log("Patching Sheet to Version "+version); 			
 		}
+		if (version === "1.05") { version = "1.06"; console.log("Patching Sheet to Version "+version); }		
 		return version;
 	};
 </script>
