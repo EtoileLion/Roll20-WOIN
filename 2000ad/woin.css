@@ -48,6 +48,7 @@ input[type=number]:hover,input[type=number]:focus {
   width: 50px;
   background-color: #eee;
   border-radius: 25%;
+	border: 1px solid black;  
 }
 .sheet-pfcontainer:hover input ~ .sheet-pfradio {
     background-color: #ccc;
@@ -56,6 +57,15 @@ input[type=number]:hover,input[type=number]:focus {
   display: block;
 }
 
+.sheet-headerdiv .sheet-pfcontainer {
+	padding-left: 15px;
+	top: 75px;
+}
+
+.sheet-headerdiv .sheet-pfradio {
+	height: 11px;
+	width: 21px;
+}
 
 .sheet-row,
 .sheet-2colrow {
@@ -579,8 +589,15 @@ div[data-groupname="repeating_exploits"] td {
 }
 
 /* ====== civ STYLINGS ====== */
+.sheet-styletype[value='civ'] ~ .sheet-background {
+	background-color: #c0c9df;
+	width: 860px;
+}
 .sheet-styletype[value='civ'] ~ .sheet-headerdiv .sheet-logo {
    background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/JDLogo-civ.png");	
+}
+.sheet-styletype[value='civ'] ~ .sheet-headerdiv .sheet-descriptor {
+   background-color: #f3f3f4;	
 }
 .sheet-styletype[value='civ'] ~ .sheet-page p,
 .sheet-styletype[value='civ'] ~ .sheet-page input,
@@ -591,7 +608,6 @@ div[data-groupname="repeating_exploits"] td {
     font-family: "Trebuchet MS", Helvetica, sans-serif !important;
 }
 .sheet-styletype[value='civ'] ~ .sheet-headerdiv {
-	padding-top: 10px;
 	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/civhead.png?raw=true")	
 }
 .sheet-styletype[value='civ'] ~ .sheet-page input,
@@ -788,6 +804,9 @@ div[data-groupname="repeating_exploits"] td {
 /* Perp Styles */
 .sheet-styletype[value='perp'] ~ .sheet-headerdiv .sheet-logo {
    background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/JDLogo-perp.png");	
+}
+.sheet-styletype[value='civ'] ~ .sheet-headerdiv .sheet-descriptor {
+   background-color: #f3f3f4;	
 }
 .sheet-styletype[value='perp'] ~ .sheet-background {
 	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/perpback.jpg");
