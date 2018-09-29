@@ -115,15 +115,16 @@ input[type=number]:hover,input[type=number]:focus {
 
 /* Icons */
  .sheet-attributeheadimg {
-	width: 106px;
+	width: 125px;
+	background-position: 0px -5px;
 }
  .sheet-skillheadimg {
-	width: 60px;
-	background-position: 0px -48px;
+	width: 106px;
+	background-position: 0px -50px;
 }
  .sheet-defenseimg {
-	width: 100px;
-	background-position: 0px -93px;
+	width: 106px;
+	background-position: 0px -95px;
 }
  .sheet-luckimg {
 	width: 106px;
@@ -131,19 +132,19 @@ input[type=number]:hover,input[type=number]:focus {
 }
  .sheet-psipointsimg {
 	width: 135px;
-	background-position: 0px -185px;
+	background-position: 0px -187px;
 }
  .sheet-lifepathimg {
 	width: 106px;
 	background-position: 0px -232px;
 }
  .sheet-movementimg {
-	width: 106px;
-	background-position: 0px -280px;
+	width: 115px;
+	background-position: 0px -277px;
 }
  .sheet-equipimg {
 	width: 106px;	
-    background-position: -144px -232px;
+    background-position: -150px -232px;
 }
  .sheet-attacksimg {
 	width: 106px;
@@ -155,35 +156,35 @@ input[type=number]:hover,input[type=number]:focus {
 }
  .sheet-shieldimg {
 	width: 106px;
-	background-position: -144px -280px;
+	background-position: -150px -278px;
 }
  .sheet-armorimg {
 	width: 106px;
-	background-position: -144px -323px;	
+	background-position: -150px -324px;	
 }
  .sheet-exploitsimg {
-	width: 190px;
-	background-position: -144px -368px;		
+	width: 201px;
+	background-position: -150px -368px;		
 }
  .sheet-conditionimg {
 	width: 106px;
-	background-position: -144px 0px;			
+	background-position: -150px -5px;			
 }
  .sheet-wealthimg {
-	width: 106px;
-	background-position: -144px -48px;			
+	width: 165px;
+	background-position: -150px -50px;			
 }
  .sheet-bioimg {
 	width: 106px;
-	background-position: -144px -93px;		
+	background-position: -150px -95px;		
 }
  .sheet-xpimg {
-	width: 106px;
-	background-position: -144px -140px;	
+	width: 140px;
+	background-position: -150px -140px;	
 }
  .sheet-notesimg {
 	width: 106px;
-	background-position: -144px -185px;	
+	background-position: -150px -187px;	
 }
 
 /* Attributes */
@@ -410,7 +411,7 @@ div[data-groupname="repeating_exploits"] td {
 }
 /* Page 2 Sizings */
 .sheet-p2stypeselect {
-	width: 72px;
+	width: 80px;
 }
 
 .sheet-p2sizeselect {
@@ -556,58 +557,58 @@ div[data-groupname="repeating_exploits"] td {
 }
 
 /* ====== judge STYLINGS ====== */
-.sheet-styletype[value='judge'] ~ .sheet-page,
-.sheet-styletype[value='judge'] ~ .sheet-2colrow input {
+.sheet-styletype[value='civ'] ~ .sheet-page,
+.sheet-styletype[value='civ'] ~ .sheet-2colrow input {
 	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/judgeback.png?raw=true")
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/civback.png?raw=true")
 }
-.sheet-styletype[value='judge'] ~ .sheet-page p,
-.sheet-styletype[value='judge'] ~ .sheet-page input,
-.sheet-styletype[value='judge'] ~ .sheet-page select,
-.sheet-styletype[value='judge'] ~ .sheet-page textarea,
-.sheet-rolltemplate-woinnotes .sheet-judge .sheet-namerow,
-.sheet-rolltemplate-woinroll .sheet-judge .sheet-namerow {
+.sheet-styletype[value='civ'] ~ .sheet-page p,
+.sheet-styletype[value='civ'] ~ .sheet-page input,
+.sheet-styletype[value='civ'] ~ .sheet-page select,
+.sheet-styletype[value='civ'] ~ .sheet-page textarea,
+.sheet-rolltemplate-woinnotes .sheet-civ .sheet-namerow,
+.sheet-rolltemplate-woinroll .sheet-civ .sheet-namerow {
     font-family: "Trebuchet MS", Helvetica, sans-serif !important;
 }
-.sheet-styletype[value='judge'] ~ .sheet-headerdiv {
+.sheet-styletype[value='civ'] ~ .sheet-headerdiv {
 	padding-top: 10px;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/judgehead.png?raw=true")	
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/civhead.png?raw=true")	
 }
-.sheet-styletype[value='judge'] ~ .sheet-page input,
-.sheet-styletype[value='judge'] ~ .sheet-page select,
-.sheet-styletype[value='judge'] ~ .sheet-page textarea {
+.sheet-styletype[value='civ'] ~ .sheet-page input,
+.sheet-styletype[value='civ'] ~ .sheet-page select,
+.sheet-styletype[value='civ'] ~ .sheet-page textarea {
 	border: 1px #0072bc solid;
 }
 
-.sheet-styletype[value='judge'] ~ .sheet-page .sheet-attributehead {
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-attributehead {
     background-color: #0072bc;
 }
-.sheet-styletype[value='judge'] ~ .sheet-page .sheet-attributehead button {
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-attributehead button {
 	color: white;
 	background-color: transparent;
 }
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="judge"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="judge"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="judge"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="judge"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="3"] ~ .sheet-styletype[value="judge"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
-.sheet-pageno[value="3"] ~ .sheet-styletype[value="judge"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="civ"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="civ"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="civ"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="civ"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="civ"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="civ"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
 {
     background-color: #0072bc;
 }
-.sheet-styletype[value='judge'] ~ .sheet-page .sheet-headertext {
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-headertext {
 	font-family: monospace;
     color: #0072bc;
-	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/headers-judge.png");
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/headers-civ.png");
 	background-repeat: no-repeat;	
 }
-.sheet-styletype[value='judge'] ~ .sheet-page .sheet-scorebox {
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-scorebox {
     border: 1px #0072bc solid;	
 }
-.sheet-styletype[value='judge'] ~ .sheet-page .sheet-scorebox input {
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-scorebox input {
     border: 0;	
 }
-.sheet-styletype[value='judge'] ~ .sheet-page .sheet-spanfield {
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-spanfield {
 	display: inline-block;
 	width: 37px;
 	border: 1px #0072bc solid;
@@ -617,140 +618,140 @@ div[data-groupname="repeating_exploits"] td {
     float: none;
 }
 
-.sheet-rolltemplate-woinnotes .sheet-judge,
-.sheet-rolltemplate-woinroll .sheet-judge {
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/judgeroll.jpg?raw=true");	
+.sheet-rolltemplate-woinnotes .sheet-civ,
+.sheet-rolltemplate-woinroll .sheet-civ {
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/civroll.jpg?raw=true");	
 }
-.sheet-rolltemplate-woindmg .sheet-judge {
-	background: transparent url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/judgeroll.jpg?raw=true") repeat-y 0px -8px;	
+.sheet-rolltemplate-woindmg .sheet-civ {
+	background: transparent url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/civroll.jpg?raw=true") repeat-y 0px -8px;	
 }
-.sheet-rolltemplate-woinnotes .sheet-judge .sheet-namerow,
-.sheet-rolltemplate-woinroll .sheet-judge .sheet-namerow {
+.sheet-rolltemplate-woinnotes .sheet-civ .sheet-namerow,
+.sheet-rolltemplate-woinroll .sheet-civ .sheet-namerow {
 	padding-top: 5px;
 }
 
-/* ======= civ Stylings ======= */
-.sheet-styletype[value='civ'] ~ .sheet-page,
-.sheet-styletype[value='civ'] ~ .sheet-page p,
-.sheet-styletype[value='civ'] ~ .sheet-page input,
-.sheet-styletype[value='civ'] ~ .sheet-page select,
-.sheet-styletype[value='civ'] ~ .sheet-page textarea,
-.sheet-styletype[value='civ'] ~ .sheet-2colrow input,
-.sheet-rolltemplate-woinnotes .sheet-civ .sheet-namerow,
-.sheet-rolltemplate-woinroll .sheet-civ .sheet-namerow {
+/* ======= judge Stylings ======= */
+.sheet-styletype[value='judge'] ~ .sheet-page,
+.sheet-styletype[value='judge'] ~ .sheet-page p,
+.sheet-styletype[value='judge'] ~ .sheet-page input,
+.sheet-styletype[value='judge'] ~ .sheet-page select,
+.sheet-styletype[value='judge'] ~ .sheet-page textarea,
+.sheet-styletype[value='judge'] ~ .sheet-2colrow input,
+.sheet-rolltemplate-woinnotes .sheet-judge .sheet-namerow,
+.sheet-rolltemplate-woinroll .sheet-judge .sheet-namerow {
 	font-family: "Livory", Georgia, serif !important;
 }
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-headertext {
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-headertext {
 	padding: 2px 6px;
     font-size: 14px;
-	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/headers-civ.png");
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/headers-judge.png");
 	background-repeat: no-repeat;	
 }
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-headertext::first-letter {
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-headertext::first-letter {
     font-size: 18px;
 }
-.sheet-styletype[value='civ'] ~ .sheet-headerdiv {
+.sheet-styletype[value='judge'] ~ .sheet-headerdiv {
 	
 	padding-top: 10px;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/civhead.jpg?raw=true");
+	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/judgehead.jpg?raw=true");
 	background-position: -66px;
 	background-repeat: no-repeat;
 }
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-spellsecret {
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-spellsecret {
 	display: inline;
 }
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-attributehead,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-lptname,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-lptmaxdiename,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-xpearnedhead,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-xpspenthead,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-xpremainhead,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-xpexpendhead,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-xpcosthead,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="civ"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="civ"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="civ"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="civ"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="3"] ~ .sheet-styletype[value="civ"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
-.sheet-pageno[value="3"] ~ .sheet-styletype[value="civ"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-attributehead,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-lptname,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-lptmaxdiename,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpearnedhead,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpspenthead,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpremainhead,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpexpendhead,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpcosthead,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="judge"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="judge"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="judge"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="judge"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="judge"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="judge"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
 {
     background-color: #c9b47d !important;
 }
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-attributehead button {
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-attributehead button {
 	font-family: "Livory", Georgia, serif !important;
 }
 
-.sheet-styletype[value='civ'] ~ .sheet-headerdiv .sheet-headname {
+.sheet-styletype[value='judge'] ~ .sheet-headerdiv .sheet-headname {
     background-color: rgba(201,180,125,0.3);
 }
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-scorebox input,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-luckdice input,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-specialpoints input,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-deftable input,
-.sheet-styletype[value='civ'] ~ .sheet-page .repitem input,
-.sheet-styletype[value='civ'] ~ .sheet-page .repitem select,
-.sheet-styletype[value='civ'] ~ .sheet-page .repitem textarea,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-xpearned input,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-movetable input {
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-scorebox input,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-luckdice input,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-specialpoints input,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-deftable input,
+.sheet-styletype[value='judge'] ~ .sheet-page .repitem input,
+.sheet-styletype[value='judge'] ~ .sheet-page .repitem select,
+.sheet-styletype[value='judge'] ~ .sheet-page .repitem textarea,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpearned input,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-movetable input {
 	background: transparent;
 }
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-scorebox,
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(odd),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(odd),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem input,
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(odd) input,
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(odd),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem input:nth-child(odd),
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-luckdice,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-specialpoints,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-specialpoints,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-xpearned,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-xpspent,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-xpremain,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-lptage,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) input,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) select,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-armortable td:nth-child(even) input,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-armortable2 td:nth-child(even) input,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-armortable td:nth-child(even) select,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-armortable2 td:nth-child(even) select,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
-.sheet-rolltemplate-woinnotes .sheet-civ div:nth-child(even),
-.sheet-rolltemplate-woinroll .sheet-civ div:nth-child(even),
-.sheet-rolltemplate-woindmg .sheet-civ div:nth-child(even),
-.sheet-styletype[value='civ'] ~ .sheet-page3 textarea,
-.sheet-styletype[value='civ'] ~ .sheet-page2 textarea
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-scorebox,
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(odd),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(odd),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem input,
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(odd) input,
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(odd),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(odd),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(odd),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem input:nth-child(odd),
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-luckdice,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-specialpoints,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-specialpoints,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpearned,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpspent,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpremain,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-lptage,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) input,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) select,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-armortable td:nth-child(even) input,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-armortable2 td:nth-child(even) input,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-armortable td:nth-child(even) select,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-armortable2 td:nth-child(even) select,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
+.sheet-rolltemplate-woinnotes .sheet-judge div:nth-child(even),
+.sheet-rolltemplate-woinroll .sheet-judge div:nth-child(even),
+.sheet-rolltemplate-woindmg .sheet-judge div:nth-child(even),
+.sheet-styletype[value='judge'] ~ .sheet-page3 textarea,
+.sheet-styletype[value='judge'] ~ .sheet-page2 textarea
 {
     background-color: #f8eccf;
 }
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-attrbox,
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(even),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(even),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem input:nth-child(even),
-.sheet-styletype[value='civ'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem select,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-lptmaxdie,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-lptgrade,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-shieldtable td:nth-child(odd) *,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-armortable td:nth-child(odd) *,
-.sheet-styletype[value='civ'] ~ .sheet-page .sheet-armortable2 td:nth-child(odd) *,
-.sheet-rolltemplate-woinroll .sheet-civ div:nth-child(odd):not(:first-child),
-.sheet-rolltemplate-woindmg .sheet-civ div:nth-child(odd),
-.sheet-rolltemplate-woinnotes .sheet-civ div:nth-child(odd):not(:first-child)
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-attrbox,
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_skills"] .repitem:nth-child(even),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_attacks"] .repitem:nth-child(even),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_spells"] .repitem:nth-child(even),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_exploits"] .repitem:nth-child(even),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_xp"] .repitem:nth-child(even) input,
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_conditions"] .repitem:nth-child(even),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_careers"] .repitem input:nth-child(even),
+.sheet-styletype[value='judge'] ~ .sheet-page div[data-groupname="repeating_equip"] .repitem select,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-lptmaxdie,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-lptgrade,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-shieldtable td:nth-child(odd) *,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-armortable td:nth-child(odd) *,
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-armortable2 td:nth-child(odd) *,
+.sheet-rolltemplate-woinroll .sheet-judge div:nth-child(odd):not(:first-child),
+.sheet-rolltemplate-woindmg .sheet-judge div:nth-child(odd),
+.sheet-rolltemplate-woinnotes .sheet-judge div:nth-child(odd):not(:first-child)
 {
     background-color: #f5e5ba !important;
 }
-.sheet-rolltemplate-woinnotes .sheet-civ .sheet-namerow,
-.sheet-rolltemplate-woinroll .sheet-civ .sheet-namerow {
+.sheet-rolltemplate-woinnotes .sheet-judge .sheet-namerow,
+.sheet-rolltemplate-woinroll .sheet-judge .sheet-namerow {
     background-color: #c9b47d !important;	
 }
 
