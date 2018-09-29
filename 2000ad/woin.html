@@ -657,7 +657,7 @@
 			if(!values.hasOwnProperty("int_pool")) { setupvars.int_pool = Math.floor(Math.sqrt(2*(parseInt(values.int_score)+1))+0.5)-1; }
 			if(!values.hasOwnProperty("log_pool")) { setupvars.log_pool = Math.floor(Math.sqrt(2*(parseInt(values.log_score)+1))+0.5)-1; }
 			if(!values.hasOwnProperty("wil_pool")) { setupvars.wil_pool = Math.floor(Math.sqrt(2*(parseInt(values.wil_score)+1))+0.5)-1; }
-			if(!values.hasOwnProperty("cha_pool")) { setupvars.cha_pool = Math.floor(Math.sqrt(2*(parseInt(values.cha_score)+1))+0.5)-1; }s
+			if(!values.hasOwnProperty("cha_pool")) { setupvars.cha_pool = Math.floor(Math.sqrt(2*(parseInt(values.cha_score)+1))+0.5)-1; }
 			if(!values.hasOwnProperty("luc_pool")) { setupvars.luc_pool = Math.floor(Math.sqrt(2*(parseInt(values.luc_score)+1))+0.5)-1; }
 			if(!values.hasOwnProperty("rep_pool")) { setupvars.rep_pool = Math.floor(Math.sqrt(2*(parseInt(values.rep_score)+1))+0.5)-1; }
 			if(!values.hasOwnProperty("psi_pool")) { setupvars.psi_pool = Math.floor(Math.sqrt(2*(parseInt(values.psi_score)+1))+0.5)-1; }
@@ -1060,7 +1060,7 @@
 	<div class="sheet-perp">
 	{{/perp}}
 	    <div class="sheet-diceicon">&nbsp;</div>
-		<div class="sheet-namerow">{{name}}</div>
+		<div class="sheet-namerow"><span>{{name}}</span></div>
 		{{#weapon_name}}
 		<div class="sheet-weaponrow">[{{weapon_name}}](!woin_damage { ^^^id^^^REPLACE_C ^^^{{id}}^^^, ^^^type^^^ REPLACE_C ^^^{{type}}^^^, ^^^damagevalue^^^REPLACE_C {{damagevalue}}, ^^^luck^^^REPLACE_C ?{How many luck die to use for damage|0}, ^^^damage_mod^^^REPLACE_C {{damage_mod}}, ^^^dmgtype^^^REPLACE_C ^^^{{dmgtype}}^^^ })</div>
 		{{/weapon_name}}
@@ -1100,7 +1100,7 @@
 	{{#perp}}
 	<div class="sheet-perp">
 	{{/perp}}
-		<div class="sheet-namerow">{{title}}</div>
+		<div class="sheet-namerow"><span>{{title}}</span></div>
 	{{#cost}}
 	<div class="sheet-cost"><strong>Cost:</strong> {{cost}}</div>	
 	{{/cost}}

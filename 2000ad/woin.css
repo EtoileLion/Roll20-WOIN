@@ -183,7 +183,7 @@ input[type=number]:hover,input[type=number]:focus {
 	background-position: -150px -368px;		
 }
  .sheet-conditionimg {
-	width: 106px;
+	width: 109px;
 	background-position: -150px -5px;			
 }
  .sheet-wealthimg {
@@ -535,7 +535,7 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-rolltemplate-woinnotes .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-namerow {
 	text-align:center;
-	font-weight: bciv;
+	font-weight: bold;
 }
 .sheet-rolltemplate-woinroll .sheet-weaponrow a {
 	background-color: transparent;
@@ -644,7 +644,33 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='civ'] ~ .sheet-page textarea {
 	border: 1px #0072bc solid;
 }
-
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-luckimg {
+	background-position: -5px -142px;
+}
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-psipointsimg {
+	background-position: -5px -187px;
+	width: 143px;
+}
+ .sheet-styletype[value='civ'] ~ .sheet-page .sheet-lifepathimg {
+	width: 106px;
+	background-position: -5px -234px;
+}
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-movementimg {
+	width: 115px;
+	background-position: 0px -279px;
+}
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-attacksimg {
+	width: 106px;
+	background-position: 0px -325px;
+}
+.sheet-styletype[value='civ'] ~ .sheet-page .sheet-powersimg {
+	width: 106px;
+	background-position: 0px -370px;	
+}
+ .sheet-styletype[value='civ'] ~ .sheet-page .sheet-exploitsimg {
+	width: 201px;
+	background-position: -150px -370px;		
+}
 .sheet-styletype[value='civ'] ~ .sheet-page .sheet-attributehead {
     background-color: #0072bc;
 }
@@ -894,8 +920,8 @@ background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/
 .sheet-styletype[value='perp'] ~ .sheet-page3 textarea,
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
-.sheet-rolltemplate-woinnotes .sheet-perp .sheet-namerow,
-.sheet-rolltemplate-woinroll .sheet-perp .sheet-namerow
+.sheet-rolltemplate-woinnotes .sheet-perp .sheet-namerow span,
+.sheet-rolltemplate-woinroll .sheet-perp .sheet-namerow span
 {
     background-color: #dcddde;	
 }
