@@ -596,6 +596,22 @@ div[data-groupname="repeating_exploits"] td {
 	text-align: center;
 }
 
+.sheet-rolltemplate-woinroll .sheet-diceicon {
+	z-index: 1;
+	width: 50px;
+	height: 58px;
+	position: absolute;
+	background-repeat: no-repeat;
+}
+
+.sheet-rolltemplate-woinroll .sheet-byline, 
+.sheet-rolltemplate-woinroll .sheet-dieline,
+.sheet-rolltemplate-woinroll .sheet-namerow	
+{
+	z-index:2;
+	position: relative;
+}
+
 /* ====== civ STYLINGS ====== */
 .sheet-styletype[value='civ'] ~ .sheet-background {
 	background-color: #c0c9df;
@@ -687,6 +703,21 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='judge'] ~ .sheet-page,
 .sheet-styletype[value='judge'] ~ .sheet-2colrow input {
 	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+}
+
+.sheet-rolltemplate-woinroll .sheet-perp,
+.sheet-rolltemplate-woinnotes .sheet-perp,
+.sheet-rolltemplate-woindmg .sheet-perp {
+background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/judgeback.jpg");
+}
+
+.sheet-rolltemplate-woinroll .sheet-judge,
+.sheet-rolltemplate-woinnotes .sheet-judge,
+.sheet-rolltemplate-woindmg .sheet-judge {
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/judgeback.jpg");
+}
+.sheet-rolltemplate-woinroll .sheet-judge .sheet-diceicon {
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/judgedice.png");
 }
 .sheet-styletype[value='judge'] ~ .sheet-background {
 	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/judgeback.jpg");
@@ -782,13 +813,11 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(even),
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
-.sheet-rolltemplate-woinnotes .sheet-judge div:nth-child(even),
-.sheet-rolltemplate-woinroll .sheet-judge div:nth-child(even),
-.sheet-rolltemplate-woindmg .sheet-judge div:nth-child(even),
 .sheet-styletype[value='judge'] ~ .sheet-page3 textarea,
 .sheet-styletype[value='judge'] ~ .sheet-page2 textarea,
 .sheet-styletype[value='judge'] ~ .sheet-page2 input,
 .sheet-styletype[value='judge'] ~ .sheet-page2 select,
+.sh
 .sheet-styletype[value='judge'] ~ .sheet-headerdiv .sheet-descriptor,
 .sheet-styletype[value='judge'] ~ .sheet-page2 .sheet-mutationtable input
 {
@@ -807,24 +836,25 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-lptgrade,
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-shieldtable td:nth-child(odd) *,
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-armortable td:nth-child(odd) *,
-.sheet-styletype[value='judge'] ~ .sheet-page .sheet-armortable2 td:nth-child(odd) *,
-.sheet-rolltemplate-woinroll .sheet-judge div:nth-child(odd):not(:first-child),
-.sheet-rolltemplate-woindmg .sheet-judge div:nth-child(odd),
-.sheet-rolltemplate-woinnotes .sheet-judge div:nth-child(odd):not(:first-child)
+.sheet-styletype[value='judge'] ~ .sheet-page .sheet-armortable2 td:nth-child(odd) *
 {
     background-color: #f5e5ba !important;
-}
-.sheet-rolltemplate-woinnotes .sheet-judge .sheet-namerow,
-.sheet-rolltemplate-woinroll .sheet-judge .sheet-namerow {
-    background-color: #c9b47d !important;	
 }
 
 /* Perp Styles */
 .sheet-styletype[value='perp'] ~ .sheet-headerdiv .sheet-logo {
    background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/JDLogo-perp.png");	
 }
-.sheet-styletype[value='civ'] ~ .sheet-headerdiv .sheet-descriptor {
+.sheet-styletype[value='perp'] ~ .sheet-headerdiv .sheet-descriptor {
    background-color: #f3f3f4;	
+}
+.sheet-rolltemplate-woinroll .sheet-perp,
+.sheet-rolltemplate-woinnotes .sheet-perp,
+.sheet-rolltemplate-woindmg .sheet-perp {
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/perpback.jpg");
+}
+.sheet-rolltemplate-woinroll .sheet-perp .sheet-diceicon {
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/perpdice.png");
 }
 .sheet-styletype[value='perp'] ~ .sheet-background {
 	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/perpback.jpg");
@@ -933,9 +963,6 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='perp'] ~ .sheet-page2 input,
 .sheet-styletype[value='perp'] ~ .sheet-page2 select,
 .sheet-styletype[value='perp'] ~ .sheet-headerdiv .sheet-descriptor,
-.sheet-rolltemplate-woinroll .sheet-perp div:nth-child(odd):not(:first-child),
-.sheet-rolltemplate-woinnotes .sheet-perp div:nth-child(odd):not(:first-child),
-.sheet-rolltemplate-woindmg .sheet-perp div:nth-child(odd)
 {
     background-color: #f3f3f4;
 }
@@ -956,9 +983,6 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-shieldtable td:nth-child(even) *,
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-armortable td:nth-child(even) *,
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-armortable2 td:nth-child(even) *,
-.sheet-rolltemplate-woinroll .sheet-perp div:nth-child(even),
-.sheet-rolltemplate-woinnotes .sheet-perp div:nth-child(even),
-.sheet-rolltemplate-woindmg .sheet-perp div:nth-child(even)
 {
     background-color: #edeeee !important;
 }
