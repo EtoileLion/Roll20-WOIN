@@ -774,6 +774,10 @@ div[data-groupname="repeating_exploits"] td {
 }
 
 /* N.O.W. Styles */
+.sheet-styletype[value='judge'] ~ .sheet-page {
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/perpback.jpg")
+}
+
 .sheet-styletype[value='perp'] ~ .sheet-page p,
 .sheet-styletype[value='perp'] ~ .sheet-page input,
 .sheet-styletype[value='perp'] ~ .sheet-page select,
