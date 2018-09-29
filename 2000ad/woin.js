@@ -6,7 +6,7 @@ function dlog(msg) {
 }
 function rolllookups(options,charattrs,who) {  
 			//Get values for relevant abilities...
-			var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intuition" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Magic" : "special_pool","Chi" : "special_pool","Psionic" : "special_pool", "Special" : "special_pool", "Size" : "nat_dmg"};			
+			var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intuition" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Psionic" : "psi_pool", "Size" : "nat_dmg"};			
 			options.dielimit = parseInt(charattrs.filter((x)=>x.get("name") === "max_diepool")[0].get("current"));
 			var sheettype = charattrs.filter((x)=>x.get("name") === "sheet_type");
 			if(sheettype.length === 0) { 
@@ -14,7 +14,6 @@ function rolllookups(options,charattrs,who) {
 				return;  
 			}
 			options.type = sheettype[0].get("current");
-			if(options.attrname === "Special") { options.attrname = (options.type === "new") ? "Psionic" : (options.type === "now") ? "???" : "Magic"; }
 			var attrid = charattrs.filter((x)=>x.get("name") === attrnames[options.attrname]);
 			if(attrid.length === 0) {
 				dlog("DEBUG: No attr value found for "+attrnames[options.attrname]);
@@ -116,7 +115,7 @@ on("chat:message", function(msg) {
 		var charattrs = findObjs({type:"attribute", characterid: options.id});
 		dlog("DEBUG: charattrs: "+JSON.stringify(charattrs));
 		var sheettype;
-		var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intelligence" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Magic" : "special_pool","???" : "special_pool","Psionic" : "special_pool", "Special" : "special_pool"};		
+		var attrnames = {"Strength" : "str_pool","Agility" : "agi_pool","Endurance" : "end_pool","Intelligence" : "int_pool","Logic" : "log_pool","Willpower" : "wil_pool","Charisma" : "cha_pool","Luck" : "luc_pool","Reputation" : "rep_pool","Psionic" : "psi_pool"};		
 		dlog("DEBUG: msgcmd: '"+msgcmd+"'");
 		switch(msgcmd) {
 		    case "!woin_roll":
@@ -146,7 +145,7 @@ on("chat:message", function(msg) {
 						options.dielimit -= 1;
 						if(dievalue === 6 && explodetype[dietype]) { options.explodevalue += 1; }
 						rolled += 1;
-						dieresults.push("<span class=\"sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");
+						dieresults.push("<span class=\"sheet-dierres sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");
 					}
 				});
 		if(options.flatmod !== 0) { dieresults.push("<span class=\"sheet-flatmod\">"+options.flatmod+"</span>"); }				
@@ -218,7 +217,7 @@ on("chat:message", function(msg) {
 						if(dievalue === 6) { critcheck += 1; if(explodetype[dietype]) { options.explodevalue += 1; } }
 						options.dielimit -= 1;
 						attacktotal += dievalue;						
-						attackdieresults.push("<span class=\"sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");
+						attackdieresults.push("<span class=\"sheet-dierres sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");
 						i += 1;
 					}				
 				});
@@ -242,7 +241,7 @@ on("chat:message", function(msg) {
 						dievalue = randomInteger(6);
 						dmgtotal += dievalue;
 						if(dievalue === 6 && explodetype[dietype]) { options.explodevalue += 1; }
-						dmgdieresults.push("<span class=\"sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");
+						dmgdieresults.push("<span class=\"sheet-dierres sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");
 						i += 1;
 					}
 				});
@@ -275,7 +274,7 @@ on("chat:message", function(msg) {
 					options.dielimit -= 1;
 					rolled += 1;
 					if(dievalue === 6 && explodetype[dietype]) { options.explodevalue += 1; }
-					dieresults.push("<span class=\"sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");					
+					dieresults.push("<span class=\"sheet-dierres sheet-"+dietype+"die"+((dievalue === 6) ? " sheet-critdie" : "")+((dievalue === 1) ? " sheet-cfaildie" : "")+"\">"+dievalue+"</span>");					
 					}
 				});
 				output += "{{rollcomponents=<span class='sheet-attrdie'>"+options.attrname+"</span>"+((options.skillvalue !== 0) ? "+<span class='sheet-skilldie'>"+options.skillname+"</span>" : "")+((options.equipvalue !== 0) ? "+<span class='sheet-equipdie'>"+options.equipname+"</span>" : "")+((options.modvalue > 0) ? "+<span class='sheet-moddie'>Modifier</span>" : "")+((options.luckvalue !== 0) ? "+<span class='sheet-luckdie'>Luck</span>" : "")+((options.explodevalue !== 0) ? "+<span class='sheet-explodedie'>Explosions</span>" : "")+"}} ";				
@@ -348,4 +347,4 @@ function woin_critical_lookup(dmgtype) {
 	return "{{alert=Critical Result<br>"+outputcondition.join(" + ")+"}}";
 }
 
-log("What's Old Is N.E.W. Dice Roller Version 1.06 Loaded")
+log("What's Old Is N.E.W. Dice Roller Version 1.07 Loaded")
