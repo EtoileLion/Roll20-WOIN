@@ -1,11 +1,15 @@
+<input type='hidden' name='attr_sheet_type' class='sheet-styletype' value='judge'>
+<div class='sheet-background'>
 <input type='hidden' name='attr_page_no' class='sheet-pageno' value='1'>
 <input type='hidden' name='attr_sheet_type' class='sheet-styletype' value='judge'>
 <div class='sheet-row sheet-headerdiv'>
-	<input class='sheet-headname' type='text' name='attr_character_name' placeholder='Enter Name'>
-</div>
-<div class='sheet-row sheet-logo'>
-	<div class='sheet-headericon'></div>
-	<br>
+	<table>
+	<tr>
+	   <td>
+	        <input class='sheet-headname' type='text' name='attr_character_name' placeholder='Enter Name'>		
+		<p class='sheet-headleft'>a <input type='text' class="sheet-descriptor" name='attr_descriptor1'><br /> who/with <input type='text' name='attr_descriptor2' class="sheet-descriptor"></p>
+	   </td>
+	   <td class='sheet-headericon'>
 	<label class='sheet-pfcontainer'>
 		<input name='attr_pagetoggle' class='attr_pagetoggle' type='radio' name='page' value="1" >
 		<span class="sheet-pfradio"></span>
@@ -17,13 +21,13 @@
 	<label class='sheet-pfcontainer'>
 		<input name='attr_pagetoggle' class='attr_pagetoggle' type='radio' name='page' value="3" >
 		<span class="sheet-pfradio"></span>		
-	</label>	
+	</label>
+	   </td>
+	</tr>
+	</table>
+	<div class='sheet-row sheet-logo'>&nbsp;</div>
 </div>
 <div class='sheet-page1 sheet-page'>
-	<br>
-	<div class='sheet-row'>
-		<p class='sheet-center'>a <input type='text' class="sheet-descriptor" name='attr_descriptor1'> who/with <input type='text' name='attr_descriptor2' class="sheet-descriptor"></p>
-	</div>
 	<div class='sheet-row'>
 		<p class='sheet-headertext sheet-attributeheadimg'>&nbsp;</p>
 	</div>
@@ -631,6 +635,7 @@
 		<input name='attr_pagetoggle' class='attr_pagetoggle' type='radio' name='page' value="3" >
 		<span class="sheet-pfradio"></span>		
 	</label>
+</div>
 </div>
 <script type='text/worker'>
 	"use strict";

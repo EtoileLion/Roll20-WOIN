@@ -21,10 +21,6 @@ input[type=number]:hover,input[type=number]:focus {
 	-webkit-appearance: number-input;	
 }
 
-.sheet-headerdiv input {
-	 width: 710px;
-}
-
 /* Page Flipper */
 .sheet-pfcontainer {
     display: inline;
@@ -37,6 +33,7 @@ input[type=number]:hover,input[type=number]:focus {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+	z-index: 1;
 }
 .sheet-pfcontainer input {
     position: absolute;
@@ -70,6 +67,14 @@ input[type=number]:hover,input[type=number]:focus {
 .sheet-headertext {
     font-size: 18px;
 }
+.sheet-headerdiv table td:nth-child(2) {
+	width: 276px;
+	height: 120px;
+	text-align: bottom center;
+}
+.sheet-headleft {
+    padding-left: 3px;
+}
 .sheet-attributehead {
     text-align:center;
 }
@@ -88,7 +93,7 @@ input[type=number]:hover,input[type=number]:focus {
     color: black;
     display: inline;
     font-size: 36px;
-    width: 90%;
+    width: 710px;
     border: 0;
 }
 .sheet-label {
@@ -106,8 +111,9 @@ input[type=number]:hover,input[type=number]:focus {
 	position: absolute;
 	top: 73px;
 	background-color: transparent;
-	width: 154px;
-	left: 746px;
+	width: 276px;
+	left: 614px;
+	height: 120px;
 }
 .sheet-logo img {
 	width: 100px;
@@ -495,8 +501,8 @@ div[data-groupname="repeating_exploits"] td {
 
 .sheet-page3 textarea {
 	height: 900px;
-	width: 98%
-	margin-left: 1px;
+	width: 98%;
+	margin-left: 4px;
 }
 /* Roll Template Defaults */
 .sheet-rolltemplate-woinroll .sheet-critdie {
@@ -573,6 +579,9 @@ div[data-groupname="repeating_exploits"] td {
 }
 
 /* ====== civ STYLINGS ====== */
+.sheet-styletype[value='civ'] ~ .sheet-headerdiv .sheet-logo {
+   background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/JDLogo-civ.png");	
+}
 .sheet-styletype[value='civ'] ~ .sheet-page p,
 .sheet-styletype[value='civ'] ~ .sheet-page input,
 .sheet-styletype[value='civ'] ~ .sheet-page select,
@@ -642,6 +651,9 @@ div[data-groupname="repeating_exploits"] td {
 }
 
 /* ======= judge Stylings ======= */
+.sheet-styletype[value='judge'] ~ .sheet-headerdiv .sheet-logo {
+   background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/JDLogo-judge.png");	
+}
 .sheet-styletype[value='judge'] ~ .sheet-page,
 .sheet-styletype[value='judge'] ~ .sheet-2colrow input {
 	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
@@ -773,9 +785,13 @@ div[data-groupname="repeating_exploits"] td {
     background-color: #c9b47d !important;	
 }
 
-/* N.O.W. Styles */
-.sheet-styletype[value='judge'] ~ .sheet-page {
-	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/perpback.jpg")
+/* Perp Styles */
+.sheet-styletype[value='perp'] ~ .sheet-headerdiv .sheet-logo {
+   background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/JDLogo-perp.png");	
+}
+.sheet-styletype[value='perp'] ~ .sheet-background {
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/perpback.jpg");
+	width: 860px;
 }
 
 .sheet-styletype[value='perp'] ~ .sheet-page p,
