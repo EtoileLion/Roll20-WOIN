@@ -183,8 +183,13 @@ input[type=number]:hover,input[type=number]:focus {
 	background-position: -150px -140px;	
 }
  .sheet-notesimg {
-	width: 106px;
+    margin-top: 5px;
+	width: 71px;
 	background-position: -150px -187px;	
+}
+ .sheet-mutationimg {
+	width: 106px;
+	background-position: -248px -187px;	
 }
 
 /* Attributes */
@@ -432,7 +437,16 @@ div[data-groupname="repeating_exploits"] td {
 	margin-left: 20px;
 	display: inline-block;
 }
+/* Mutation Table */
+.sheet-mutationtable	{
+	width: 97%;
+}
+.sheet-mutationtable td:nth-child(1)	{
+	width: 214px;
+	vertical-align: top;
+}
 
+	
 /* XP Headers */
 .sheet-xp th {
 	width: 100px;
@@ -481,6 +495,8 @@ div[data-groupname="repeating_exploits"] td {
 
 .sheet-page3 textarea {
 	height: 900px;
+	width: 98%
+	margin-left: 1px;
 }
 /* Roll Template Defaults */
 .sheet-rolltemplate-woinroll .sheet-critdie {
@@ -556,12 +572,7 @@ div[data-groupname="repeating_exploits"] td {
 	text-align: center;
 }
 
-/* ====== judge STYLINGS ====== */
-.sheet-styletype[value='civ'] ~ .sheet-page,
-.sheet-styletype[value='civ'] ~ .sheet-2colrow input {
-	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/civback.png?raw=true")
-}
+/* ====== civ STYLINGS ====== */
 .sheet-styletype[value='civ'] ~ .sheet-page p,
 .sheet-styletype[value='civ'] ~ .sheet-page input,
 .sheet-styletype[value='civ'] ~ .sheet-page select,
@@ -631,6 +642,12 @@ div[data-groupname="repeating_exploits"] td {
 }
 
 /* ======= judge Stylings ======= */
+.sheet-styletype[value='judge'] ~ .sheet-page,
+.sheet-styletype[value='judge'] ~ .sheet-2colrow input {
+	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/judgeback.jpg")
+}
+
 .sheet-styletype[value='judge'] ~ .sheet-page,
 .sheet-styletype[value='judge'] ~ .sheet-page p,
 .sheet-styletype[value='judge'] ~ .sheet-page input,
@@ -726,7 +743,8 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-rolltemplate-woinroll .sheet-judge div:nth-child(even),
 .sheet-rolltemplate-woindmg .sheet-judge div:nth-child(even),
 .sheet-styletype[value='judge'] ~ .sheet-page3 textarea,
-.sheet-styletype[value='judge'] ~ .sheet-page2 textarea
+.sheet-styletype[value='judge'] ~ .sheet-page2 textarea,
+.sheet-styletype[value='judge'] ~ .sheet-page2 .sheet-mutationtable input
 {
     background-color: #f8eccf;
 }
