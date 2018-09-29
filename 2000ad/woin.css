@@ -608,7 +608,12 @@ div[data-groupname="repeating_exploits"] td {
     font-family: "Trebuchet MS", Helvetica, sans-serif !important;
 }
 .sheet-styletype[value='civ'] ~ .sheet-headerdiv {
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/civhead.png?raw=true")	
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/civhead.png?raw=true");
+	color: white;
+}
+.sheet-styletype[value='civ'] ~ .sheet-headerdiv .sheet-headname {
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+	color: white;
 }
 .sheet-styletype[value='civ'] ~ .sheet-page input,
 .sheet-styletype[value='civ'] ~ .sheet-page select,
@@ -623,11 +628,11 @@ div[data-groupname="repeating_exploits"] td {
 	color: white;
 	background-color: transparent;
 }
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="civ"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="civ"] ~ .sheet-headerdiv .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="civ"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="civ"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="civ"] ~ .sheet-headerdiv .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
 .sheet-pageno[value="2"] ~ .sheet-styletype[value="civ"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="3"] ~ .sheet-styletype[value="civ"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="civ"] ~ .sheet-headerdiv .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
 .sheet-pageno[value="3"] ~ .sheet-styletype[value="civ"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
 {
     background-color: #0072bc;
@@ -698,7 +703,7 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='judge'] ~ .sheet-headerdiv {
 	
 	padding-top: 10px;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/images/judgehead.jpg?raw=true");
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/judgehead.jpg");
 	background-position: -66px;
 	background-repeat: no-repeat;
 }
@@ -715,11 +720,11 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-xpcosthead,
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="judge"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="judge"] ~ .sheet-headerdiv .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
 .sheet-pageno[value="1"] ~ .sheet-styletype[value="judge"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="judge"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="judge"] ~ .sheet-headerdiv .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
 .sheet-pageno[value="2"] ~ .sheet-styletype[value="judge"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="3"] ~ .sheet-styletype[value="judge"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="judge"] ~ .sheet-headerdiv .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
 .sheet-pageno[value="3"] ~ .sheet-styletype[value="judge"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio
 {
     background-color: #c9b47d !important;
@@ -837,16 +842,18 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='perp'] ~ .sheet-page3 textarea,
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(1),
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-deftable tbody tr td:nth-child(odd),
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="perp"] ~ .sheet-logo .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="1"] ~ .sheet-styletype[value="perp"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="perp"] ~ .sheet-logo .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="2"] ~ .sheet-styletype[value="perp"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
-.sheet-pageno[value="3"] ~ .sheet-styletype[value="perp"] ~ .sheet-logo .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
-.sheet-pageno[value="3"] ~ .sheet-styletype[value="perp"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
 .sheet-rolltemplate-woinnotes .sheet-perp .sheet-namerow,
 .sheet-rolltemplate-woinroll .sheet-perp .sheet-namerow
 {
     background-color: #dcddde;	
+}
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="perp"] ~ .sheet-headerdiv .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="1"] ~ .sheet-styletype[value="perp"] ~ .sheet-footer .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="perp"] ~ .sheet-headerdiv .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="2"] ~ .sheet-styletype[value="perp"] ~ .sheet-footer .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="perp"] ~ .sheet-headerdiv .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-pageno[value="3"] ~ .sheet-styletype[value="perp"] ~ .sheet-footer .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio {
+	background-color: #222;
 }
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-logo {
 	height: 120px;
@@ -901,6 +908,9 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(2),
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-movetable tbody tr td:nth-child(3), 
 .sheet-styletype[value='perp'] ~ .sheet-page2 textarea,
+.sheet-styletype[value='perp'] ~ .sheet-page2 input,
+.sheet-styletype[value='perp'] ~ .sheet-page2 select,
+.sheet-styletype[value='perp'] ~ .sheet-headerdiv .sheet-descriptor,
 .sheet-rolltemplate-woinroll .sheet-perp div:nth-child(odd):not(:first-child),
 .sheet-rolltemplate-woinnotes .sheet-perp div:nth-child(odd):not(:first-child),
 .sheet-rolltemplate-woindmg .sheet-perp div:nth-child(odd)
