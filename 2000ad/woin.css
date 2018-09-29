@@ -112,7 +112,79 @@ input[type=number]:hover,input[type=number]:focus {
 .sheet-logo img {
 	width: 100px;
 }
-	
+
+/* Icons */
+ .sheet-attributeheadimg {
+	width: 106px;
+}
+ .sheet-skillheadimg {
+	width: 60px;
+	background-position: 0px -48px;
+}
+ .sheet-defenseimg {
+	width: 100px;
+	background-position: 0px -93px;
+}
+ .sheet-luckimg {
+	width: 106px;
+	background-position: 0px -140px;	
+}
+ .sheet-psipointsimg {
+	width: 135px;
+	background-position: 0px -185px;
+}
+ .sheet-lifepathimg {
+	width: 106px;
+	background-position: 0px -232px;
+}
+ .sheet-movementimg {
+	width: 106px;
+	background-position: 0px -280px;
+}
+ .sheet-equipimg {
+	width: 106px;	
+    background-position: -144px -232px;
+}
+ .sheet-attacksimg {
+	width: 106px;
+	background-position: 0px -323px;
+}
+ .sheet-powersimg {
+	width: 106px;
+	background-position: 0px -368px;	
+}
+ .sheet-shieldimg {
+	width: 106px;
+	background-position: -144px -280px;
+}
+ .sheet-armorimg {
+	width: 106px;
+	background-position: -144px -323px;	
+}
+ .sheet-exploitsimg {
+	width: 190px;
+	background-position: -144px -368px;		
+}
+ .sheet-conditionimg {
+	width: 106px;
+	background-position: -144px 0px;			
+}
+ .sheet-wealthimg {
+	width: 106px;
+	background-position: -144px -48px;			
+}
+ .sheet-bioimg {
+	width: 106px;
+	background-position: -144px -93px;		
+}
+ .sheet-xpimg {
+	width: 106px;
+	background-position: -144px -140px;	
+}
+ .sheet-notesimg {
+	width: 106px;
+	background-position: -144px -185px;	
+}
 
 /* Attributes */
 .sheet-scorebox {
@@ -525,7 +597,9 @@ div[data-groupname="repeating_exploits"] td {
 }
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-headertext {
 	font-family: monospace;
-    color: #0072bc;	
+    color: #0072bc;
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/headers-judge.png");
+	background-repeat: no-repeat;	
 }
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-scorebox {
     border: 1px #0072bc solid;	
@@ -567,12 +641,10 @@ div[data-groupname="repeating_exploits"] td {
 	font-family: "Livory", Georgia, serif !important;
 }
 .sheet-styletype[value='civ'] ~ .sheet-page .sheet-headertext {
-	background-color: #48481b;
 	padding: 2px 6px;
-    color: white;	
-	text-transform: uppercase;
     font-size: 14px;
-	font-weight:bciv;
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/headers-civ.png");
+	background-repeat: no-repeat;	
 }
 .sheet-styletype[value='civ'] ~ .sheet-page .sheet-headertext::first-letter {
     font-size: 18px;
@@ -718,17 +790,16 @@ div[data-groupname="repeating_exploits"] td {
 {
     background-color: #dcddde;	
 }
-
+.sheet-styletype[value='perp'] ~ .sheet-page .sheet-logo {
+	height: 120px;
+	width: 276px;
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/JSLogo-perp.png");
+}
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-headertext {
-	font-family: "Tactic Sans Ext Exd", Impact, Charcoal, sans-serif;	
-	font-style: italic;	
-	background-color: #58585a;
 	padding: 2px 6px;
-    color: white;	
-	text-transform: uppercase;
     font-size: 14px;
-	font-weight:bciv;
-	background-image: url("https://www.github.com/EtoileLion/Roll20-WOIN/blob/master/2000ad/images/headers-perp.png?raw=true");
+	background-image: url("https://raw.githubusercontent.com/EtoileLion/Roll20-WOIN/ad2000/2000ad/images/headers-perp.png");
+	background-repeat: no-repeat;
 }
 .sheet-styletype[value='perp'] ~ .sheet-page .sheet-headertext::first-letter {
     font-size: 18px;
@@ -819,7 +890,7 @@ div[data-groupname="repeating_exploits"] td {
 .sheet-styletype[value='nameless'] ~ .sheet-page input[value="green"] ~ .sheet-carryvalue td:nth-child(2) {
 	background-color: #008000 !important;
 	color:white;	
-}	
+}
 .sheet-styletype[value='judge'] ~ .sheet-page .sheet-carryvalue td:nth-child(2) span {
 	width: auto !important;
 }

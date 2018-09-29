@@ -25,7 +25,7 @@
 		<p class='sheet-center'>a <input type='text' class="sheet-descriptor" name='attr_descriptor1'> who/with <input type='text' name='attr_descriptor2' class="sheet-descriptor"></p>
 	</div>
 	<div class='sheet-row'>
-		<p class='sheet-headertext sheet-attributeheadimg'>Attributes</p>
+		<p class='sheet-headertext sheet-attributeheadimg'>&nbsp;</p>
 	</div>
 	<div class='sheet-10colrow'>
 		<div class='sheet-col'>
@@ -143,7 +143,7 @@
 	<div class='sheet-2colrow'>
 		<div class='sheet-col'>
 			<div>
-				<p class='sheet-headertext'>Skills</p>
+				<p class='sheet-headertext sheet-skillheadimg'>&nbsp;</p>
 				<span class='sheet-snamehead'>Skill Name</span><span class='sheet-sattrhead'>Attribute</span><span class='sheet-sgradehead'>Grade</span>
 				<fieldset class="repeating_skills">
 					<button type='roll' value='!woin_roll {"attrname":"@{skillattr}", "skillname": "@{skillname}", "id": "@{character_id}", "modifier":?{Dice Pool Modifier?|0}, "luck":?{Add Luck Die to Skill Check?|0}}' ></button>
@@ -167,7 +167,7 @@
 			</div>
 			<br>
 			<div>
-				<p class='sheet-headertext'>Defenses</p>
+				<p class='sheet-headertext sheet-defenseimg'>&nbsp;</p>
 				<table class='sheet-deftable'>
 					<tr>
 						<td>MELEE DEFENSE</td>
@@ -194,17 +194,17 @@
 		</div>
 		<div class='sheet-col'>
 			<div>
-				<p class='sheet-headertext'>Luck Dice</p>
+				<p class='sheet-headertext sheet-luckimg'>&nbsp;</p>
 				<div class='sheet-luckdice'><input type='number' min='0' name='attr_luck' value=2 >/<span class='sheet-spanfield' name='attr_luc_pool'></span></div>
 			</div>
 			<br>
 			<div>
-				<p class='sheet-headertext'><span name='attr_special_name'></span> Points</p>
+				<p class='sheet-headertext sheet-psipointsimg'>&nbsp;</p>
 				<div class='sheet-specialpoints'><input type='number' min='0' name='attr_special_points' value=0 >/<input type='number' min='0' name='attr_special_points_max' value=0 ></div>
 			</div>
 			<br>
 			<div>
-				<p class='sheet-headertext'>Life Path</p>
+				<p class='sheet-headertext sheet-lifepathimg'>&nbsp;</p>
 				<span class='sheet-tablehead sheet-p'>Path</span><span class='sheet-lpheadg'>Grade</span><span class='sheet-lpheada'>Age</span>
 				<fieldset class="repeating_careers">
 					<input class='sheet-careername' name="attr_careername" type='text' placeholder='Career Name' />
@@ -229,7 +229,7 @@
 			</div>
 			<br>
 			<div>
-				<p class='sheet-headertext'>Movement</p>
+				<p class='sheet-headertext sheet-movementimg'>&nbsp;</p>
 				<table class='sheet-movetable'>
 					<thead>
 						<tr>
@@ -301,7 +301,7 @@
 		</div>
 	</div>
 	<div class='sheet-row'>
-		<p class='sheet-headertext'>Attacks</p>
+		<p class='sheet-headertext sheet-attacksimg'>&nbsp;</p>
 		<div><span class='sheet-anamehead'>Attack Name</span><span class='sheet-aatktotalhead'>Attack Pool</span><span class='sheet-adamagehead'>Damage</span><span class='sheet-admgtypehead'>Damage Type</span><span class='sheet-arangehead'>Range</span></div>		
 		<fieldset class="repeating_attacks">
 			<input type="hidden" name="attr_attacks_id" value="">
@@ -341,7 +341,7 @@
 	<br>
 	<div class='sheet-2colrow'>
 		<div class='sheet-col'>
-			<p class='sheet-headertext'>Equipment</p>
+			<p class='sheet-headertext sheet-equipimg'>&nbsp;</p>
 			<div><span class='sheet-ename'>Name</span><span class='sheet-equal'>Quality</span><span class="sheet-eweight">Weight</span></div>
 			<fieldset class="repeating_equip">
 				<input name="attr_name" type='text' placeholder='Item Name' />
@@ -359,7 +359,7 @@
 			</fieldset>
 		</div>
 		<div class='sheet-col'>
-			<p class='sheet-headertext'><span name='attr_spells_hname'></span></p>
+			<p class='sheet-headertext sheet-powersimg'>&nbsp;</p>
 			<fieldset class="repeating_spells">
 				<input type='hidden' class="sheet-ashowextra" name="attr_spell_showdesc">
 				<div>				
@@ -381,7 +381,7 @@
 	</div>
 	<br>
 	<div class='sheet-row'>
-		<p class='sheet-headertext'>Shield</p>
+		<p class='sheet-headertext sheet-shieldimg'>&nbsp;</p>
 		<table class='sheet-shieldtable'>
 			<tr>
 				<th>Name</th><th>Quality</th><th>Size</th><th>Defense</th><th>Weight</th>
@@ -416,7 +416,7 @@
 	</div>
 	<br>
 	<div class='sheet-row'>
-		<p class='sheet-headertext'>Armor</p>
+		<p class='sheet-headertext sheet-armorimg'>&nbsp;</p>
 		<table class='sheet-armortable'>
 			<tr>
 				<th>Name</th><th>Quality</th><th>Soak</th><th>Ineffective Vs.</th>
@@ -477,7 +477,7 @@
 	</div>
 	<br>
 	<div class='sheet-row'>
-		<p class='sheet-headertext'>Exploits & Traits</p>
+		<p class='sheet-headertext sheet-exploitsimg'>&nbsp;</p>
 		<fieldset class="repeating_exploits">
 			<table><tr><td>
 			<button type='roll' value="&{template:woinnotes} {{@{sheet_type}=1}} {{notes=@{exploitdesc}}} {{title=@{exploitname}}}"></button></td><td>
@@ -501,8 +501,8 @@
 			<p>
 				This is a 
 				<select name='attr_sheet_type' class='sheet-p2stypeselect'>
-					<option value='dredd_judge'>Judge</option>
-					<option value='civilian'>Civilian</option>
+					<option value='judge'>Judge</option>
+					<option value='civ'>Civilian</option>
 					<option value='perp'>Perp</option>					
 				</select>
 				sheet.
@@ -525,7 +525,7 @@
 		</div>
 	</div>
 	<div class='sheet-row'>
-		<p class='sheet-headertext'>Conditions</p>
+		<p class='sheet-headertext sheet-conditionimg'>&nbsp;</p>
 		<fieldset class="repeating_conditions">
 			<select name="attr_conditionname" class='sheet-cname'>
 				<option selected>Afraid</option>
@@ -564,16 +564,16 @@
 	<br>
 	<div class='sheet-2colrow'>
 		<div class='sheet-col'>
-			<p class='sheet-headertext'><span name='attr_wealthtype'>Requisition Cap</span></p>
+			<p class='sheet-headertext sheet-wealthimg'>&nbsp;</p>
 			<textarea name='attr_wealth'></textarea>
 		</div>
 		<div class='sheet-col'>
-			<p class='sheet-headertext'>Biography</p>
+			<p class='sheet-headertext sheet-bioimg'>&nbsp;</p>
 			<textarea name='attr_bio'></textarea>
 		</div>
 	</div>
 	<div class='sheet-row'>
-		<p class='sheet-headertext'>Experience</p>
+		<p class='sheet-headertext sheet-xpimg'>&nbsp;</p>
 		<table class='sheet-xp'>
 			<tr>
 				<th class='sheet-xpearnedhead'>XP Earned</th>
@@ -607,7 +607,7 @@
 </div>
 <div class='sheet-page3  sheet-page'>
 	<div class='sheet-row'>
-		<p class='sheet-headertext'>Notes</p>
+		<p class='sheet-headertext sheet-notesimg'>&nbsp;</p>
 		<textarea name='attr_notes'></textarea>
 	</div>
 </div>
